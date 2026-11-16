@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23d9453f%22/%3E%3Ctext%20x%3D%2233%22%20y%3D%2249%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%20Black%2CArial%2CHelvetica%2Csans-serif%22%20font-weight%3D%22900%22%20font-size%3D%2246%22%20font-style%3D%22italic%22%20fill%3D%22%23fff%22%20transform%3D%22skewX%28-8%29%20translate%287%200%29%22%3E1%3C/text%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="img/337c614313.png">
-<title>Сайты для салонов и детейлинга — parad1se sites</title>
-<meta name="description" content="Сайты для салонов, мастеров и детейлинга: онлайн-запись 24/7 и заявки прямо в Telegram. Бесплатный черновик до оплаты, работаю официально с чеком.">
+<title>Сайты для детейлинга и автостудий — parad1se sites</title>
+<meta name="description" content="Сайты для детейлинга, тонировки, оклейки и шумоизоляции: калькулятор цены по кузову, до/после на ваших фото, запись в WhatsApp, Telegram, VK или по звонку. Запуск бесплатно — платите, только если за месяц пришли заявки.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="parad1se sites">
 <meta property="og:url" content="https://denis-sites.github.io/parad1se-sites/">
-<meta property="og:title" content="Сайты, с которых пишут клиенты">
-<meta property="og:description" content="Для салонов, мастеров и детейлинга. Бесплатный черновик: увидите свой сайт до оплаты.">
+<meta property="og:title" content="Сайты для детейлинга, с которых пишут клиенты">
+<meta property="og:description" content="Соберу сайт на ваших фото с Яндекс Карт и запущу бесплатно. Платите, только если за месяц придут заявки.">
 <meta property="og:image" content="https://denis-sites.github.io/parad1se-sites/og.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -248,7 +248,7 @@ h1 small{display:block;font:400 clamp(18px,1.9vw,26px)/1.25 var(--display);lette
 .qa p{margin:0 0 24px;color:#bdbdba;max-width:62ch}
 /* effects playground */
 .fx{border-top:1px solid var(--line);padding-block:110px}
-.faq h2,.fx h2,.end h2{margin:18px 0 0;font:900 clamp(26px,6.4vw,72px)/.95 var(--display);letter-spacing:-.04em;text-transform:uppercase;text-wrap:balance;max-width:16ch}
+.faq h2,.fx h2,.inside h2,.end h2{margin:18px 0 0;font:900 clamp(26px,6.4vw,72px)/.95 var(--display);letter-spacing:-.04em;text-transform:uppercase;text-wrap:balance;max-width:16ch}
 .fx .lead{color:#bdbdba;max-width:560px;margin:20px 0 48px}
 .fxg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 @media(max-width:960px){.fxg{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -314,7 +314,7 @@ footer.foot{border-top:1px solid var(--line);margin-top:110px;padding-top:26px;d
 
 /* ===== заголовки без переносов ===== */
 h2{hyphens:manual;-webkit-hyphens:manual;overflow-wrap:normal;word-break:keep-all}
-.case h2,.approach h2,.ideas h2,.pricing h2,.faq h2,.fx h2{font-size:clamp(26px,5.4vw,70px);line-height:1.14;max-width:none;text-wrap:balance}
+.case h2,.approach h2,.ideas h2,.pricing h2,.faq h2,.fx h2,.inside h2{font-size:clamp(26px,5.4vw,70px);line-height:1.14;max-width:none;text-wrap:balance}
 .end h2{line-height:1.08}
 h2 .w{display:inline-block;white-space:nowrap}
 /* ===== фото на главной: аккуратная карточка ===== */
@@ -516,6 +516,26 @@ body{background:transparent!important}
     box-shadow:0 10px 30px rgba(0,0,0,.55);transform:translateY(140%);transition:transform .35s ease}
   .stick.on{transform:none}
 }
+
+/* «Что получит ваша студия»: карточки фишек со скринами реальных сайтов */
+.inside{padding-block:110px}
+.inside .lead{color:#bdbdba;max-width:620px;margin:18px 0 40px}
+.fts{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.ft{display:grid;grid-template-rows:auto 1fr;border:1px solid rgba(255,255,255,.1);border-radius:20px;overflow:hidden;background:rgba(255,255,255,.03);color:inherit;text-decoration:none;transition:transform .25s ease,border-color .25s ease}
+.ft:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.25)}
+.ft img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;display:block;background:#111}
+.ft div{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px}
+.ft b{font:700 20px/1.2 var(--body)}
+.ft span{color:#bdbdba;font-size:15px;line-height:1.45}
+.ft em{font-style:normal;margin-top:auto;padding-top:6px;color:var(--acc,#d9453f);font-weight:600;font-size:14px;display:inline-flex;gap:6px;align-items:center}
+.ft em svg{width:14px;height:14px}
+.ftx{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+.ftx div{border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.ftx b{font:700 16px/1.25 var(--body)}
+.ftx span{color:#a9a9a6;font-size:14px;line-height:1.45}
+@media(max-width:900px){.ftx{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.fts,.ftx{grid-template-columns:1fr}.inside{padding-block:80px}}
+.plan .now{white-space:nowrap}
 </style>
 </head>
 <body>
@@ -531,16 +551,16 @@ body{background:transparent!important}
   <div class="grain" aria-hidden="true"></div>
   <nav class="nav">
     <a class="logo" href="#" aria-label="parad1se sites">parad<em>1</em>se<span>sites</span></a>
-    <ul><li><a href="#cases">Работы</a></li><li><a href="#price">Пакеты</a></li><li><a href="#fx">Фишки</a></li><li><a href="#contact">Связаться</a></li></ul>
+    <ul><li><a href="#cases">Работы</a></li><li><a href="#inside">Что внутри</a></li><li><a href="#price">Условия</a></li><li><a href="#contact">Связаться</a></li></ul>
   </nav>
   <div class="content">
     <div class="col">
-      <div class="eyebrow">Денис · parad1se sites · веб-разработчик</div>
-      <h1>Сайты, с которых пишут клиенты<small>Для салонов, мастеров и детейлинга: онлайн-запись 24/7 и заявки прямо в Telegram</small></h1>
-      <ul class="chips"><li>Онлайн-запись</li><li>Заявки в Telegram</li><li>Домен и хостинг</li><li>Лендинги</li><li>Анимации</li></ul>
-      <p class="free">Начнём с бесплатного черновика: покажу, как может выглядеть ваш сайт. Решаете после того, как увидите.</p>
+      <div class="eyebrow">Денис · сайты для детейлинга и автостудий</div>
+      <h1>Сайты для детейлинга, с которых пишут<small>Детейлинг, тонировка, оклейка, шумоизоляция: клиент сам считает цену для своей машины и пишет вам туда, где ему удобно</small></h1>
+      <ul class="chips"><li>Цена по кузову</li><li>До/после на ваших фото</li><li>Примерка тонировки</li><li>Отзывы с Яндекс Карт</li><li>WhatsApp · Telegram · VK · звонок</li></ul>
+      <p class="free">Соберу сайт на ваших фото и отзывах с Яндекс Карт и запущу бесплатно. Платите, только если за месяц с сайта придут заявки.</p>
       <div class="row">
-        <a class="btn" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B1%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D1%8B%D0%B9%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0.%20%D0%9C%D0%BE%D0%B9%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%3A%20" target="_blank" rel="noopener">Получить черновик бесплатно <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="btn" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B9%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8.%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%D1%8B%3A%20" target="_blank" rel="noopener">Хочу сайт для студии <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
         <a class="btn ghost" href="#cases">Смотреть работы</a>
       </div>
     </div>
@@ -549,8 +569,8 @@ body{background:transparent!important}
 </header>
 
 <section class="works" id="cases"><div class="wrap">
-  <div class="wk-top"><div><div class="num">Работы</div><h2>Последние проекты</h2></div>
-    <div class="wk-tabs" role="tablist"><button class="on" type="button">Детейлинг Гараж</button><button type="button">BlackEmpire</button><button type="button">Антисан</button><button type="button">Тонировка N1</button><button type="button">GER CAR</button><button type="button">Донская</button></div></div>
+  <div class="wk-top"><div><div class="num">Работы</div><h2>Сайты автостудий</h2></div>
+    <div class="wk-tabs" role="tablist"><button class="on" type="button">Детейлинг Гараж</button><button type="button">BlackEmpire</button><button type="button">Антисан</button><button type="button">Тонировка N1</button><button type="button">GER CAR</button></div></div>
   <div class="wk-view"><div class="wk-track">
       <article class="wk-slide" aria-label="Кейс 01">
         <div class="wk-vis">
@@ -559,7 +579,7 @@ body{background:transparent!important}
           <div class="wk-ths"><button class="wk-th on" data-bar="garage-detailing" type="button"><img src="img/6f2b8bfaa6.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#ba" type="button"><img src="img/66695fca94.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#deal" type="button"><img src="img/97429a3174.webp" alt="" loading="lazy" decoding="async"></button></div>
         </div>
         <div class="wk-info">
-          <div class="num">Кейс 01 · Детейлинг</div>
+          <div class="num">Кейс · Детейлинг</div>
           <h3>Детейлинг Гараж</h3>
           <p>Гаражный детейлинг в Видном: «до/после» пальцем и оценка повреждения по фото.</p>
           <ul class="wk-chips"><li>Слайдеры до/после</li><li>Оценка по фото</li><li>Баннер акции</li></ul>
@@ -575,7 +595,7 @@ body{background:transparent!important}
           <div class="wk-ths"><button class="wk-th on" data-bar="blackempire-cars" type="button"><img src="img/774c49acd2.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#calc" type="button"><img src="img/f8fcdbeada.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#works" type="button"><img src="img/147e7f5c31.webp" alt="" loading="lazy" decoding="async"></button></div>
         </div>
         <div class="wk-info">
-          <div class="num">Кейс 02 · Шумоизоляция · автозвук</div>
+          <div class="num">Кейс · Шумоизоляция · автозвук</div>
           <h3>BlackEmpire cars</h3>
           <p>Студия в Люберцах: клиент сам считает цену и отправляет расчёт в WhatsApp.</p>
           <ul class="wk-chips"><li>Калькулятор цены</li><li>Галерея работ</li><li>Схема проезда</li></ul>
@@ -591,7 +611,7 @@ body{background:transparent!important}
           <div class="wk-ths"><button class="wk-th on" data-bar="denis-sites.github.io/antisan" type="button"><img src="img/82cab59b62.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#tint" type="button"><img src="img/f24743b4d7.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#calc" type="button"><img src="img/0b91b01a23.webp" alt="" loading="lazy" decoding="async"></button></div>
         </div>
         <div class="wk-info">
-          <div class="num">Кейс 03 · Тонировка</div>
+          <div class="num">Черновик для студии · Тонировка</div>
           <h3>Антисан</h3>
           <p>Тонировка на Преображенке: на фото студии переднее стекло темнеет под выбранный процент.</p>
           <ul class="wk-chips"><li>Примерка тонировки на фото</li><li>Калькулятор плёнок</li><li>Реальные отзывы</li></ul>
@@ -606,7 +626,7 @@ body{background:transparent!important}
           <div class="wk-ths"><button class="wk-th on" data-bar="denis-sites.github.io/tonirovka-n1" type="button"><img src="img/c0f6e2e7f6.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#calc" type="button"><img src="img/6af345cc39.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#tint" type="button"><img src="img/cc1d6afdd4.webp" alt="" loading="lazy" decoding="async"></button></div>
         </div>
         <div class="wk-info">
-          <div class="num">Кейс 04 · Тонировка</div>
+          <div class="num">Черновик для студии · Тонировка</div>
           <h3>Тонировка N1</h3>
           <p>Тонировка в Щёлково: подбор процента на фото и калькулятор плёнок Solartek и LLumar.</p>
           <ul class="wk-chips"><li>Подбор % тонировки</li><li>Калькулятор плёнок</li><li>Видео с YouTube</li></ul>
@@ -621,7 +641,7 @@ body{background:transparent!important}
           <div class="wk-ths"><button class="wk-th on" data-bar="denis-sites.github.io/ger-car" type="button"><img src="img/a1f490fe64.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#calc" type="button"><img src="img/d6897bdf53.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#works" type="button"><img src="img/79b97e1eb3.webp" alt="" loading="lazy" decoding="async"></button></div>
         </div>
         <div class="wk-info">
-          <div class="num">Кейс 05 · Оклейка · антихром</div>
+          <div class="num">Черновик для студии · Оклейка</div>
           <h3>GER CAR</h3>
           <p>Студия оклейки в Жулебино: калькулятор по классу машины и услугам, расчёт сразу уходит мастеру.</p>
           <ul class="wk-chips"><li>Калькулятор по классу авто</li><li>Галерея работ</li><li>Отзывы с Яндекса</li></ul>
@@ -629,77 +649,73 @@ body{background:transparent!important}
           <a class="btn ghost want" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%BA%D0%B0%D0%BA%20%D1%83%20%C2%ABGER%20CAR%C2%BB.%20%D0%9C%D0%BE%D0%B9%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%3A%20" target="_blank" rel="noopener">Хочу такой же</a>
         </div>
       </article>
-      <article class="wk-slide" aria-label="Кейс 06">
-        <div class="wk-vis">
-          <div class="frame wk-zoom"><div class="bar"><i></i><i></i><i></i><span>donskaya-realty.ru</span></div><img class="wk-main" src="img/1a5d2f75d9.webp" width="1100" height="688" alt="Сайт Донская и Партнёры" loading="lazy" decoding="async"></div>
-          <div class="wk-phone"><img src="img/566e931b0a.webp" alt="Сайт Донская и Партнёры на телефоне" loading="lazy" decoding="async"></div>
-          <div class="wk-ths"><button class="wk-th on" data-bar="donskaya-realty.ru" type="button"><img src="img/1a5d2f75d9.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#obekty" type="button"><img src="img/4d29d7592b.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#zayavka" type="button"><img src="img/c349ad1ef2.webp" alt="" loading="lazy" decoding="async"></button></div>
-        </div>
-        <div class="wk-info">
-          <div class="num">Кейс 06 · Недвижимость</div>
-          <h3>Донская и Партнёры</h3>
-          <p>Строгий сайт для риэлтора и юриста: каталог объектов и заявки в Telegram.</p>
-          <ul class="wk-chips"><li>9 услуг</li><li>Каталог объектов</li><li>Заявки в Telegram</li></ul>
-          
-          <a class="btn" href="https://donskaya-realty.ru/" target="_blank" rel="noopener">Открыть сайт <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
-          <a class="btn ghost want" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%BA%D0%B0%D0%BA%20%D1%83%20%C2%AB%D0%94%D0%BE%D0%BD%D1%81%D0%BA%D0%B0%D1%8F%20%D0%B8%20%D0%9F%D0%B0%D1%80%D1%82%D0%BD%D1%91%D1%80%D1%8B%C2%BB.%20%D0%9C%D0%BE%D0%B9%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%3A%20" target="_blank" rel="noopener">Хочу такой же</a>
-        </div>
-      </article>
   </div></div>
-  <div class="wk-nav"><span class="wk-n">01 / 06</span><div class="wk-prog"><i></i></div><span class="wk-hint">тяните <b>⟷</b></span></div>
+  <div class="wk-nav"><span class="wk-n">01 / 05</span><div class="wk-prog"><i></i></div><span class="wk-hint">тяните <b>⟷</b></span></div>
+</div></section>
+
+<section class="inside" id="inside"><div class="wrap">
+  <div class="num">Что внутри</div>
+  <h2>Что получит ваша студия</h2>
+  <p class="lead">Не шаблон с картинками машин из интернета, а фишки под вашу нишу на фото вашего бокса. Каждую можно потрогать на живом сайте.</p>
+  <div class="fts">
+    <a class="ft" href="https://blackempire-cars-detailing.netlify.app/" target="_blank" rel="noopener"><img src="img/f8fcdbeada.webp" alt="Калькулятор цены" loading="lazy" decoding="async"><div><b>Калькулятор цены</b><span>Клиент выбирает кузов и услуги, видит цену и отправляет расчёт в мессенджер, который ему удобен.</span><em>Смотреть в BlackEmpire <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11L11 5M6 5h5v5"/></svg></em></div></a>
+    <a class="ft" href="https://garage-detailing.netlify.app/" target="_blank" rel="noopener"><img src="img/66695fca94.webp" alt="До/после пальцем" loading="lazy" decoding="async"><div><b>До/после пальцем</b><span>Ползунок на реальных машинах из вашего бокса: результат видно без слов.</span><em>Смотреть в Детейлинг Гараж <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11L11 5M6 5h5v5"/></svg></em></div></a>
+    <a class="ft" href="https://denis-sites.github.io/antisan/" target="_blank" rel="noopener"><img src="img/f24743b4d7.webp" alt="Примерка тонировки" loading="lazy" decoding="async"><div><b>Примерка тонировки</b><span>Стекло на фото студии темнеет под выбранный процент — клиент сразу понимает, что хочет.</span><em>Смотреть в Антисан <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11L11 5M6 5h5v5"/></svg></em></div></a>
+    <a class="ft" href="https://denis-sites.github.io/ger-car/" target="_blank" rel="noopener"><img src="img/d6897bdf53.webp" alt="Цена по классу авто" loading="lazy" decoding="async"><div><b>Цена по классу авто</b><span>Оклейка, антихром, PPF: от седана до внедорожника, расчёт уходит мастеру.</span><em>Смотреть в GER CAR <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11L11 5M6 5h5v5"/></svg></em></div></a>
+  </div>
+  <div class="ftx">
+    <div><b>Запись в 3 касания</b><span>Услуга → машина → когда → куда написать: WhatsApp, Telegram, VK или звонок. Сообщение приходит готовым: «Здравствуйте! Я с сайта…»</span></div>
+    <div><b>Отзывы и рейтинг с Карт</b><span>Ваши настоящие отзывы и имена мастеров — им верят больше, чем рекламе.</span></div>
+    <div><b>Видно, сколько заявок</b><span>Подключаю Яндекс Метрику: сколько людей зашли и сколько нажали «Записаться».</span></div>
+    <div><b>Быстро на телефоне</b><span>Большинство клиентов приходят с Яндекс Карт с телефона — сайт открывается за секунду.</span></div>
+  </div>
 </div></section>
 
 <section class="approach" id="approach"><div class="wrap">
   <div class="num">Как работаем</div>
-  <h2>3 шага до сайта</h2>
+  <h2>Платите за заявки, а не за сайт</h2>
   <div class="flow">
-    <div><i>01</i><b>Бесплатный черновик</b><span>увидите свой сайт до оплаты</span></div>
-    <div><i>02</i><b>Правки</b><span>меняем, пока не понравится</span></div>
-    <div><i>03</i><b>Запуск</b><span>заявки идут вам в Telegram</span></div>
+    <div><i>01</i><b>Черновик за день</b><span>на ваших фото, ценах и отзывах с Яндекс Карт</span></div>
+    <div><i>02</i><b>Запуск бесплатно</b><span>сайт работает, клиенты пишут в WhatsApp, Telegram, VK или звонят</span></div>
+    <div><i>03</i><b>Месяц смотрим заявки</b><span>пришли — 10 000 ₽, нет — 0 ₽, сайт остаётся вам</span></div>
   </div>
 </div></section>
 
 
 
 <section class="pricing" id="price">
-  <div class="recruit" aria-hidden="true"><div class="tr"><span>Набираю клиентов в портфолио</span><span>Стартовые цены для первых 10</span><span>В обмен на честный отзыв</span><span>Работаю официально, с чеком</span><span>Набираю клиентов в портфолио</span><span>Стартовые цены для первых 10</span><span>В обмен на честный отзыв</span><span>Работаю официально, с чеком</span><span>Набираю клиентов в портфолио</span><span>Стартовые цены для первых 10</span><span>В обмен на честный отзыв</span><span>Работаю официально, с чеком</span><span>Набираю клиентов в портфолио</span><span>Стартовые цены для первых 10</span><span>В обмен на честный отзыв</span><span>Работаю официально, с чеком</span></div></div>
-  <div class="wrap">
+    <div class="wrap">
     <div class="top">
-      <div><div class="num">Пакеты</div><h2>Фиксированная цена</h2></div>
-      <p><b>Стартовые цены для первых 10 клиентов</b> в обмен на честный отзыв.</p>
+      <div><div class="num">Условия</div><h2>Сначала заявки, потом деньги</h2></div>
+      <p><b>Рискую я, а не вы.</b> Если за первый месяц с сайта не пришло заявок, вы ничего не платите, а сайт остаётся у вас.</p>
     </div>
     <div class="plans">
-      <div class="plan">
-        <div><div class="idx">01</div><h3>Визитка</h3><p class="for">Чтобы было куда отправить клиента вместо «напишите в личку».</p></div>
-        <ul><li>Одна страница, до 5 блоков: о вас, услуги и цены, контакты</li><li>Кнопки WhatsApp, Telegram и звонка</li><li>Удобная версия для телефона</li><li>Публикация сайта в интернете</li><li>1 круг правок</li></ul>
-        <div class="pr"><s>6 000 ₽</s><span class="now">3 000 ₽</span><span class="term">от 2 дней</span><a class="btn ghost" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%20%C2%AB%D0%92%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B0%C2%BB.%20%D0%9C%D0%BE%D0%B9%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%3A%20" target="_blank" rel="noopener">Выбрать</a></div>
-      </div>
       <div class="plan hot">
-        <div><div class="idx">02</div><h3>Сайт с записью</h3><p class="for">Чтобы клиенты записывались сами 24/7, а не терялись в директе.</p><span class="tag">Как в кейсе</span></div>
-        <ul><li>Всё из «Визитки»</li><li>До 8 блоков на странице</li><li>Услуги и цены, мастера, фото работ, отзывы</li><li>Онлайн-запись через ваш DIKIDI / YCLIENTS или форма заявки в Telegram</li><li>Ссылка на сайт в карточке Яндекс Карт</li><li>2 круга правок</li></ul>
-        <div class="pr"><s>14 000 ₽</s><span class="now">7 000 ₽</span><span class="term">от 3–5 дней</span><a class="btn" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%20%C2%AB%D0%A1%D0%B0%D0%B9%D1%82%20%D1%81%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%D1%8E%C2%BB.%20%D0%9C%D0%BE%D0%B9%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%3A%20" target="_blank" rel="noopener">Выбрать</a></div>
+        <div><div class="idx">01</div><h3>Запуск</h3><p class="for">Сайт на ваших фото работает и приводит клиентов.</p><span class="tag">Старт</span></div>
+        <ul><li>Черновик за день на фото и отзывах с Яндекс Карт</li><li>Цены, калькулятор по кузову, до/после</li><li>Кнопки WhatsApp, Telegram, VK и звонка с текстом «Я с сайта»</li><li>Яндекс Метрика: видно, сколько заявок</li><li>Правки, пока не понравится</li></ul>
+        <div class="pr"><span class="now">0 ₽</span><span class="term">бесплатно</span><a class="btn" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B9%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8.%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%D1%8B%3A%20" target="_blank" rel="noopener">Хочу черновик</a></div>
       </div>
       <div class="plan">
-        <div><div class="idx">03</div><h3>Под ключ</h3><p class="for">Чтобы вас находили в Яндексе и вам не пришлось ни во что вникать.</p></div>
-        <ul><li>Всё из «Сайта с записью»</li><li>Подключение домена на ваше имя</li><li>Помощь с карточкой в Яндекс Бизнесе и на Картах</li><li>Базовая настройка под поиск Яндекса</li><li>Анимации</li><li>3 круга правок</li></ul>
-        <div class="pr"><s>24 000 ₽</s><span class="now">12 000 ₽</span><span class="term">от 5–7 дней</span><a class="btn ghost" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%20%C2%AB%D0%9F%D0%BE%D0%B4%20%D0%BA%D0%BB%D1%8E%D1%87%C2%BB.%20%D0%9C%D0%BE%D0%B9%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%3A%20" target="_blank" rel="noopener">Выбрать</a></div>
+        <div><div class="idx">02</div><h3>Если пришли заявки</h3><p class="for">Платите один раз, когда видите результат.</p></div>
+        <ul><li>Перенос на домен на ваше имя</li><li>Ссылка на сайт в карточке Яндекс Карт</li><li>Настройка, чтобы сайт находили в поиске Яндекса</li><li>Сайт и доступы ваши</li></ul>
+        <div class="pr"><span class="now">10 000 ₽</span><span class="term">через месяц</span><a class="btn ghost" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%95%D1%81%D1%82%D1%8C%20%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%20%D0%BF%D1%80%D0%BE%20%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%3A%20" target="_blank" rel="noopener">Спросить</a></div>
+      </div>
+      <div class="plan">
+        <div><div class="idx">03</div><h3>Поддержка</h3><p class="for">Если не хотите думать о сайте сами.</p></div>
+        <ul><li>Новые фото работ и цены</li><li>Правки текста и услуг</li><li>Помощь с карточкой на Картах</li></ul>
+        <div class="pr"><span class="now">от 2 000 ₽</span><span class="term">в месяц, по желанию</span><a class="btn ghost" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D0%B0%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%3A%20" target="_blank" rel="noopener">Спросить</a></div>
       </div>
     </div>
-    <details class="more"><summary>Допы и условия</summary><div class="extra2">
-      <div><h3>Дополнительно</h3>
-        <div class="ex"><span>Дополнительный блок или раздел</span><b>+1 000 ₽</b></div>
-        <div class="ex"><span>Каталог больше 20 позиций</span><b>+2 000 ₽</b></div>
-        <div class="ex"><span>Логотип</span><b>+1 500 ₽</b></div>
-        <div class="ex"><span>Подключение домена для «Визитки» и «Сайта с записью»</span><b>+1 000 ₽</b></div>
-        <div class="ex"><span>Поддержка и правки после запуска</span><b>1 500 ₽/мес</b></div>
+    <details class="more"><summary>Подробнее об условиях</summary><div class="extra2">
+      <div><h3>Как считаем заявки</h3>
+        <div class="ex"><span>Кнопки сайта отправляют сообщение «Здравствуйте! Я с сайта…» — вы сразу видите, кто откуда</span><b>✓</b></div>
+        <div class="ex"><span>Счётчик Яндекс Метрики показывает, сколько людей зашли и нажали «Записаться»</span><b>✓</b></div>
+        <div class="ex"><span>Через месяц вместе смотрим цифры</span><b>✓</b></div>
       </div>
-      <div><h3>Условия</h3>
-        <div class="ex"><span>Первый черновик бесплатно, до всякой оплаты</span><b>0 ₽</b></div>
-        <div class="ex"><span>Оплата 50% на старте, 50% когда всё понравится</span><b>50/50</b></div>
-        <div class="ex"><span>Работаю официально как самозанятый, даю чек через «Мой налог»</span><b>✓</b></div>
-        <div class="ex"><span>Сайт и доступы ваши после полной оплаты</span><b>✓</b></div>
-        <div class="ex"><span>Цена фиксируется в переписке до старта</span><b>✓</b></div>
-        <div class="ex"><span>Домен оплачивается отдельно, оформляется на вас</span><b>1,5–3 тыс/год</b></div>
+      <div><h3>Официально</h3>
+        <div class="ex"><span>Работаю как самозанятый, даю чек через «Мой налог»</span><b>✓</b></div>
+        <div class="ex"><span>Цены и условия фиксируем в переписке до старта</span><b>✓</b></div>
+        <div class="ex"><span>Домен оплачивается отдельно и оформляется на вас</span><b>1,5–3 тыс/год</b></div>
       </div>
     </div></details>
   </div>
@@ -709,50 +725,28 @@ body{background:transparent!important}
   <div class="num">Частые вопросы</div>
   <h2>Что обычно спрашивают</h2>
   <div class="qa">
-    <details><summary>А если мне не понравится?</summary><p>Сначала я делаю бесплатный черновик, и вы смотрите его по ссылке. Не зашло — ничего не платите. Дальше правки входят в пакет, а вторые 50% вы платите, только когда сайт нравится.</p></details>
-    <details><summary>Зачем сайт, если есть Яндекс Карты и Telegram?</summary><p>Сайт собирает всё в одном месте: цены, фото работ, мастеров, отзывы и запись. Ссылку можно поставить в карточку Яндекс Карт, в профиль и в рекламу. Клиент записывается сам, даже ночью, и не теряется в переписке.</p></details>
-    <details><summary>Что нужно от меня?</summary><p>Рассказать о бизнесе, прислать фото работ, цены и контакты. Если нет текстов, помогу их написать. Всё обсуждаем в Telegram, встречаться не обязательно.</p></details>
-    <details><summary>Сколько ждать?</summary><p>От 2 до 7 дней, в зависимости от пакета. Быстрее всего, когда фото и ответы приходят без задержек.</p></details>
-    <details><summary>Кто будет править сайт потом?</summary><p>Я. Можно подключить поддержку за 1 500 ₽ в месяц или заказывать правки разово. Сайт и доступы после оплаты принадлежат вам.</p></details>
-    <details><summary>Как оплатить?</summary><p>50% на старте и 50% в конце. Работаю официально как самозанятый, после оплаты присылаю чек из «Мой налог».</p></details>
+    <details><summary>А если заявок не будет?</summary><p>Тогда вы ничего не платите, а сайт остаётся у вас. Мне выгодно, чтобы он приводил клиентов, поэтому делаю его под вашу нишу, а не по шаблону.</p></details>
+    <details><summary>Как понять, что клиент пришёл с сайта?</summary><p>Все кнопки сайта отправляют готовое сообщение «Здравствуйте! Я с сайта…». Плюс подключаю Яндекс Метрику: видно, сколько людей зашли и сколько нажали «Записаться».</p></details>
+    <details><summary>Зачем сайт, если есть Яндекс Карты?</summary><p>Карточка показывает рейтинг, а сайт продаёт: цена для конкретной машины, до/после, примерка тонировки, ответы на вопросы. Ссылку на сайт ставим в карточку, и клиент с Карт приходит уже готовым записаться.</p></details>
+    <details><summary>Что нужно от меня?</summary><p>Почти ничего. Фото работ и отзывы беру с ваших Яндекс Карт. От вас — проверить цены и написать, куда принимать заявки: WhatsApp, Telegram, VK, звонок — можно все сразу, клиент выберет сам.</p></details>
+    <details><summary>Сколько ждать?</summary><p>Черновик пришлю за день. После ваших правок запускаю сайт, обычно за 2–3 дня.</p></details>
+    <details><summary>Кто будет править сайт потом?</summary><p>Я. Новые фото, цены, акции — по поддержке за 2–3 тыс. ₽ в месяц или разово. Сайт и доступы ваши.</p></details>
   </div>
 </div></section>
 
-<section class="fx" id="fx"><div class="wrap">
-  <div class="num">Эффекты</div>
-  <h2>Сайт, с которым хочется играть</h2>
-  <p class="lead">Такие штуки удерживают внимание и делают сайт запоминающимся. Крутите барабан: тяните мышкой или пальцем и играйте с каждой: всё это можно добавить на ваш сайт.</p>
-  <div class="fxg"><div class="drum-wrap" id="drum"><div class="drum">
-    <div class="tile scratch" id="t-scratch"><img src="img/774c49acd2.webp" alt="Новый сайт"><canvas></canvas><div class="lbl"><b>Сотри старое</b><span>сотрите пальцем</span></div></div>
-    <div class="tile ba" id="t-ba"><img class="bw" alt=""><img class="clr" alt=""><div class="knob"></div><div class="lbl"><b>До / после</b><span>потяните</span></div></div>
-    <div class="tile phonefx" id="t-phone"><div class="stage"><div class="pf"><img src="img/673cda4a4d.webp" alt="Сайт на телефоне" loading="lazy" decoding="async"></div></div><div class="lbl"><b>Сайт на ладони</b><span>нажмите</span></div></div>
-    <div class="tile calcfx" id="t-calc"><div class="stage"><div class="pk"><button data-v="3000" class="on">Визитка</button><button data-v="7000">С записью</button><button data-v="12000">Под ключ</button></div><div class="ad"><button data-v="1500">+ логотип</button><button data-v="1000">+ блок</button><button data-v="2000">+ каталог</button></div><div class="sum"><span>3 000</span> ₽<small>ваш сайт</small></div></div><div class="lbl"><b>Калькулятор</b><span>выбирайте</span></div></div>
-    <div class="tile tilt" id="t-tilt"><div class="stage"><div class="card3d"><small>визитка</small><b>parad1se sites</b><small>денис · сайты</small></div></div><div class="lbl"><b>3D-наклон</b><span>наведите</span></div></div>
-    <div class="tile boom" id="t-boom"><div class="stage"><button class="go" type="button">Записаться</button></div><canvas></canvas><div class="lbl"><b>Кнопка с салютом</b><span>нажмите</span></div></div>
-    <div class="tile spot" id="t-spot"><div class="under"><b>Скрытое<br>становится<br>видимым</b></div><div class="veil"></div><div class="lbl"><b>Фонарик</b><span>водите курсором</span></div></div>
-    <div class="tile" id="t-mag"><div class="stage"><button class="mag" type="button">Поймай меня</button></div><div class="lbl"><b>Магнитная кнопка</b><span>подведите курсор</span></div></div>
-    <div class="tile" id="t-scr"><div class="stage"><div class="scr" data-a="Ваш бренд" data-b="Запоминается">Ваш бренд</div></div><div class="lbl"><b>Текст-шифр</b><span>наведите</span></div></div>
-    <div class="tile" id="t-cnt"><div class="stage"><div class="cnt"><div><b data-to="7">0</b><span>дней до запуска</span></div><div><b data-to="24" data-suf="/7">0</b><span>приём заявок</span></div><div><b data-to="10">0</b><span>мест по стартовой цене</span></div></div></div><div class="lbl"><b>Счётчики</b><span>при прокрутке</span></div></div>
-  </div>
-  </div>
-  <div class="drum-ui"><div class="dinfo"><b id="dname"></b><span id="dnum"></span></div></div>
-  <div class="ddots" id="ddots"></div>
-  <div class="drum-hint" style="text-align:center;margin-top:14px">тяните <b>⟷</b> или нажмите на соседнюю карточку</div>
-</div>
-</div></section>
 
 <section class="end" id="contact"><div class="glow"></div><div class="wrap">
   <div class="num">Контакты</div>
-  <h2>Обсудим ваш сайт?</h2>
-  <p>Напишите, чем вы занимаетесь, и я расскажу, каким может быть ваш сайт и сколько он будет стоить. Консультация и первый черновик бесплатно, отвечаю в течение дня. Работаю официально, с чеком.</p>
-  <a class="mag" id="end-btn" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82.%20%D0%A7%D0%B5%D0%BC%20%D0%B7%D0%B0%D0%BD%D0%B8%D0%BC%D0%B0%D1%8E%D1%81%D1%8C%3A%20" target="_blank" rel="noopener">Написать в Telegram <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+  <h2>Покажу сайт вашей студии</h2>
+  <p>Скиньте ссылку на вашу студию в Яндекс Картах — соберу черновик на ваших фото и пришлю ссылку. Бесплатно и ни к чему не обязывает, отвечаю в течение дня.</p>
+  <a class="mag" id="end-btn" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B9%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8.%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%D1%8B%3A%20" target="_blank" rel="noopener">Написать в Telegram <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
   <span class="handle">@belivegodsplan</span>
   <footer class="foot"><span>parad1se sites · Денис</span><span>2026</span></footer>
 </div></section>
 
 
 <!-- липкая кнопка на телефоне: появляется после первого экрана, прячется у блока «Контакты» -->
-<a class="stick btn" id="stick" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B1%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D1%8B%D0%B9%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0.%20%D0%9C%D0%BE%D0%B9%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%3A%20" target="_blank" rel="noopener">Получить черновик бесплатно</a>
+<a class="stick btn" id="stick" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B9%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8.%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%D1%8B%3A%20" target="_blank" rel="noopener">Хочу сайт для студии</a>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Скриншот"><button type="button" aria-label="Закрыть">×</button><img alt=""><p>Нажмите, чтобы закрыть</p></div>
 
 <script>
@@ -816,105 +810,11 @@ body{background:transparent!important}
         main.style.opacity=0;setTimeout(function(){main.src=b.querySelector('img').src;bar.textContent=b.dataset.bar;main.style.opacity=1},200)})})});
   })();
 
-  // ===== effects playground =====
   var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
   function rel(el,e){var r=el.getBoundingClientRect(),w=el.offsetWidth||r.width,h=el.offsetHeight||r.height,kx=r.width?w/r.width:1,ky=r.height?h/r.height:1;return{x:(e.clientX-r.left)*kx,y:(e.clientY-r.top)*ky,w:w,h:h}}
-  // scramble
-  (function(){var tile=document.getElementById('t-scr'),el=tile.querySelector('.scr'),A=el.dataset.a,B=el.dataset.b,cur=A,ch='АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЭЮЯ#%&@*/1';
-    function go(to){if(RM){el.textContent=to;cur=to;return}var from=cur,len=Math.max(from.length,to.length),f=0,id=setInterval(function(){var s='';for(var i=0;i<len;i++){s+= i<f/2 ? (to[i]||'') : (to[i]===' '?' ':ch[Math.random()*ch.length|0])}el.textContent=s;if(++f>len*2+2){clearInterval(id);el.textContent=to;cur=to}},38)}
-    tile.addEventListener('pointerenter',function(){go(B)});tile.addEventListener('pointerleave',function(){go(A)});
-    tile.addEventListener('click',function(){go(cur===A?B:A)});})();
-  // spotlight
-  (function(){var tile=document.getElementById('t-spot'),v=tile.querySelector('.veil');
-    tile.addEventListener('pointermove',function(e){var p=rel(tile,e);v.style.setProperty('--x',p.x+'px');v.style.setProperty('--y',p.y+'px')});})();
-  // tilt
-  (function(){var tile=document.getElementById('t-tilt'),c=tile.querySelector('.card3d');
-    tile.addEventListener('pointermove',function(e){if(RM)return;var p=rel(tile,e),rx=(p.y/p.h-.5)*-22,ry=(p.x/p.w-.5)*26;c.style.transform='rotateX('+rx+'deg) rotateY('+ry+'deg)';c.style.setProperty('--gx',(p.x/p.w*100)+'%');c.style.setProperty('--gy',(p.y/p.h*100)+'%')});
-    tile.addEventListener('pointerleave',function(){c.style.transform=''});})();
-  // magnetic
+  // магнит у финальной кнопки «Написать в Telegram»
   function magnet(area,btn,k,max){max=max||999;area.addEventListener('pointermove',function(e){if(RM)return;var r=btn.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);dx=Math.max(-max,Math.min(max,dx*k));dy=Math.max(-max*.5,Math.min(max,dy*k));btn.style.transform='translate('+dx+'px,'+dy+'px)'});area.addEventListener('pointerleave',function(){btn.style.transform=''})}
-  magnet(document.getElementById('t-mag'),document.querySelector('#t-mag .mag'),.45);
   magnet(document.querySelector('.end'),document.getElementById('end-btn'),.08,10);
-  // counters
-  (function(){var els=document.querySelectorAll('#t-cnt .cnt b');function run(){[].forEach.call(els,function(b){var to=+b.dataset.to,pre=b.dataset.pre||'',suf=b.dataset.suf||'',t0=performance.now(),d=RM?0:1400;(function st(n){var p=d?Math.min(1,(n-t0)/d):1,v=Math.round(to*(1-Math.pow(1-p,3)));b.textContent=pre+v+suf;if(p<1)requestAnimationFrame(st)})(t0)})}
-    var tile=document.getElementById('t-cnt');if('IntersectionObserver' in window){new IntersectionObserver(function(es,o){if(es[0].isIntersecting){run();o.disconnect()}},{threshold:.5}).observe(tile)}else run();
-    tile.addEventListener('click',run);})();
-  // before/after
-  (function(){var tile=document.getElementById('t-ba'),src=document.querySelector('.wk-main')||document.querySelector('.shot img');if(!src)return;
-    [].forEach.call(tile.querySelectorAll('img'),function(i){i.src=src.src});
-    var drag=false;function set(e){var p=rel(tile,e);tile.style.setProperty('--p',Math.max(0,Math.min(100,p.x/p.w*100))+'%')}
-    tile.addEventListener('pointerdown',function(e){drag=true;tile.setPointerCapture(e.pointerId);set(e)});
-    tile.addEventListener('pointermove',function(e){if(drag||e.pointerType==='mouse')set(e)});
-    tile.addEventListener('pointerup',function(){drag=false});})();
-
-  // ===== сотри старое =====
-  (function(){var t=document.getElementById('t-scratch'),cv=t.querySelector('canvas'),c=cv.getContext('2d'),done=false,drag=false,last=null;
-    function paint(){var w=t.offsetWidth,h=t.offsetHeight,d=Math.min(devicePixelRatio||1,2);cv.width=w*d;cv.height=h*d;c.setTransform(d,0,0,d,0,0);
-      var g=c.createLinearGradient(0,0,w,h);g.addColorStop(0,'#cfcfcb');g.addColorStop(1,'#8f8f8b');c.fillStyle=g;c.fillRect(0,0,w,h);
-      c.fillStyle='rgba(0,0,0,.08)';for(var y=0;y<h;y+=6)c.fillRect(0,y,w,2);
-      c.fillStyle='#fff';c.fillRect(w*.08,h*.12,w*.84,h*.5);c.fillStyle='#e6e6e3';c.fillRect(w*.11,h*.17,w*.22,h*.22);c.fillRect(w*.36,h*.17,w*.22,h*.22);c.fillRect(w*.61,h*.17,w*.22,h*.22);
-      c.fillStyle='#9a9a96';c.font='600 '+Math.round(w*.032)+'px Inter,system-ui';c.fillText('Карточка на картах · 4 фото · цен нет',w*.11,h*.52);
-      c.fillStyle='#151515';c.font='800 '+Math.round(w*.05)+'px Inter,system-ui';c.textAlign='center';c.fillText('Так вас видят сейчас',w/2,h*.76);
-      c.font='500 '+Math.round(w*.03)+'px Inter,system-ui';c.fillStyle='#333';c.fillText('сотрите, чтобы увидеть новый сайт',w/2,h*.84);c.textAlign='left'}
-    function erase(x,y){c.globalCompositeOperation='destination-out';c.lineCap='round';c.lineWidth=Math.max(46,t.offsetWidth*.09);c.beginPath();if(last){c.moveTo(last.x,last.y)}else{c.moveTo(x,y)}c.lineTo(x,y);c.stroke();last={x:x,y:y};c.globalCompositeOperation='source-over'}
-    function check(){if(done)return;var d=c.getImageData(0,0,cv.width,cv.height).data,n=0,k=0;for(var i=3;i<d.length;i+=160){k++;if(d[i]<40)n++}if(n/k>.45){done=true;cv.style.transition='opacity .6s';cv.style.opacity=0}}
-    t.addEventListener('pointerdown',function(e){if(!t.classList.contains('on'))return;drag=true;last=null;try{t.setPointerCapture(e.pointerId)}catch(_){};var p=rel(t,e);erase(p.x,p.y)});
-    t.addEventListener('pointermove',function(e){if(!drag)return;var p=rel(t,e);erase(p.x,p.y)});
-    addEventListener('pointerup',function(){if(drag){drag=false;last=null;check()}});
-    t.addEventListener('dblclick',function(){done=false;cv.style.opacity=1;paint()});
-    t.reset=function(){done=false;cv.style.transition='none';cv.style.opacity=1;paint()};
-    paint();addEventListener('resize',function(){if(!done)paint()});})();
-  // ===== сайт на ладони =====
-  (function(){var t=document.getElementById('t-phone'),f=t.querySelector('.pf');var hv=0;function go(){t.style.setProperty('--ph',f.clientHeight+'px');t.classList.toggle('run')}
-    t.addEventListener('click',function(){if(t.classList.contains('on')&&Date.now()-hv>900)go()});t.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse'&&t.classList.contains('on')&&!t.classList.contains('run')){hv=Date.now();go()}});})();
-  // ===== калькулятор =====
-  (function(){var t=document.getElementById('t-calc'),out=t.querySelector('.sum span'),cur=3000;
-    function calc(){var v=0;[].forEach.call(t.querySelectorAll('button.on'),function(b){v+=+b.dataset.v});var from=cur,t0=performance.now(),d=RM?0:500;cur=v;
-      (function st(n){var p=d?Math.min(1,(n-t0)/d):1;out.textContent=Math.round(from+(v-from)*(1-Math.pow(1-p,3))).toLocaleString('ru-RU');if(p<1)requestAnimationFrame(st)})(performance.now())}
-    [].forEach.call(t.querySelectorAll('.pk button'),function(b){b.addEventListener('click',function(){[].forEach.call(t.querySelectorAll('.pk button'),function(x){x.classList.remove('on')});b.classList.add('on');calc()})});
-    [].forEach.call(t.querySelectorAll('.ad button'),function(b){b.addEventListener('click',function(){b.classList.toggle('on');calc()})});})();
-  // ===== кнопка с салютом =====
-  (function(){var t=document.getElementById('t-boom'),btn=t.querySelector('.go'),cv=t.querySelector('canvas'),c=cv.getContext('2d'),ps=[],run=false;
-    function size(){var d=Math.min(devicePixelRatio||1,2);cv.width=t.offsetWidth*d;cv.height=t.offsetHeight*d;c.setTransform(d,0,0,d,0,0)}
-    function loop(){c.clearRect(0,0,t.offsetWidth,t.offsetHeight);ps=ps.filter(function(p){p.vy+=.18;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;p.l--;c.save();c.translate(p.x,p.y);c.rotate(p.r);c.globalAlpha=Math.max(0,p.l/60);c.fillStyle=p.c;c.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);c.restore();return p.l>0});if(ps.length)requestAnimationFrame(loop);else run=false}
-    btn.addEventListener('click',function(){size();var r=t.getBoundingClientRect(),b=btn.getBoundingClientRect(),k=t.offsetWidth/(r.width||1),x=(b.left-r.left+b.width/2)*k,y=(b.top-r.top+b.height/2)*k;
-      var cols=['#f4f4f2','#ffcc33','#ff3b30','#9b9b98','#ffffff'];for(var i=0;i<(RM?0:90);i++){var a=Math.random()*Math.PI*2,v=3+Math.random()*7;ps.push({x:x,y:y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-4,r:0,vr:(Math.random()-.5)*.4,s:6+Math.random()*7,l:50+Math.random()*30,c:cols[i%5]})}
-      btn.textContent='Вы записаны ✓';setTimeout(function(){btn.textContent='Записаться'},2200);if(!run){run=true;loop()}});})();
-  // ===== барабан =====
-  (function(){var wrap=document.getElementById('drum'),drum=wrap.querySelector('.drum'),tiles=[].slice.call(drum.querySelectorAll('.tile')),n=tiles.length,step=360/n,idx=0,rot=0,
-      name=document.getElementById('dname'),num=document.getElementById('dnum'),dots=document.getElementById('ddots');
-    function R(){var w=drum.offsetWidth;return Math.round(w/2/Math.tan(Math.PI/n))+Math.round(w*.06)}
-    function layout(){var r=R();tiles.forEach(function(t,i){t.style.transform='rotateY('+(i*step)+'deg) translateZ('+r+'px)'});drum.style.transform='translateZ('+(-r)+'px) rotateY('+rot+'deg)'}
-    tiles.forEach(function(t,i){var d=document.createElement('i');d.addEventListener('click',function(){go(i)});dots.appendChild(d);
-      t.addEventListener('click',function(){if(!t.classList.contains('on'))go(i)})});
-    function mark(){tiles.forEach(function(t,i){t.classList.toggle('on',i===idx)});[].forEach.call(dots.children,function(d,i){d.classList.toggle('on',i===idx)});
-      var l=tiles[idx].querySelector('.lbl b');name.textContent=l?l.textContent:'';num.textContent=String(idx+1).padStart(2,'0')+' / '+String(n).padStart(2,'0');
-      if(tiles[idx].reset)tiles[idx].reset();tiles[idx].classList.remove('run')}
-    function go(i){var d=((i-idx)%n+n)%n;if(d>n/2)d-=n;rot-=d*step;idx=((i%n)+n)%n;layout();mark()}
-    wrap.tabIndex=0;wrap.addEventListener('keydown',function(e){if(e.key==='ArrowLeft'){go(idx-1);e.preventDefault()}if(e.key==='ArrowRight'){go(idx+1);e.preventDefault()}});
-    // вращение перетаскиванием: барабан крутится за пальцем/мышкой и встаёт на ближайшую карточку
-    var FREE='#t-tilt,#t-spot,#t-scr,#t-cnt,#t-phone,#t-mag';
-    var down=false,dragging=false,sx=0,sy=0,r0=0,lastX=0,lastT=0,vx=0,moved=false;
-    function pd(e){if(e.button>0)return;var on=e.target.closest('.tile.on');if(on&&!on.matches(FREE))return;
-      down=true;dragging=false;moved=false;sx=lastX=e.clientX;sy=e.clientY;r0=rot;vx=0;lastT=performance.now()}
-    wrap.addEventListener('pointerdown',pd);
-    // на телефоне карточка занимает весь экран — крутить можно и за подпись с точками под ней
-    var ui=wrap.parentNode.querySelector('.drum-ui'),dd=document.getElementById('ddots');[ui,dd].forEach(function(z){z.style.touchAction='pan-y';z.style.cursor='grab';z.addEventListener('pointerdown',pd)});
-    addEventListener('pointermove',function(e){if(!down)return;var x=e.clientX-sx,y=e.clientY-sy;
-      if(!dragging){if(Math.abs(x)<8)return;if(Math.abs(y)>Math.abs(x)){down=false;return}dragging=true;wrap.classList.add('drag')}
-      moved=true;var now=performance.now();vx=(e.clientX-lastX)/Math.max(1,now-lastT);lastX=e.clientX;lastT=now;
-      var deg=x/drum.offsetWidth*step*1.4;rot=r0+deg;drum.style.transform='translateZ('+(-R())+'px) rotateY('+rot+'deg)'});
-    function up(){if(!down)return;down=false;wrap.classList.remove('drag');if(!dragging)return;dragging=false;
-      var moveSteps=-(rot-r0)/step;moveSteps+=-vx*.9; // инерция
-      var k=Math.round(moveSteps);if(k===0&&Math.abs(rot-r0)>step*.18)k=rot<r0?1:-1;rot=r0;go(idx+k)}
-    addEventListener('pointerup',up);addEventListener('pointercancel',up);
-    wrap.addEventListener('click',function(e){if(moved){e.stopPropagation();e.preventDefault();moved=false}},true);
-    var wacc=0,wt=null,wl=false;wrap.addEventListener('wheel',function(e){if(Math.abs(e.deltaX)<=Math.abs(e.deltaY))return;e.preventDefault();wacc+=e.deltaX;clearTimeout(wt);wt=setTimeout(function(){wacc=0},180);
-      if(!wl&&Math.abs(wacc)>60){go(idx+(wacc>0?1:-1));wacc=0;wl=true;setTimeout(function(){wl=false},700)}},{passive:false});
-    addEventListener('resize',layout);layout();mark();
-    // подсказка: барабан один раз чуть проворачивается, когда появляется
-    if(!RM&&'IntersectionObserver' in window){new IntersectionObserver(function(es,o){if(!es[0].isIntersecting)return;o.disconnect();setTimeout(function(){drum.style.transform='translateZ('+(-R())+'px) rotateY('+(rot-14)+'deg)';setTimeout(layout,450)},600)},{threshold:.5}).observe(wrap)}
-  })();
   var cv=document.getElementById('sky'), fl=document.querySelector('.flash');
   /* интро показываем один раз за визит: при повторном открытии/переходе сразу показываем сайт */
   var seen=false;try{seen=sessionStorage.getItem('intro')==='1';sessionStorage.setItem('intro','1')}catch(e){}
@@ -1035,7 +935,7 @@ tag('#cases .wk-top','up');tag('#cases .wk-view','zoom');
 tag('#approach h2','clip');tag('#approach .flow > *','up',.12);
 tag('#price .top','up');tag('#price .plan','right',.14);tag('#price .extra2 .ex','up',.05);
 tag('#faq h2','clip');tag('#faq details','up',.06);
-tag('#fx h2','clip');tag('#fx .drum-wrap','zoom');tag('#fx .drum-ui','up');
+tag('#inside h2','clip');tag('#inside .ft','up',.1);tag('#inside .ftx > *','up',.08);
 tag('#contact .wrap > *','blur',.12);
 document.documentElement.classList.add('rv-on');
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target._rv||e.target;t.classList.add('in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -8% 0px'});
