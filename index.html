@@ -15,7 +15,14 @@
 <meta property="og:image" content="https://denis-sites.github.io/parad1se-sites/og.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="claude:viewport-fit-sides" content="cover">
+<!-- Яндекс Метрика: счётчик 114284932 (Вебвизор, карта кликов). Стоит в <head>, чтобы учитывать даже тех, кто быстро закрыл сайт -->
+<script>
+var YM_ID=114284932;
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();
+ k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+ (window,document,'script','https://mc.yandex.ru/metrika/tag.js?id='+YM_ID,'ym');
+ym(YM_ID,'init',{webvisor:true,clickmap:true,trackLinks:true,accurateTrackBounce:true});
+</script><meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap&subset=cyrillic" rel="stylesheet">
@@ -1051,14 +1058,7 @@ fit();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);var
  new IntersectionObserver(function(e){endIn=e[0].isIntersecting;upd()},{threshold:.15}).observe(end);
 })();
 
-/* Яндекс Метрика. Вставь номер счётчика вместо 0 (metrika.yandex.ru → Добавить счётчик).
-   Пока стоит 0, Метрика не грузится. Цель в Метрике: тип «JavaScript-событие», идентификатор tg_click */
-var YM_ID=0;
-if(YM_ID){(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();
- k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
- (window,document,'script','https://mc.yandex.ru/metrika/tag.js','ym');
- ym(YM_ID,'init',{clickmap:true,trackLinks:true,accurateTrackBounce:true});}
-/* любой клик по ссылке в Telegram = цель tg_click */
+/* любой клик по ссылке в Telegram = цель tg_click в Метрике (сам счётчик подключён в <head>) */
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="t.me/"]');
  if(a&&YM_ID&&window.ym)ym(YM_ID,'reachGoal','tg_click')});
 </script>
