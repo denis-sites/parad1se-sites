@@ -536,6 +536,43 @@ body{background:transparent!important}
 @media(max-width:900px){.ftx{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.fts,.ftx{grid-template-columns:1fr}.inside{padding-block:80px}}
 .plan .now{white-space:nowrap}
+
+/* ===== Веер из сайтов за фото в первом экране ===== */
+.hero .hstage{position:absolute;top:50%;right:max(24px,calc((100vw - 1280px)/2 + 24px));width:clamp(240px,27vw,390px);aspect-ratio:4/5;margin-top:calc(clamp(240px,27vw,390px)*-.62);z-index:1;animation:heroFloat 7s ease-in-out infinite}
+.hero .hstage .photo{position:absolute;inset:0;top:0;right:0;width:100%;height:100%;margin:0;animation:none;z-index:2}
+.fan{position:absolute;inset:0;z-index:1}
+.fp{position:absolute;left:24%;bottom:5%;width:52%;aspect-ratio:420/860;border-radius:20px;overflow:hidden;border:3px solid #1c1c1c;background:#111;box-shadow:0 30px 60px -20px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.08);transform-origin:50% 100%;transform:none;transition:transform 1s cubic-bezier(.2,.8,.2,1);cursor:pointer}
+.fp img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.fp:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.55))}
+/* раскрытие после интро; на десктопе веер уходит влево, к тексту, один телефон — вправо */
+.lit .fp:nth-child(1){transform:rotate(-22deg) translateX(-66%);transition-delay:.45s}
+.lit .fp:nth-child(2){transform:rotate(-13deg) translateX(-46%);transition-delay:.35s}
+.lit .fp:nth-child(3){transform:rotate(-5deg) translateX(-26%);transition-delay:.25s}
+.lit .fp:nth-child(4){transform:rotate(12deg) translateX(46%);transition-delay:.55s}
+@media(hover:hover) and (min-width:761px){
+  .lit .hstage:hover .fp{transition-delay:0s}
+  .lit .hstage:hover .fp:nth-child(1){transform:rotate(-27deg) translateX(-78%)}
+  .lit .hstage:hover .fp:nth-child(2){transform:rotate(-17deg) translateX(-56%)}
+  .lit .hstage:hover .fp:nth-child(3){transform:rotate(-7deg) translateX(-33%)}
+  .lit .hstage:hover .fp:nth-child(4){transform:rotate(16deg) translateX(56%)}
+  .lit .fp:hover{filter:brightness(1.12)}
+}
+@media(min-width:761px){.hero .col{max-width:min(640px,calc(100% - clamp(240px,27vw,390px) - 150px))}}
+@media(max-width:760px){
+  .hero .hstage{position:relative;order:1;top:auto;right:auto;margin:22px auto 0;width:min(46vw,200px);animation-duration:8s}
+  .fp{border-radius:14px;border-width:2px}
+  /* телефон: веер симметрично в обе стороны */
+  .lit .fp:nth-child(1){transform:rotate(-27deg) translateX(-30%)}
+  .lit .fp:nth-child(2){transform:rotate(-13deg) translateX(-14%)}
+  .lit .fp:nth-child(3){transform:rotate(13deg) translateX(14%)}
+  .lit .fp:nth-child(4){transform:rotate(27deg) translateX(30%)}
+}
+@media (prefers-reduced-motion:reduce){.hero .hstage{animation:none}.fp{transition:none}}
+
+/* ===== Соты: LED-потолок детейлинг-бокса за блоком «Что внутри» ===== */
+.inside{position:relative;isolation:isolate}
+.inside .hex{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(180deg,transparent,#000 14%,#000 86%,transparent)}
+.inside .ft,.inside .ftx div{background:rgba(9,9,9,.86)}
 </style>
 </head>
 <body>
@@ -547,7 +584,16 @@ body{background:transparent!important}
 <div class="flash" aria-hidden="true"></div>
 
 <header class="hero">
-  <div class="photo"><img src="img/f18ca2116a.webp" alt="Денис" width="640" height="640" fetchpriority="high"><span class="cap">parad1se · 2026</span></div>
+  <!-- Сцена первого экрана: веер из моих сайтов за фото. Телефон → кейс в блоке «Работы» (data-tab = номер вкладки) -->
+  <div class="hstage">
+    <div class="fan" aria-label="Мои сайты">
+      <a class="fp" href="#cases" data-tab="0" aria-label="Кейс Детейлинг Гараж"><img src="img/6f6ce8adba.webp" alt="" loading="eager" decoding="async"></a>
+      <a class="fp" href="#cases" data-tab="1" aria-label="Кейс BlackEmpire"><img src="img/54edb02c49.webp" alt="" loading="eager" decoding="async"></a>
+      <a class="fp" href="#cases" data-tab="4" aria-label="Черновик GER CAR"><img src="img/58d54d7e22.webp" alt="" loading="eager" decoding="async"></a>
+      <a class="fp" href="#cases" data-tab="2" aria-label="Черновик Антисан"><img src="img/dec7881f9c.webp" alt="" loading="eager" decoding="async"></a>
+    </div>
+    <div class="photo"><img src="img/f18ca2116a.webp" alt="Денис" width="640" height="640" fetchpriority="high"><span class="cap">parad1se · 2026</span></div>
+  </div>
   <div class="grain" aria-hidden="true"></div>
   <nav class="nav">
     <a class="logo" href="#" aria-label="parad1se sites">parad<em>1</em>se<span>sites</span></a>
@@ -961,6 +1007,45 @@ fit();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);var
 /* любой клик по ссылке в Telegram = цель tg_click в Метрике (сам счётчик подключён в <head>) */
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="t.me/"]');
  if(a&&YM_ID&&window.ym)ym(YM_ID,'reachGoal','tg_click')});
+</script>
+
+<script>
+/* ===== Веер: нажатие на телефон открывает нужный кейс ===== */
+(function(){var tabs=document.querySelectorAll('#cases .wk-tabs button');
+ [].forEach.call(document.querySelectorAll('.fp'),function(a){a.addEventListener('click',function(e){var b=tabs[+a.dataset.tab];if(b){e.preventDefault();document.getElementById('cases').scrollIntoView({behavior:'smooth'});setTimeout(function(){b.click()},500)}})});
+})();
+
+/* ===== Соты: шестиугольные LED-трубки, разгораются у курсора/пальца, без него свет медленно гуляет =====
+   R — размер соты, BASE — яркость в покое, PEAK — яркость у курсора */
+(function(){var sec=document.getElementById('inside');if(!sec||!sec.getContext&&!document.createElement('canvas').getContext)return;
+ var cv=document.createElement('canvas');cv.className='hex';cv.setAttribute('aria-hidden','true');sec.insertBefore(cv,sec.firstChild);
+ var c=cv.getContext('2d'),RM=matchMedia('(prefers-reduced-motion: reduce)').matches,lite=matchMedia('(max-width:760px)').matches;
+ var W,H,R,cells=[],px=-1,py=-1,lx=0,ly=0,hasP=false,vis=false,last=0,BASE=.07,PEAK=.85,GAP=.16;
+ function size(){var d=Math.min(devicePixelRatio||1,lite?1.5:2);W=sec.offsetWidth;H=sec.offsetHeight;cv.width=W*d;cv.height=H*d;c.setTransform(d,0,0,d,0,0);
+  R=W<700?30:44;var w=Math.sqrt(3)*R,h=1.5*R;cells=[];for(var row=-1;row*h<H+R;row++)for(var col=-1;col*w<W+w;col++)cells.push([col*w+(row&1?w/2:0),row*h]);
+  if(!hasP){lx=W*.5;ly=H*.45}}
+ /* у каждой соты рисуем 3 ребра из 6 — соседние дорисуют остальные, дублей нет */
+ function frame(t){
+  if(!RM&&!hasP){lx=W*(.5+.38*Math.sin(t/5200));ly=H*(.45+.3*Math.sin(t/3900+1))}
+  c.clearRect(0,0,W,H);c.globalCompositeOperation='lighter';c.lineCap='round';
+  var rad=W<700?150:240;
+  for(var i=0;i<cells.length;i++){var cx=cells[i][0],cy=cells[i][1];
+   for(var k=0;k<3;k++){var a1=Math.PI/180*(60*k-30),a2=a1+Math.PI/3;
+    var x1=cx+R*Math.cos(a1),y1=cy+R*Math.sin(a1),x2=cx+R*Math.cos(a2),y2=cy+R*Math.sin(a2);
+    var mx=(x1+x2)/2,my=(y1+y2)/2,dx=mx-lx,dy=my-ly,g=Math.exp(-(dx*dx+dy*dy)/(rad*rad));
+    var a=BASE*(.75+.25*Math.sin(t/1400+mx*.01+my*.013))+PEAK*g;if(a<.03)continue;
+    var gx=(x2-x1)*GAP,gy=(y2-y1)*GAP;x1+=gx;y1+=gy;x2-=gx;y2-=gy;
+    c.strokeStyle='rgba(255,236,214,'+(a*.22)+')';c.lineWidth=7;c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.stroke();
+    c.strokeStyle='rgba(255,250,242,'+a+')';c.lineWidth=1.6;c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.stroke()}}
+  c.globalCompositeOperation='source-over'}
+ function loop(t){if(!vis)return;if(lite&&t-last<33){requestAnimationFrame(loop);return}last=t;
+  if(hasP){lx+=(px-lx)*.14;ly+=(py-ly)*.14}frame(t);requestAnimationFrame(loop)}
+ size();addEventListener('resize',function(){size();if(RM)frame(0)});
+ sec.addEventListener('pointermove',function(e){var r=sec.getBoundingClientRect();px=e.clientX-r.left;py=e.clientY-r.top;if(!hasP){hasP=true;lx=px;ly=py}});
+ sec.addEventListener('pointerleave',function(){hasP=false});
+ if(RM){frame(0);return}
+ new IntersectionObserver(function(es){var v=es[0].isIntersecting;if(v&&!vis){vis=true;requestAnimationFrame(loop)}else vis=v}).observe(sec);
+})();
 </script>
 </body>
 </html>
