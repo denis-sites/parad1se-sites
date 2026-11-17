@@ -573,6 +573,47 @@ body{background:transparent!important}
 .inside{position:relative;isolation:isolate}
 .inside .hex{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(180deg,transparent,#000 14%,#000 86%,transparent)}
 .inside .ft,.inside .ftx div{background:rgba(9,9,9,.86)}
+
+/* ===== WhatsApp-кнопки ===== */
+.btn.wa svg{width:17px;height:17px}
+.btn.ghost.wa:hover{border-color:#25d366;color:#fff}
+.end-alt{margin-top:14px;display:flex;justify-content:center}
+.stick .btn{flex:1;justify-content:center}
+.stick .btn.wa{flex:0 0 56px;padding:0;background:#25d366;color:#08140c}
+@media(max-width:760px){.stick{gap:8px}}
+
+/* ===== Блик полировки: пробегает по главным кнопкам раз в несколько секунд ===== */
+.hero .row .btn:first-child,#end-btn,.stick .btn:first-child{position:relative;overflow:hidden;isolation:isolate}
+.hero .row .btn:first-child::after,#end-btn::after,.stick .btn:first-child::after{content:"";position:absolute;top:-20%;bottom:-20%;left:-60%;width:45%;z-index:1;pointer-events:none;
+  background:linear-gradient(105deg,transparent,rgba(255,255,255,.55) 45%,rgba(255,255,255,.85) 50%,rgba(255,255,255,.55) 55%,transparent);transform:skewX(-18deg);animation:shine 4.2s cubic-bezier(.4,0,.2,1) infinite}
+#end-btn::after{animation-delay:1.2s}.stick .btn:first-child::after{animation-delay:.6s}
+@keyframes shine{0%,62%{left:-60%}100%{left:130%}}
+
+/* ===== Кто делает ===== */
+.who{padding-block:110px;border-top:1px solid var(--line)}
+.who-g{display:grid;grid-template-columns:minmax(220px,340px) 1fr;gap:56px;align-items:center}
+.who-ph{border-radius:28px;overflow:hidden;aspect-ratio:4/5;border:1px solid var(--line);box-shadow:0 40px 80px -30px rgba(0,0,0,.9)}
+.who-ph img{width:100%;height:100%;object-fit:cover;object-position:55% 30%}
+.who h2{margin:18px 0 0;font:900 clamp(28px,4.6vw,60px)/1 var(--display);letter-spacing:-.04em;text-transform:uppercase;text-wrap:balance}
+.who .lead{color:#bdbdba;max-width:620px;margin:20px 0 30px}
+.who-f{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.who-f li{border:1px solid var(--line);border-radius:18px;padding:16px 18px;background:rgba(9,9,9,.6);display:grid;gap:4px}
+.who-f b{font:700 16px var(--body)}.who-f span{color:#a9a9a6;font-size:14px}
+@media(max-width:760px){.who{padding-block:80px}.who-g{grid-template-columns:1fr;gap:28px}.who-ph{max-width:220px;aspect-ratio:1;border-radius:24px}.who-f{grid-template-columns:1fr}}
+
+/* ===== Раскрытие скрина при прокрутке ===== */
+.sx{height:170vh;position:relative}
+.sx-pin{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;overflow:hidden;padding:0 16px}
+.sx-cap{text-align:center;transition:opacity .2s}
+.sx-cap .num{justify-content:center}
+.sx-cap b{display:block;margin-top:12px;font:900 clamp(24px,4vw,52px)/1 var(--display);letter-spacing:-.04em;text-transform:uppercase}
+.sx-frame{width:calc(var(--w,58)*1%);max-width:1500px;border-radius:var(--rr,24px);overflow:hidden;border:1px solid var(--line);background:#111;box-shadow:0 60px 120px -40px rgba(0,0,0,.95);will-change:width}
+.sx-frame img{display:block;width:100%;height:auto}
+.sx-bar{display:flex;align-items:center;gap:7px;padding:11px 16px;background:#161616;border-bottom:1px solid var(--line);font:500 12px var(--mono);color:var(--dim)}
+.sx-bar i{width:9px;height:9px;border-radius:50%;background:#333}.sx-bar span{margin-left:10px}
+/* телефон: без эффекта, просто крупный скрин с подписью */
+@media(max-width:760px){.sx{height:auto;padding-block:70px 20px}.sx-pin{position:static;height:auto;gap:22px}.sx-frame{--w:100!important;--rr:18px!important}}
+@media (prefers-reduced-motion:reduce){.sx{height:auto;padding-block:80px}.sx-pin{position:static;height:auto}.sx-frame{--w:100!important}.hero .row .btn:first-child::after,#end-btn::after,.stick .btn:first-child::after{animation:none;display:none}}
 </style>
 </head>
 <body>
@@ -607,12 +648,21 @@ body{background:transparent!important}
       <p class="free">Соберу сайт на ваших фото и отзывах с Яндекс Карт и запущу бесплатно. Платите, только если за месяц с сайта придут заявки.</p>
       <div class="row">
         <a class="btn" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B9%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8.%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%D1%8B%3A%20" target="_blank" rel="noopener">Хочу сайт для студии <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="btn ghost wa" href="https://wa.me/79936957475?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B9%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8.%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%D1%8B%3A%20" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg> WhatsApp</a>
         <a class="btn ghost" href="#cases">Смотреть работы</a>
       </div>
     </div>
   </div>
   <div class="scroll" aria-hidden="true">листайте<i></i></div>
 </header>
+
+<!-- ===== Скрин сайта раскрывается на весь экран при прокрутке (идея с 21st.dev, на чистом JS) ===== -->
+<section class="sx" id="showreel" aria-label="Пример сайта">
+  <div class="sx-pin">
+    <div class="sx-cap"><div class="num">Так это выглядит</div><b>Сайт, с которого пишут клиенты</b></div>
+    <div class="sx-frame"><div class="sx-bar"><i></i><i></i><i></i><span>garage-detailing.netlify.app</span></div><img src="img/6f2b8bfaa6.webp" alt="Сайт Детейлинг Гараж" loading="lazy" decoding="async" width="1100" height="688"></div>
+  </div>
+</section>
 
 <section class="works" id="cases"><div class="wrap">
   <div class="wk-top"><div><div class="num">Работы</div><h2>Сайты автостудий</h2></div>
@@ -767,6 +817,24 @@ body{background:transparent!important}
   </div>
 </section>
 
+<!-- ===== Кто делает сайт: доверие ===== -->
+<section class="who" id="who"><div class="wrap">
+  <div class="who-g">
+    <div class="who-ph"><img src="img/f18ca2116a.webp" alt="Денис" loading="lazy" decoding="async"></div>
+    <div>
+      <div class="num">Кто делает</div>
+      <h2>Денис, один и без менеджеров</h2>
+      <p class="lead">Делаю сайты только для детейлинга и автостудий — поэтому знаю, что спрашивают ваши клиенты: сколько стоит для моей машины, как это будет выглядеть и когда можно приехать. Пишете напрямую мне и получаете ответ в течение дня.</p>
+      <ul class="who-f">
+        <li><b>Официально</b><span>Самозанятый, чек через «Мой налог»</span></li>
+        <li><b>Всё ваше</b><span>Домен на вас, код и доступы передаю</span></li>
+        <li><b>На связи</b><span>Ежедневно с 9 до 23, Telegram и WhatsApp</span></li>
+        <li><b>Только автостудии</b><span>Детейлинг, тонировка, оклейка, шумоизоляция</span></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
 <section class="faq" id="faq"><div class="wrap">
   <div class="num">Частые вопросы</div>
   <h2>Что обычно спрашивают</h2>
@@ -776,6 +844,7 @@ body{background:transparent!important}
     <details><summary>Зачем сайт, если есть Яндекс Карты?</summary><p>Карточка показывает рейтинг, а сайт продаёт: цена для конкретной машины, до/после, примерка тонировки, ответы на вопросы. Ссылку на сайт ставим в карточку, и клиент с Карт приходит уже готовым записаться.</p></details>
     <details><summary>Что нужно от меня?</summary><p>Почти ничего. Фото работ и отзывы беру с ваших Яндекс Карт. От вас — проверить цены и написать, куда принимать заявки: WhatsApp, Telegram, VK, звонок — можно все сразу, клиент выберет сам.</p></details>
     <details><summary>Сколько ждать?</summary><p>Черновик пришлю за день. После ваших правок запускаю сайт, обычно за 2–3 дня.</p></details>
+    <details><summary>А если вы пропадёте?</summary><p>Сайт останется работать: он лежит на хостинге, домен оформлен на вас, код и доступы я передаю. Любой веб-разработчик сможет его продолжить. А пока я на связи — правлю сам.</p></details>
     <details><summary>Кто будет править сайт потом?</summary><p>Я. Новые фото, цены, акции — по поддержке за 2–3 тыс. ₽ в месяц или разово. Сайт и доступы ваши.</p></details>
   </div>
 </div></section>
@@ -786,13 +855,14 @@ body{background:transparent!important}
   <h2>Покажу сайт вашей студии</h2>
   <p>Скиньте ссылку на вашу студию в Яндекс Картах — соберу черновик на ваших фото и пришлю ссылку. Бесплатно и ни к чему не обязывает, отвечаю в течение дня.</p>
   <a class="mag" id="end-btn" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B9%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8.%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%D1%8B%3A%20" target="_blank" rel="noopener">Написать в Telegram <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-  <span class="handle">@belivegodsplan</span>
+  <div class="end-alt"><a class="btn ghost wa" href="https://wa.me/79936957475?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B9%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8.%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%D1%8B%3A%20" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg> Написать в WhatsApp</a></div>
+  <span class="handle">Telegram @belivegodsplan · WhatsApp +7 993 695-74-75</span>
   <footer class="foot"><span>parad1se sites · Денис</span><span>2026</span></footer>
 </div></section>
 
 
 <!-- липкая кнопка на телефоне: появляется после первого экрана, прячется у блока «Контакты» -->
-<a class="stick btn" id="stick" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B9%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8.%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%D1%8B%3A%20" target="_blank" rel="noopener">Хочу сайт для студии</a>
+<div class="stick" id="stick"><a class="btn" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B9%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8.%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%D1%8B%3A%20" target="_blank" rel="noopener">Хочу сайт для студии</a><a class="btn wa" href="https://wa.me/79936957475?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B9%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8.%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%D1%8B%3A%20" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg></a></div>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Скриншот"><button type="button" aria-label="Закрыть">×</button><img alt=""><p>Нажмите, чтобы закрыть</p></div>
 
 <script>
@@ -1004,7 +1074,9 @@ fit();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);var
  new IntersectionObserver(function(e){endIn=e[0].isIntersecting;upd()},{threshold:.15}).observe(end);
 })();
 
-/* любой клик по ссылке в Telegram = цель tg_click в Метрике (сам счётчик подключён в <head>) */
+/* клик по ссылке в Telegram = цель tg_click, в WhatsApp = цель wa_click (обе — «JavaScript-событие» в Метрике) */
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me/"]');
+ if(a&&YM_ID&&window.ym)ym(YM_ID,'reachGoal','wa_click')});
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="t.me/"]');
  if(a&&YM_ID&&window.ym)ym(YM_ID,'reachGoal','tg_click')});
 </script>
@@ -1045,6 +1117,17 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
  sec.addEventListener('pointerleave',function(){hasP=false});
  if(RM){frame(0);return}
  new IntersectionObserver(function(es){var v=es[0].isIntersecting;if(v&&!vis){vis=true;requestAnimationFrame(loop)}else vis=v}).observe(sec);
+})();
+</script>
+
+<script>
+/* ===== Раскрытие скрина: ширина рамки растёт с 58% до 100% по мере прокрутки (только десктоп) ===== */
+(function(){var sx=document.getElementById('showreel');if(!sx||matchMedia('(prefers-reduced-motion: reduce)').matches||matchMedia('(max-width:760px)').matches)return;
+ var fr=sx.querySelector('.sx-frame'),cap=sx.querySelector('.sx-cap'),ticking=false;
+ function upd(){ticking=false;var r=sx.getBoundingClientRect(),span=sx.offsetHeight-innerHeight;var p=Math.max(0,Math.min(1,-r.top/(span||1)));
+  var e=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2,from=58;
+  fr.style.setProperty('--w',(from+(100-from)*e).toFixed(2));fr.style.setProperty('--rr',(24*(1-e)).toFixed(1)+'px');cap.style.opacity=Math.max(0,1-p*2.2).toFixed(2)}
+ addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(upd)}},{passive:true});addEventListener('resize',upd);upd();
 })();
 </script>
 </body>
