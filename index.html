@@ -678,6 +678,51 @@ body{background:transparent!important}
   .hx-down{display:none}
 }
 @media (prefers-reduced-motion:reduce){.js .hx-nav,.js .hx-c>*{opacity:1;translate:none;transition:none}.hx-down i{animation:none}}
+
+/* ===== Окно «Куда написать»: Telegram / WhatsApp / звонок (блок 6 из набора визуалов, как у Антисана).
+   Любая ссылка с data-book открывает его. Телефон: выезжает снизу, ПК: по центру.
+   Волна по краю: скорость в glowspin 11s, яркость в .32 (меньше = тусклее) ===== */
+html.lock{overflow:hidden}
+.bk{--glow-rgb:255,255,255;--glow-tint:200,200,200;--e:cubic-bezier(.16,1,.3,1);position:fixed;inset:0;z-index:300;display:grid;place-items:center;padding:20px;visibility:hidden;pointer-events:none;transition:visibility 0s .5s}
+.bk.on{visibility:visible;pointer-events:auto;transition:none}
+.bk-bg{position:absolute;inset:0;background:rgba(0,0,0,.72);opacity:0;transition:opacity .45s ease}
+.bk.on .bk-bg{opacity:1}
+.bk-card{position:relative;width:min(440px,100%);border-radius:28px;overflow:hidden;isolation:isolate;background:rgba(255,255,255,.1);box-shadow:0 40px 120px -30px #000;opacity:0;transform:translate3d(0,26px,0) scale(.97);transition:opacity .45s ease,transform .6s var(--e)}
+.bk.on .bk-card{opacity:1;transform:none}
+.bk-card:before{content:"";position:absolute;left:50%;top:50%;width:170%;aspect-ratio:1;z-index:-2;background:conic-gradient(from 0deg,transparent 0 60%,rgba(var(--glow-rgb),.06) 70%,rgba(var(--glow-rgb),.32) 79%,rgba(var(--glow-tint),.16) 84%,transparent 90%);transform:translate(-50%,-50%);animation:bkspin 11s linear infinite}
+@keyframes bkspin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.bk:not(.on) .bk-card:before{animation-play-state:paused}
+.bk-card:after{content:"";position:absolute;inset:1px;z-index:-1;border-radius:27px;background:radial-gradient(120% 70% at 50% 0%,#1c1c1c 0,#0c0c0c 55%,#080808 100%)}
+.bk-in{position:relative;padding:30px 26px 24px;text-align:left}
+.bk-x{position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.04);color:#cfcfcb;font-size:22px;line-height:1;cursor:pointer}
+.bk-grab{display:none}
+.bk-k{display:block;font:500 11px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#7c7c78}
+.bk-in h3{font:900 22px/1.15 var(--display);letter-spacing:-.03em;text-transform:uppercase;margin:10px 50px 8px 0}
+.bk-sub{margin:0;color:#a3a3a0;font-size:15px;line-height:1.5}
+.bk-list{display:grid;gap:8px;margin-top:22px}
+.bk-o{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.03);transition:background .25s,border-color .25s,transform .25s}
+.bk-o:hover,.bk-o:focus-visible{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.3);outline:none}
+.bk-o:active{transform:scale(.98)}
+.bk-o i{width:42px;height:42px;flex-shrink:0;display:grid;place-items:center;border-radius:12px;background:#f4f4f2;color:#0a0a0a}
+.bk-o i svg{width:22px;height:22px}
+.bk-o span{flex:1;min-width:0}
+.bk-o b{display:block;font:700 16px var(--body)}
+.bk-o small{display:block;color:#a3a3a0;font-size:13.5px;margin-top:1px}
+.bk-o em{font-style:normal;color:#7c7c78;transition:transform .25s,color .25s}
+.bk-o:hover em{transform:translateX(4px);color:#fff}
+.bk-note{min-height:20px;margin:12px 0 0;color:#cfcfcb;font-size:13.5px;text-align:center}
+.js .bk .bk-o{opacity:0;transform:translate3d(0,14px,0)}
+.bk.on .bk-o{opacity:1;transform:none;transition:opacity .5s ease,transform .7s var(--e),background .25s,border-color .25s}
+.bk.on .bk-o:nth-child(1){transition-delay:.12s}.bk.on .bk-o:nth-child(2){transition-delay:.18s}.bk.on .bk-o:nth-child(3){transition-delay:.24s}
+@media (max-width:640px){
+  .bk{place-items:end center;padding:0}
+  .bk-card{width:100%;border-radius:28px 28px 0 0;transform:translate3d(0,100%,0);transition:opacity .3s ease,transform .6s var(--e)}
+  .bk-card:after{border-radius:27px 27px 0 0;inset:1px 1px 0 1px}
+  .bk-in{padding:12px 20px max(22px,env(safe-area-inset-bottom))}
+  .bk-grab{display:block;width:40px;height:4px;border-radius:4px;background:rgba(255,255,255,.2);margin:0 auto 18px}
+  .bk-x{top:22px}.bk-in h3{font-size:20px}
+}
+@media (prefers-reduced-motion:reduce){.bk-card:before{animation:none}.bk *,.bk{transition:none!important}.js .bk .bk-o{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -693,7 +738,7 @@ body{background:transparent!important}
   <nav class="hx-nav">
     <a class="hx-logo" href="#top" aria-label="zasornov studio">zasornov<span>studio</span></a>
     <ul><li><a href="#cases">Работы</a></li><li><a href="#inside">Что внутри</a></li><li><a href="#price">Условия</a></li><li><a href="#faq">Вопросы</a></li></ul>
-    <a class="hx-navbtn" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B9%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8.%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%D1%8B%3A%20" target="_blank" rel="noopener">Написать</a>
+    <a class="hx-navbtn" href="#write" data-book>Написать</a>
   </nav>
   <div class="hx-c">
     <!-- плашка с фото: кто делает. Фото и подпись меняются тут -->
@@ -701,8 +746,7 @@ body{background:transparent!important}
     <h1>Нет заявок — нет оплаты</h1>
     <p class="hx-sub">Запускаю сайт для вашей студии бесплатно. Пошли заявки за месяц — <b>10&nbsp;000&nbsp;₽ один раз</b>. Не пошли — 0&nbsp;₽, сайт остаётся вам.</p>
     <div class="hx-row">
-      <a class="btn" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B9%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8.%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%D1%8B%3A%20" target="_blank" rel="noopener">Забрать черновик <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-      <a class="btn ghost wa" href="https://wa.me/79936957475?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B9%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8.%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%D1%8B%3A%20" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn" href="#write" data-book>Забрать черновик <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
     </div>
     <ul class="hx-proof"><li>Черновик за день</li><li>Самозанятый, чек</li><li>Домен и доступы ваши</li></ul>
   </div>
@@ -1182,6 +1226,48 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
   var e=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2,from=58;
   fr.style.setProperty('--w',(from+(100-from)*e).toFixed(2));fr.style.setProperty('--rr',(24*(1-e)).toFixed(1)+'px');cap.style.opacity=Math.max(0,1-p*2.2).toFixed(2)}
  addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(upd)}},{passive:true});addEventListener('resize',upd);upd();
+})();
+</script>
+
+<!-- ===== Окно «Куда написать». Контакты — в CONTACT в скрипте ниже ===== -->
+<div class="bk" id="bk" aria-hidden="true">
+  <div class="bk-bg" data-close></div>
+  <div class="bk-card" role="dialog" aria-modal="true" aria-labelledby="bkT">
+    <div class="bk-in">
+      <button class="bk-x" type="button" data-close aria-label="Закрыть">×</button>
+      <span class="bk-grab" aria-hidden="true"></span>
+      <small class="bk-k">Бесплатный черновик</small>
+      <h3 id="bkT">Куда удобнее написать?</h3>
+      <p class="bk-sub">Скиньте ссылку на студию в Яндекс Картах — соберу черновик за день. Отвечаю сам, ежедневно с 9 до 23.</p>
+      <div class="bk-list">
+        <a class="bk-o" data-ch="tg" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.4 4.3 2.9 11.4c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.8.8.4 0 .6-.2.9-.4l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.3-1.5zM9.6 14.6l-.4 4.1-1.4-4.6 10.6-6.7-8.8 7.2z"/></svg></i><span><b>Telegram</b><small>@belivegodsplan</small></span><em>→</em></a>
+        <a class="bk-o" data-ch="wa" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.6-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3c-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg></i><span><b>WhatsApp</b><small>Написать сообщение</small></span><em>→</em></a>
+        <a class="bk-o" data-ch="call"><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></i><span><b>Позвонить</b><small id="bkPh"></small></span><em>→</em></a>
+      </div>
+      <p class="bk-note" id="bkN" aria-live="polite"></p>
+    </div>
+  </div>
+</div>
+<script>
+/* ===== Окно «Куда написать»: мои контакты ===== */
+(function(){
+var CONTACT={tg:'belivegodsplan',wa:'79936957475',phone:'+79936957475',phoneText:'+7 993 695-74-75'};
+var MSG='Привет! Хочу сайт для своей студии. Ссылка на Яндекс Карты: ';
+var bk=document.getElementById('bk'),bkN=document.getElementById('bkN'),from=null;
+function q(ch){return bk.querySelector('[data-ch='+ch+']')}
+q('tg').href='https://t.me/'+CONTACT.tg+'?text='+encodeURIComponent(MSG);
+q('wa').href='https://wa.me/'+CONTACT.wa+'?text='+encodeURIComponent(MSG);
+q('call').href='tel:'+CONTACT.phone;document.getElementById('bkPh').textContent=CONTACT.phoneText;
+function open(a){from=a;bkN.textContent='';bk.setAttribute('aria-hidden','false');document.documentElement.classList.add('lock');
+  setTimeout(function(){bk.classList.add('on')},20);setTimeout(function(){q('tg').focus({preventScroll:true})},350)}
+function close(){bk.classList.remove('on');bk.setAttribute('aria-hidden','true');document.documentElement.classList.remove('lock');if(from)from.focus({preventScroll:true})}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-book]');if(!a)return;e.preventDefault();open(a)});
+[].forEach.call(bk.querySelectorAll('[data-close]'),function(x){x.onclick=close});
+addEventListener('keydown',function(e){if(e.key==='Escape'&&bk.classList.contains('on'))close()});
+/* в Telegram текст по ссылке иногда не подставляется: копируем его, клиент вставит */
+q('tg').addEventListener('click',function(){if(navigator.clipboard)navigator.clipboard.writeText(MSG).then(function(){bkN.textContent='Текст скопирован — вставьте его в чат'},function(){})});
+/* звонок = цель call_click в Метрике */
+q('call').addEventListener('click',function(){if(window.ym&&window.YM_ID)ym(YM_ID,'reachGoal','call_click')});
 })();
 </script>
 
