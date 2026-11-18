@@ -464,7 +464,7 @@ body{background:transparent!important}
 .more .extra2{margin-top:0;padding-bottom:20px}
 
 /* ===== Листание без стрелок: тянем мышкой/пальцем, соседние карточки видны по краям ===== */
-#cases{overflow:hidden}
+#cases.works{overflow:hidden}
 #cases .wk-view{overflow:visible;clip-path:none!important;width:88%;cursor:grab;user-select:none;-webkit-user-select:none}
 #cases .wk-view.drag{cursor:grabbing}
 #cases .wk-view img{-webkit-user-drag:none;user-drag:none}
@@ -637,12 +637,10 @@ body{background:transparent!important}
 @media (prefers-reduced-motion:reduce){.cbtn::before{animation:none;background:var(--c);opacity:.5}}
 
 /* ===== Первый экран (новый): ч/б, по центру ===== */
-.hx{position:relative;min-height:100svh;display:flex;flex-direction:column;overflow:hidden;isolation:isolate;
-  /* запасной фон, если WebGL не завёлся */
+.hx{position:relative;min-height:100svh;display:flex;flex-direction:column;overflow:hidden;isolation:isolate}
+/* общий фон-шейдер: закреплён за экраном, всё остальное поверх. Запасной фон — если WebGL не завёлся */
+.gl-bg{position:fixed;left:0;top:0;width:100%;height:100lvh;z-index:-1;display:block;pointer-events:none;
   background:radial-gradient(55% 45% at 35% 35%,#262626,transparent 70%),radial-gradient(45% 45% at 70% 70%,#1a1a1a,transparent 70%),#0a0a0a}
-.hx-gl{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:-2}
-/* низ экрана плавно уходит в фон страницы */
-.hx::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;z-index:-1;background:linear-gradient(transparent,var(--black));pointer-events:none}
 .hx-nav{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;max-width:1280px;margin:0 auto;padding:22px max(20px,env(safe-area-inset-right,0px)) 0 max(20px,env(safe-area-inset-left,0px))}
 .hx-logo{font:700 19px var(--display);letter-spacing:-.04em;text-transform:lowercase;color:#fff}
 .hx-logo span{font-weight:400;color:#8f8f8c;margin-left:.32em}
@@ -678,6 +676,63 @@ body{background:transparent!important}
   .hx-down{display:none}
 }
 @media (prefers-reduced-motion:reduce){.js .hx-nav,.js .hx-c>*{opacity:1;translate:none;transition:none}.hx-down i{animation:none}}
+
+
+/* ===== Кейсы: папка + два кейса ===== */
+.fc{position:relative}
+.fc-pin{position:relative;height:210vh}
+.fc-stage{position:sticky;top:0;height:100svh;display:grid;place-items:center;perspective:1400px;overflow:hidden}
+.folder{position:relative;width:min(760px,88vw);aspect-ratio:1.38;transform-origin:50% 100%;will-change:transform,opacity}
+/* задняя стенка с ушком справа */
+.f-back{position:absolute;inset:7% 0 0 0;border-radius:24px;background:linear-gradient(180deg,#2e2e2e,#151515 55%);border:1px solid rgba(255,255,255,.15);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 70px 140px -50px #000}
+.f-back::before{content:"";position:absolute;right:-1px;top:-11%;width:32%;height:calc(11% + 3px);border-radius:18px 20px 0 0;background:#2e2e2e;border:1px solid rgba(255,255,255,.15);border-bottom:0;box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
+/* листы с сайтами внутри папки */
+.f-sheet{position:absolute;left:8%;right:8%;top:10%;height:72%;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.14);background:#0c0c0c;box-shadow:0 -12px 30px -12px rgba(0,0,0,.8);will-change:transform}
+.f-sheet img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;filter:grayscale(1) brightness(.8)}
+.f-sheet.s1{transform:rotate(-2deg)}
+.f-sheet.s2{left:13%;right:4%;top:7%;transform:rotate(3deg)}
+/* передняя стенка: ушко справа, как у настоящей папки */
+.f-front{position:absolute;left:0;right:0;bottom:0;height:78%;border-radius:22px;padding:clamp(18px,4.2%,38px);display:flex;flex-direction:column;
+  background:linear-gradient(180deg,#2a2a2a 0%,#161616 60%,#101010);border:1px solid rgba(255,255,255,.17);box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 -24px 50px -24px rgba(0,0,0,.8)}
+.f-front::before{content:"";position:absolute;left:30%;right:-1px;top:-8%;height:calc(8% + 3px);border-radius:20px 22px 0 0;background:#2a2a2a;border:1px solid rgba(255,255,255,.17);border-bottom:0;box-shadow:inset 0 1px 0 rgba(255,255,255,.24)}
+.f-top{display:flex;justify-content:space-between;align-items:center;color:#8c8c89;font:500 12px var(--mono);letter-spacing:.16em}
+.f-sub{margin-top:auto;font:500 clamp(10px,1.5vw,14px) var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#bdbdb9}
+.f-sub i{font-style:normal;color:#5d5d5a;margin:0 .5em}
+.f-t{display:block;margin:.12em 0 .18em;font:900 clamp(52px,12vw,150px)/.9 var(--display);letter-spacing:-.06em;
+  background:linear-gradient(180deg,#fff 30%,#a3a3a0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.f-bot{display:flex;justify-content:space-between;font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#8c8c89}
+.fc-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);font:500 11px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#8c8c89}
+/* карточки кейсов: наезжают на конец папки и поднимаются снизу */
+.fc-list{position:relative;z-index:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;max-width:1280px;margin:-92vh auto 0;padding:0 max(20px,env(safe-area-inset-right,0px)) 120px max(20px,env(safe-area-inset-left,0px));perspective:1400px}
+.cs{position:relative;display:flex;flex-direction:column;border-radius:28px;background:linear-gradient(180deg,#1c1c1c,#0e0e0e 60%);border:1px solid rgba(255,255,255,.13);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 60px 120px -50px #000;overflow:hidden;transform-origin:50% 0;will-change:transform,opacity}
+.cs-shot{position:relative;margin:14px 14px 0;border-radius:18px;background:#0a0a0a;border:1px solid rgba(255,255,255,.1);overflow:hidden;aspect-ratio:16/11}
+.cs-bar{display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-bottom:1px solid rgba(255,255,255,.08)}
+.cs-bar i{width:8px;height:8px;border-radius:50%;background:#2c2c2c}
+.cs-bar span{margin-left:8px;font:500 11px var(--mono);color:#7c7c78;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cs-d{width:100%;display:block}
+.cs-ph{position:absolute;right:5%;bottom:-16%;width:25%;aspect-ratio:390/844;border-radius:20px;border:3px solid #232323;background:#000;overflow:hidden;box-shadow:0 30px 60px -20px #000,0 0 0 1px rgba(255,255,255,.1)}
+.cs-ph img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+/* ч/б, пока карточка едет; цвет, когда встала на место */
+.cs img{filter:grayscale(1);transition:filter 1.2s ease}
+.cs.lit img{filter:none}
+.cs-b{display:grid;gap:14px;padding:26px 28px 28px}
+.cs-k{font:500 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#8c8c89}
+.cs h3{margin:0;font:900 clamp(30px,3.4vw,46px)/.95 var(--display);letter-spacing:-.05em;text-transform:uppercase}
+.cs-rt{justify-self:start;font:500 12px var(--mono);letter-spacing:.04em;color:#d2d2cf;padding:6px 12px;border:1px solid rgba(255,255,255,.14);border-radius:999px;background:rgba(255,255,255,.03)}
+.cs p{margin:0;color:#b4b4b0;font-size:16px;line-height:1.55}
+.cs-ch{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.cs-ch li{font:500 11.5px var(--mono);letter-spacing:.03em;color:#cfcfcc;padding:7px 12px;border:1px solid rgba(255,255,255,.12);border-radius:999px}
+.cs-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.cs-row .btn{padding:14px 22px;font-size:15px;white-space:nowrap}
+@media(max-width:860px){
+  .fc-pin{height:190vh}
+  .fc-list{grid-template-columns:1fr;gap:22px;margin-top:-80vh}
+  .cs-b{padding:22px 20px 24px}
+  .cs-ph{width:27%;border-radius:14px;border-width:2px}
+}
+@media(max-width:480px){.cs-row .btn{flex:1;justify-content:center;padding:14px 10px;font-size:14px;gap:6px}}
+/* без анимаций: всё сразу на месте */
+.fc.still .fc-pin{height:auto}.fc.still .fc-stage{position:relative;height:auto;padding:80px 0}.fc.still .fc-list{margin-top:0}.fc.still .fc-hint{display:none}
 
 /* ===== Окно «Куда написать»: Telegram / WhatsApp / звонок (блок 6 из набора визуалов, как у Антисана).
    Любая ссылка с data-book открывает его. Телефон: выезжает снизу, ПК: по центру.
@@ -729,12 +784,12 @@ html.lock{overflow:hidden}
 
 
 <script>document.documentElement.classList.add('js');document.documentElement.lang='ru'</script>
-<div class="bgv" aria-hidden="true"><canvas id="space"></canvas><div class="dim"></div></div>
+<!-- общий фон всего сайта: ч/б шейдер (скрипт в конце страницы) -->
+<canvas class="gl-bg" id="glbg" aria-hidden="true"></canvas>
 
 <!-- ===== Первый экран: ч/б шейдер на фоне (идея «Mes pour mes cartes» с 21st.dev, переписан на чистом WebGL),
      по центру заголовок, одна строка условий и две кнопки (как «Call To Action» с 21st.dev) ===== -->
 <header class="hx" id="top">
-  <canvas class="hx-gl" aria-hidden="true"></canvas>
   <nav class="hx-nav">
     <a class="hx-logo" href="#top" aria-label="zasornov studio">zasornov<span>studio</span></a>
     <ul><li><a href="#cases">Работы</a></li><li><a href="#inside">Что внутри</a></li><li><a href="#price">Условия</a></li><li><a href="#faq">Вопросы</a></li></ul>
@@ -750,101 +805,65 @@ html.lock{overflow:hidden}
     </div>
     <ul class="hx-proof"><li>Черновик за день</li><li>Самозанятый, чек</li><li>Домен и доступы ваши</li></ul>
   </div>
-  <a class="hx-down" href="#showreel" aria-label="Смотреть работы">работы<i></i></a>
+  <a class="hx-down" href="#cases" aria-label="Смотреть работы">работы<i></i></a>
 </header>
 
-<!-- ===== Скрин сайта раскрывается на весь экран при прокрутке (идея с 21st.dev, на чистом JS) ===== -->
-<section class="sx" id="showreel" aria-label="Пример сайта">
-  <div class="sx-pin">
-    <div class="sx-cap"><div class="num">Так это выглядит</div><b>Сайт, с которого пишут клиенты</b></div>
-    <div class="sx-frame"><div class="sx-bar"><i></i><i></i><i></i><span>garage-detailing.netlify.app</span></div><img src="img/6f2b8bfaa6.webp" alt="Сайт Детейлинг Гараж" loading="lazy" decoding="async" width="1100" height="688"></div>
+<!-- ===== Кейсы: папка выезжает и выпрямляется (идея «Container Scroll» с 21st.dev), потом уходит вверх,
+     снизу поднимаются два кейса. Всё на transform/opacity, считается только пока блок на экране ===== -->
+<section class="fc" id="cases" aria-label="Кейсы">
+  <div class="fc-pin">
+    <div class="fc-stage">
+      <div class="folder" aria-hidden="true">
+        <div class="f-back"></div>
+        <div class="f-sheet s1"><img src="img/case-antisun-d.jpg" alt="" width="1200" height="750" decoding="async"></div>
+        <div class="f-sheet s2"><img src="img/case-carpro-d.jpg" alt="" width="1200" height="750" decoding="async"></div>
+        <div class="f-front">
+          <div class="f-top"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4l8 8M12 6v6H6"/></svg><span>02</span></div>
+          <small class="f-sub">Тонировка&nbsp;·&nbsp;детейлинг <i>|</i> Москва&nbsp;·&nbsp;Чехов</small>
+          <b class="f-t">Кейсы</b>
+          <div class="f-bot"><span>Antisun · CarPro</span><span>2026</span></div>
+        </div>
+      </div>
+      <div class="fc-hint">листайте</div>
+    </div>
+  </div>
+  <div class="fc-list">
+    <article class="cs">
+      <div class="cs-shot"><div class="cs-bar"><i></i><i></i><i></i><span>denis-sites.github.io/antisan</span></div>
+        <img class="cs-d" src="img/case-antisun-d.jpg" alt="Сайт Antisun на компьютере" width="1200" height="750" loading="lazy" decoding="async">
+        <div class="cs-ph"><img src="img/case-antisun-m.jpg" alt="Сайт Antisun на телефоне" width="390" height="844" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="cs-b">
+        <div class="cs-k">Кейс 01 · Тонировка · Москва</div>
+        <h3>Antisun</h3>
+        <div class="cs-rt">★ 5.0 · 147 оценок на Яндекс Картах</div>
+        <p>Тонировка без очереди на Преображенке. Клиент сам выбирает кузов и плёнку, видит цену и пишет уже с готовым расчётом.</p>
+        <ul class="cs-ch"><li>Примерка тонировки на фото</li><li>Калькулятор плёнок</li><li>Окно записи в 1 касание</li></ul>
+        <div class="cs-row">
+          <a class="btn" href="https://denis-sites.github.io/antisan/" target="_blank" rel="noopener">Открыть сайт <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+          <a class="btn ghost" href="#write" data-book data-k="Хочу такой же" data-sub="Напишите, какой у вас бизнес, — соберу похожий черновик на ваших фото за день." data-msg="Привет! Хочу сайт как у «Antisun». Мой бизнес: ">Хочу такой же</a>
+        </div>
+      </div>
+    </article>
+    <article class="cs">
+      <div class="cs-shot"><div class="cs-bar"><i></i><i></i><i></i><span>carpro-chekhov.github.io</span></div>
+        <img class="cs-d" src="img/case-carpro-d.jpg" alt="Сайт CarPro на компьютере" width="1200" height="750" loading="lazy" decoding="async">
+        <div class="cs-ph"><img src="img/case-carpro-m.jpg" alt="Сайт CarPro на телефоне" width="390" height="844" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="cs-b">
+        <div class="cs-k">Кейс 02 · Детейлинг · Чехов</div>
+        <h3>CarPro</h3>
+        <div class="cs-rt">★ 5,0 · 39 оценок на Яндекс Картах</div>
+        <p>У студии не было ни сайта, ни мессенджеров — только телефон. Теперь клиент считает цену за 30 секунд и записывается с готовой суммой.</p>
+        <ul class="cs-ch"><li>Расчёт цены за 30 секунд</li><li>Примерка тонировки на их Kia</li><li>Отзывы с Яндекс Карт</li></ul>
+        <div class="cs-row">
+          <a class="btn" href="https://carpro-chekhov.github.io/" target="_blank" rel="noopener">Открыть сайт <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+          <a class="btn ghost" href="#write" data-book data-k="Хочу такой же" data-sub="Напишите, какой у вас бизнес, — соберу похожий черновик на ваших фото за день." data-msg="Привет! Хочу сайт как у «CarPro». Мой бизнес: ">Хочу такой же</a>
+        </div>
+      </div>
+    </article>
   </div>
 </section>
-
-<section class="works" id="cases"><div class="wrap">
-  <div class="wk-top"><div><div class="num">Работы</div><h2>Сайты автостудий</h2></div>
-    <div class="wk-tabs" role="tablist"><button class="on" type="button">Детейлинг Гараж</button><button type="button">BlackEmpire</button><button type="button">Антисан</button><button type="button">Тонировка N1</button><button type="button">GER CAR</button></div></div>
-  <div class="wk-view"><div class="wk-track">
-      <article class="wk-slide" aria-label="Кейс 01">
-        <div class="wk-vis">
-          <div class="frame wk-zoom"><div class="bar"><i></i><i></i><i></i><span>garage-detailing</span></div><img class="wk-main" src="img/6f2b8bfaa6.webp" width="1100" height="688" alt="Сайт Детейлинг Гараж" loading="lazy" decoding="async"></div>
-          <div class="wk-phone"><img src="img/6f6ce8adba.webp" alt="Сайт Детейлинг Гараж на телефоне" loading="lazy" decoding="async"></div>
-          <div class="wk-ths"><button class="wk-th on" data-bar="garage-detailing" type="button"><img src="img/6f2b8bfaa6.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#ba" type="button"><img src="img/66695fca94.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#deal" type="button"><img src="img/97429a3174.webp" alt="" loading="lazy" decoding="async"></button></div>
-        </div>
-        <div class="wk-info">
-          <div class="num">Кейс · Детейлинг</div>
-          <h3>Детейлинг Гараж</h3>
-          <p>Гаражный детейлинг в Видном: «до/после» пальцем и оценка повреждения по фото.</p>
-          <ul class="wk-chips"><li>Слайдеры до/после</li><li>Оценка по фото</li><li>Баннер акции</li></ul>
-          <blockquote class="wk-q"><p>«Сайт просто супер, подход к каждой мелочи прям детальный… я в шоке 🤝»</p><small>Анатолий, владелец</small></blockquote>
-          <a class="btn" href="https://garage-detailing.netlify.app/" target="_blank" rel="noopener">Открыть сайт <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
-          <a class="btn ghost want" href="#write" data-book data-msg="Привет! Хочу сайт как у «Детейлинг Гараж». Мой бизнес: " data-k="Хочу такой же" data-sub="Напишите, какой у вас бизнес, — соберу похожий черновик на ваших фото за день.">Хочу такой же</a>
-        </div>
-      </article>
-      <article class="wk-slide" aria-label="Кейс 02">
-        <div class="wk-vis">
-          <div class="frame wk-zoom"><div class="bar"><i></i><i></i><i></i><span>blackempire-cars</span></div><img class="wk-main" src="img/774c49acd2.webp" width="1100" height="688" alt="Сайт BlackEmpire cars" loading="lazy" decoding="async"></div>
-          <div class="wk-phone"><img src="img/54edb02c49.webp" alt="Сайт BlackEmpire cars на телефоне" loading="lazy" decoding="async"></div>
-          <div class="wk-ths"><button class="wk-th on" data-bar="blackempire-cars" type="button"><img src="img/774c49acd2.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#calc" type="button"><img src="img/f8fcdbeada.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#works" type="button"><img src="img/147e7f5c31.webp" alt="" loading="lazy" decoding="async"></button></div>
-        </div>
-        <div class="wk-info">
-          <div class="num">Кейс · Шумоизоляция · автозвук</div>
-          <h3>BlackEmpire cars</h3>
-          <p>Студия в Люберцах: клиент сам считает цену и отправляет расчёт в WhatsApp.</p>
-          <ul class="wk-chips"><li>Калькулятор цены</li><li>Галерея работ</li><li>Схема проезда</li></ul>
-          <blockquote class="wk-q"><p>«Кстати, выглядит здорово»</p><small>Артём, владелец</small></blockquote>
-          <a class="btn" href="https://blackempire-cars-detailing.netlify.app/" target="_blank" rel="noopener">Открыть сайт <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
-          <a class="btn ghost want" href="#write" data-book data-msg="Привет! Хочу сайт как у «BlackEmpire». Мой бизнес: " data-k="Хочу такой же" data-sub="Напишите, какой у вас бизнес, — соберу похожий черновик на ваших фото за день.">Хочу такой же</a>
-        </div>
-      </article>
-      <article class="wk-slide" aria-label="Кейс 03">
-        <div class="wk-vis">
-          <div class="frame wk-zoom"><div class="bar"><i></i><i></i><i></i><span>denis-sites.github.io/antisan</span></div><img class="wk-main" src="img/82cab59b62.webp" width="1100" height="688" alt="Сайт Антисан" loading="lazy" decoding="async"></div>
-          <div class="wk-phone"><img src="img/dec7881f9c.webp" alt="Сайт Антисан на телефоне" loading="lazy" decoding="async"></div>
-          <div class="wk-ths"><button class="wk-th on" data-bar="denis-sites.github.io/antisan" type="button"><img src="img/82cab59b62.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#tint" type="button"><img src="img/f24743b4d7.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#calc" type="button"><img src="img/0b91b01a23.webp" alt="" loading="lazy" decoding="async"></button></div>
-        </div>
-        <div class="wk-info">
-          <div class="num">Черновик для студии · Тонировка</div>
-          <h3>Антисан</h3>
-          <p>Тонировка на Преображенке: на фото студии переднее стекло темнеет под выбранный процент.</p>
-          <ul class="wk-chips"><li>Примерка тонировки на фото</li><li>Калькулятор плёнок</li><li>Реальные отзывы</li></ul>
-          <a class="btn" href="https://denis-sites.github.io/antisan/" target="_blank" rel="noopener">Открыть сайт <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
-          <a class="btn ghost want" href="#write" data-book data-msg="Привет! Хочу сайт как у «Антисан». Мой бизнес: " data-k="Хочу такой же" data-sub="Напишите, какой у вас бизнес, — соберу похожий черновик на ваших фото за день.">Хочу такой же</a>
-        </div>
-      </article>
-      <article class="wk-slide" aria-label="Кейс 04">
-        <div class="wk-vis">
-          <div class="frame wk-zoom"><div class="bar"><i></i><i></i><i></i><span>denis-sites.github.io/tonirovka-n1</span></div><img class="wk-main" src="img/c0f6e2e7f6.webp" width="1100" height="688" alt="Сайт Тонировка N1" loading="lazy" decoding="async"></div>
-          <div class="wk-phone"><img src="img/5d03d7f1d7.webp" alt="Сайт Тонировка N1 на телефоне" loading="lazy" decoding="async"></div>
-          <div class="wk-ths"><button class="wk-th on" data-bar="denis-sites.github.io/tonirovka-n1" type="button"><img src="img/c0f6e2e7f6.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#calc" type="button"><img src="img/6af345cc39.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#tint" type="button"><img src="img/cc1d6afdd4.webp" alt="" loading="lazy" decoding="async"></button></div>
-        </div>
-        <div class="wk-info">
-          <div class="num">Черновик для студии · Тонировка</div>
-          <h3>Тонировка N1</h3>
-          <p>Тонировка в Щёлково: подбор процента на фото и калькулятор плёнок Solartek и LLumar.</p>
-          <ul class="wk-chips"><li>Подбор % тонировки</li><li>Калькулятор плёнок</li><li>Видео с YouTube</li></ul>
-          <a class="btn" href="https://denis-sites.github.io/tonirovka-n1/" target="_blank" rel="noopener">Открыть сайт <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
-          <a class="btn ghost want" href="#write" data-book data-msg="Привет! Хочу сайт как у «Тонировка N1». Мой бизнес: " data-k="Хочу такой же" data-sub="Напишите, какой у вас бизнес, — соберу похожий черновик на ваших фото за день.">Хочу такой же</a>
-        </div>
-      </article>
-      <article class="wk-slide" aria-label="Кейс 05">
-        <div class="wk-vis">
-          <div class="frame wk-zoom"><div class="bar"><i></i><i></i><i></i><span>denis-sites.github.io/ger-car</span></div><img class="wk-main" src="img/a1f490fe64.webp" width="1100" height="688" alt="Сайт GER CAR" loading="lazy" decoding="async"></div>
-          <div class="wk-phone"><img src="img/58d54d7e22.webp" alt="Сайт GER CAR на телефоне" loading="lazy" decoding="async"></div>
-          <div class="wk-ths"><button class="wk-th on" data-bar="denis-sites.github.io/ger-car" type="button"><img src="img/a1f490fe64.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#calc" type="button"><img src="img/d6897bdf53.webp" alt="" loading="lazy" decoding="async"></button><button class="wk-th" data-bar="/#works" type="button"><img src="img/79b97e1eb3.webp" alt="" loading="lazy" decoding="async"></button></div>
-        </div>
-        <div class="wk-info">
-          <div class="num">Черновик для студии · Оклейка</div>
-          <h3>GER CAR</h3>
-          <p>Студия оклейки в Жулебино: калькулятор по классу машины и услугам, расчёт сразу уходит мастеру.</p>
-          <ul class="wk-chips"><li>Калькулятор по классу авто</li><li>Галерея работ</li><li>Отзывы с Яндекса</li></ul>
-          <a class="btn" href="https://denis-sites.github.io/ger-car/" target="_blank" rel="noopener">Открыть сайт <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
-          <a class="btn ghost want" href="#write" data-book data-msg="Привет! Хочу сайт как у «GER CAR». Мой бизнес: " data-k="Хочу такой же" data-sub="Напишите, какой у вас бизнес, — соберу похожий черновик на ваших фото за день.">Хочу такой же</a>
-        </div>
-      </article>
-  </div></div>
-  <div class="wk-nav"><span class="wk-n">01 / 05</span><div class="wk-prog"><i></i></div><span class="wk-hint">тяните <b>⟷</b></span></div>
-</div></section>
 
 <section class="inside" id="inside"><div class="wrap">
   <div class="num">Что внутри</div>
@@ -987,7 +1006,7 @@ html.lock{overflow:hidden}
 
 
   // ===== слайдер кейсов: тянем мышкой или пальцем, со снапом и инерцией =====
-  (function(){var sec=document.getElementById('cases');if(!sec)return;var view=sec.querySelector('.wk-view'),tr=sec.querySelector('.wk-track'),sl=tr.children,n=sl.length,i=0,
+  (function(){var sec=document.getElementById('cases');if(!sec||!sec.querySelector('.wk-track'))return;var view=sec.querySelector('.wk-view'),tr=sec.querySelector('.wk-track'),sl=tr.children,n=sl.length,i=0,
       tabs=sec.querySelectorAll('.wk-tabs button'),num=sec.querySelector('.wk-n'),prog=sec.querySelector('.wk-prog');
     prog.style.setProperty('--n',n);
     function gap(){return parseFloat(getComputedStyle(tr).columnGap)||0}
@@ -1178,53 +1197,43 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
  if(a&&YM_ID&&window.ym)ym(YM_ID,'reachGoal','tg_click')});
 </script>
 
-<script>
-/* ===== Веер: нажатие на телефон открывает нужный кейс ===== */
-(function(){var tabs=document.querySelectorAll('#cases .wk-tabs button');
- [].forEach.call(document.querySelectorAll('.fp'),function(a){a.addEventListener('click',function(e){var b=tabs[+a.dataset.tab];if(b){e.preventDefault();document.getElementById('cases').scrollIntoView({behavior:'smooth'});setTimeout(function(){b.click()},500)}})});
-})();
-
-/* ===== Соты: шестиугольные LED-трубки, разгораются у курсора/пальца, без него свет медленно гуляет =====
-   R — размер соты, BASE — яркость в покое, PEAK — яркость у курсора */
-(function(){var sec=document.getElementById('inside');if(!sec||!sec.getContext&&!document.createElement('canvas').getContext)return;
- var cv=document.createElement('canvas');cv.className='hex';cv.setAttribute('aria-hidden','true');sec.insertBefore(cv,sec.firstChild);
- var c=cv.getContext('2d'),RM=matchMedia('(prefers-reduced-motion: reduce)').matches,lite=matchMedia('(max-width:760px)').matches;
- var W,H,R,cells=[],px=-1,py=-1,lx=0,ly=0,hasP=false,vis=false,last=0,BASE=.07,PEAK=.85,GAP=.16;
- function size(){var d=Math.min(devicePixelRatio||1,lite?1.5:2);W=sec.offsetWidth;H=sec.offsetHeight;cv.width=W*d;cv.height=H*d;c.setTransform(d,0,0,d,0,0);
-  R=W<700?30:44;var w=Math.sqrt(3)*R,h=1.5*R;cells=[];for(var row=-1;row*h<H+R;row++)for(var col=-1;col*w<W+w;col++)cells.push([col*w+(row&1?w/2:0),row*h]);
-  if(!hasP){lx=W*.5;ly=H*.45}}
- /* у каждой соты рисуем 3 ребра из 6 — соседние дорисуют остальные, дублей нет */
- function frame(t){
-  if(!RM&&!hasP){lx=W*(.5+.38*Math.sin(t/5200));ly=H*(.45+.3*Math.sin(t/3900+1))}
-  c.clearRect(0,0,W,H);c.globalCompositeOperation='lighter';c.lineCap='round';
-  var rad=W<700?150:240;
-  for(var i=0;i<cells.length;i++){var cx=cells[i][0],cy=cells[i][1];
-   for(var k=0;k<3;k++){var a1=Math.PI/180*(60*k-30),a2=a1+Math.PI/3;
-    var x1=cx+R*Math.cos(a1),y1=cy+R*Math.sin(a1),x2=cx+R*Math.cos(a2),y2=cy+R*Math.sin(a2);
-    var mx=(x1+x2)/2,my=(y1+y2)/2,dx=mx-lx,dy=my-ly,g=Math.exp(-(dx*dx+dy*dy)/(rad*rad));
-    var a=BASE*(.75+.25*Math.sin(t/1400+mx*.01+my*.013))+PEAK*g;if(a<.03)continue;
-    var gx=(x2-x1)*GAP,gy=(y2-y1)*GAP;x1+=gx;y1+=gy;x2-=gx;y2-=gy;
-    c.strokeStyle='rgba(255,236,214,'+(a*.22)+')';c.lineWidth=7;c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.stroke();
-    c.strokeStyle='rgba(255,250,242,'+a+')';c.lineWidth=1.6;c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.stroke()}}
-  c.globalCompositeOperation='source-over'}
- function loop(t){if(!vis)return;if(lite&&t-last<33){requestAnimationFrame(loop);return}last=t;
-  if(hasP){lx+=(px-lx)*.14;ly+=(py-ly)*.14}frame(t);requestAnimationFrame(loop)}
- size();addEventListener('resize',function(){size();if(RM)frame(0)});
- sec.addEventListener('pointermove',function(e){var r=sec.getBoundingClientRect();px=e.clientX-r.left;py=e.clientY-r.top;if(!hasP){hasP=true;lx=px;ly=py}});
- sec.addEventListener('pointerleave',function(){hasP=false});
- if(RM){frame(0);return}
- new IntersectionObserver(function(es){var v=es[0].isIntersecting;if(v&&!vis){vis=true;requestAnimationFrame(loop)}else vis=v}).observe(sec);
-})();
-</script>
 
 <script>
-/* ===== Раскрытие скрина: ширина рамки растёт с 58% до 100% по мере прокрутки (только десктоп) ===== */
-(function(){var sx=document.getElementById('showreel');if(!sx||matchMedia('(prefers-reduced-motion: reduce)').matches||matchMedia('(max-width:760px)').matches)return;
- var fr=sx.querySelector('.sx-frame'),cap=sx.querySelector('.sx-cap'),ticking=false;
- function upd(){ticking=false;var r=sx.getBoundingClientRect(),span=sx.offsetHeight-innerHeight;var p=Math.max(0,Math.min(1,-r.top/(span||1)));
-  var e=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2,from=58;
-  fr.style.setProperty('--w',(from+(100-from)*e).toFixed(2));fr.style.setProperty('--rr',(24*(1-e)).toFixed(1)+'px');cap.style.opacity=Math.max(0,1-p*2.2).toFixed(2)}
- addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(upd)}},{passive:true});addEventListener('resize',upd);upd();
+/* ===== Кейсы: папка при прокрутке.
+   вход: папка лежит наклонённой и выпрямляется; потом листы выглядывают, папка уходит вверх и гаснет;
+   карточки поднимаются снизу с лёгким 3D-наклоном и на месте становятся цветными ===== */
+(function(){
+var sec=document.getElementById('cases');if(!sec||!sec.querySelector('.folder'))return;
+var pin=sec.querySelector('.fc-pin'),fold=sec.querySelector('.folder'),sh=sec.querySelectorAll('.f-sheet'),hint=sec.querySelector('.fc-hint'),
+    list=sec.querySelector('.fc-list'),cards=[].slice.call(sec.querySelectorAll('.cs'));
+if(matchMedia('(prefers-reduced-motion:reduce)').matches){sec.classList.add('still');cards.forEach(function(c){c.classList.add('lit')});return}
+function cl(x){return x<0?0:x>1?1:x}
+function ease(x){return 1-Math.pow(1-x,3)}
+var on=true,tick=false,wide=innerWidth>860;
+function upd(){tick=false;var vh=innerHeight,r=pin.getBoundingClientRect();
+  var e=ease(cl(1-r.top/vh));                         // папка въезжает: 0 → 1
+  var p=cl(-r.top/(pin.offsetHeight-vh));             // прокрутка внутри закреплённого блока
+  var up=ease(cl((p-.25)/.75));                         // папка уходит вверх
+  var peek=ease(cl(p/.45));                           // листы выглядывают из папки
+  fold.style.transform='translate3d(0,'+((1-e)*140-up*vh*.6).toFixed(1)+'px,0) rotateX('+((1-e)*34).toFixed(2)+'deg) scale('+(.8+.2*e-up*.1).toFixed(3)+')';
+  fold.style.opacity=(cl(e*1.5)*(1-up)).toFixed(3);
+  sh[0].style.transform='translate3d(0,'+(-peek*16).toFixed(2)+'%,0) rotate('+(-2-peek*4).toFixed(2)+'deg)';
+  sh[1].style.transform='translate3d(0,'+(-peek*24).toFixed(2)+'%,0) rotate('+(3+peek*5).toFixed(2)+'deg)';
+  hint.style.opacity=(e*(1-cl(p*5))).toFixed(3);
+  var lt=list.getBoundingClientRect().top;
+  cards.forEach(function(c,i){
+    var top=lt+c.offsetTop;                           // место карточки без учёта её сдвига
+    var q=ease(cl((vh-top)/(vh*.7)-(wide?i*.14:0)));  // на ПК вторая чуть позже
+    c.style.transform='translate3d(0,'+((1-q)*160).toFixed(1)+'px,0) rotateX('+((1-q)*24).toFixed(2)+'deg) scale('+(.9+.1*q).toFixed(3)+')';
+    c.style.opacity=cl(q*1.5).toFixed(3);
+    if(q>.97)c.classList.add('lit')});
+}
+function req(){if(on&&!tick){tick=true;requestAnimationFrame(upd)}}
+/* считаем только пока блок рядом с экраном */
+new IntersectionObserver(function(es){on=es[0].isIntersecting;if(on)req()},{rootMargin:'300px 0px'}).observe(sec);
+addEventListener('scroll',req,{passive:true});
+addEventListener('resize',function(){wide=innerWidth>860;req()});
+upd();
 })();
 </script>
 
@@ -1276,13 +1285,14 @@ q('call').addEventListener('click',function(){if(window.ym&&window.YM_ID)ym(YM_I
 </script>
 
 <script>
-/* ===== Шейдер первого экрана: медленно плывущие серые пятна + плёночное зерно + светлое пятно за курсором.
+/* ===== Фон-шейдер всего сайта: медленно плывущие серые пятна + плёночное зерно + светлое пятно за курсором.
    Цвета пятен — в строках C0..C3 (0..1 = чёрный..белый). На телефоне считаем в пониженном разрешении. ===== */
 (function(){
-var hx=document.querySelector('.hx'),cv=hx&&hx.querySelector('.hx-gl');if(!cv)return;
-setTimeout(function(){hx.classList.add('on')},30);                   // текст появляется сразу
+var hx=document.querySelector('.hx'),cv=document.getElementById('glbg');
+if(hx)setTimeout(function(){hx.classList.add('on')},30);              // текст первого экрана появляется сразу
+if(!cv)return;
 var gl=cv.getContext('webgl',{antialias:false,alpha:false,powerPreference:'low-power'});
-if(!gl){cv.remove();return}                                           // нет WebGL — остаётся CSS-фон
+if(!gl)return;                                           // нет WebGL — остаётся CSS-фон
 var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
 var lite=matchMedia('(max-width:760px)').matches||(navigator.hardwareConcurrency||8)<=4;
 var VS='attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}';
@@ -1307,7 +1317,7 @@ var FS=['precision mediump float;uniform vec2 R;uniform float T;uniform vec2 M;u
 ' gl_FragColor=vec4(col,1.);}'].join('\n');
 function sh(t,src){var o=gl.createShader(t);gl.shaderSource(o,src);gl.compileShader(o);return o}
 var pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,VS));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,FS));gl.linkProgram(pr);
-if(!gl.getProgramParameter(pr,gl.LINK_STATUS)){cv.remove();return}
+if(!gl.getProgramParameter(pr,gl.LINK_STATUS))return;
 gl.useProgram(pr);
 var b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
 var al=gl.getAttribLocation(pr,'a');gl.enableVertexAttribArray(al);gl.vertexAttribPointer(al,2,gl.FLOAT,false,0,0);
@@ -1317,8 +1327,8 @@ var q=lite?.5:Math.min(devicePixelRatio||1,1.5)*.6,W=0,H=0;
 function size(){var w=Math.round(cv.clientWidth*q),h=Math.round(cv.clientHeight*q);if(w!==W||h!==H){W=cv.width=w;H=cv.height=h;gl.viewport(0,0,W,H)}}
 /* светлое пятно: идёт за мышкой; на телефоне само медленно гуляет */
 var mx=.5,my=.6,tx=.5,ty=.6,pw=lite?.8:0,pt=lite?.8:0,hasMouse=false;
-hx.addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;var r=hx.getBoundingClientRect();tx=(e.clientX-r.left)/r.width;ty=(e.clientY-r.top)/r.height;hasMouse=true;pt=1});
-hx.addEventListener('pointerleave',function(){pt=0});
+addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;tx=e.clientX/innerWidth;ty=e.clientY/innerHeight;hasMouse=true;pt=1},{passive:true});
+document.documentElement.addEventListener('mouseleave',function(){pt=0});
 var vis=true,run=false,t0=performance.now(),last=0;
 function draw(now){
   if(lite&&now-last<30){if(vis)requestAnimationFrame(draw);else run=false;return}  // телефон: ~30 кадров/с
@@ -1330,9 +1340,8 @@ function draw(now){
   if(vis&&!reduce)requestAnimationFrame(draw);else run=false;
 }
 function start(){if(!run){run=true;requestAnimationFrame(draw)}}
-/* экран ушёл из вида или вкладка свёрнута — не рисуем; пока экран виден, фон-космос под ним тоже стоит */
-new IntersectionObserver(function(e){vis=e[0].isIntersecting;window.heroOn=vis;if(vis)start()}).observe(hx);
-document.addEventListener('visibilitychange',function(){if(document.hidden)vis=false;else{vis=hx.getBoundingClientRect().bottom>0;if(vis)start()}});
+/* вкладка свёрнута — не рисуем */
+document.addEventListener('visibilitychange',function(){vis=!document.hidden;if(vis)start()});
 addEventListener('resize',function(){if(reduce)start()});
 start();
 })();
