@@ -709,7 +709,7 @@ body{background:transparent!important}
 .cs-bar{display:flex;align-items:center;gap:6px;height:30px;padding:0 12px;border-bottom:1px solid rgba(255,255,255,.08)}
 .cs-bar i{width:8px;height:8px;border-radius:50%;background:#2c2c2c}
 .cs-bar span{margin-left:8px;font:500 11px var(--mono);color:#7c7c78;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cs-d{width:100%;display:block}
+.cs-d{width:100%;height:auto;display:block} /* height:auto — иначе атрибут height растягивает скрин и он выглядит сплющенным */
 .cs-ph{position:absolute;right:5%;bottom:-16%;width:25%;aspect-ratio:390/844;border-radius:20px;border:3px solid #232323;background:#000;overflow:hidden;box-shadow:0 30px 60px -20px #000,0 0 0 1px rgba(255,255,255,.1)}
 .cs-ph img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
 /* ч/б, пока карточка едет; цвет, когда встала на место */
@@ -733,6 +733,38 @@ body{background:transparent!important}
 @media(max-width:480px){.cs-row .btn{flex:1;justify-content:center;padding:14px 10px;font-size:14px;gap:6px}}
 /* без анимаций: всё сразу на месте */
 .fc.still .fc-pin{height:auto}.fc.still .fc-stage{position:relative;height:auto;padding:80px 0}.fc.still .fc-list{margin-top:0}.fc.still .fc-hint{display:none}
+
+
+/* ===== Что получит студия: вкладки + карточки ===== */
+.ff{padding-block:120px 110px}
+.ff-top{display:grid;justify-items:center;text-align:center;gap:18px;max-width:760px;margin:0 auto 46px}
+.ff-badge{font:500 11px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:#cfcfcc;padding:7px 14px;border:1px solid rgba(255,255,255,.14);border-radius:999px;background:rgba(255,255,255,.04)}
+.ff-top h2{margin:0;font:900 clamp(30px,5.2vw,68px)/1.02 var(--display);letter-spacing:-.045em;text-transform:uppercase;text-wrap:balance}
+.ff-top p{margin:0;color:#b4b4b0;font-size:clamp(16px,1.4vw,18px);max-width:560px}
+/* вкладки: светлая плашка переезжает за активной */
+.ff-tabs{position:relative;display:inline-flex;gap:2px;padding:4px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);margin-bottom:18px}
+.ff-tabs button{position:relative;z-index:1;font:600 14px var(--body);color:#9a9a97;background:none;border:0;padding:10px 18px;border-radius:10px;cursor:pointer;transition:color .3s}
+.ff-tabs button[aria-selected=true]{color:#0a0a0a}
+.ff-pill{position:absolute;top:4px;bottom:4px;left:0;width:0;border-radius:10px;background:#f4f4f2;box-shadow:0 6px 20px -8px rgba(255,255,255,.4);transition:transform .45s cubic-bezier(.16,1,.3,1),width .45s cubic-bezier(.16,1,.3,1)}
+.ff-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.ff-c{display:flex;flex-direction:column;gap:12px;padding:24px;border-radius:20px;background:linear-gradient(180deg,rgba(28,28,28,.92),rgba(14,14,14,.92));border:1px solid rgba(255,255,255,.11);box-shadow:inset 0 1px 0 rgba(255,255,255,.08);transition:border-color .3s,transform .3s}
+.ff-c[hidden]{display:none}
+.ff-c:hover{border-color:rgba(255,255,255,.24);transform:translateY(-3px)}
+.ff-i{width:44px;height:44px;display:grid;place-items:center;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:#f4f4f2;margin-bottom:6px}
+.ff-i svg{width:21px;height:21px}
+.ff-c b{font:700 18px/1.25 var(--body)}
+.ff-c p{margin:0;color:#a9a9a6;font-size:15px;line-height:1.5}
+.ff-foot{margin-top:auto;padding-top:8px;display:inline-flex;align-items:center;gap:7px;font:500 12px var(--mono);letter-spacing:.03em;color:#8c8c89;transition:color .25s}
+.ff-foot svg{width:13px;height:13px;flex-shrink:0}
+a.ff-foot:hover{color:#fff}
+/* смена вкладки: карточки встают лесенкой */
+.ff-c.ff-in{animation:ffin .55s cubic-bezier(.16,1,.3,1) both}
+.ff-c.ff-in:nth-child(3n+2){animation-delay:.07s}.ff-c.ff-in:nth-child(3n){animation-delay:.14s}
+@keyframes ffin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.ff-grid.ff-out .ff-c{opacity:0;transform:translateY(6px);transition:opacity .16s,transform .16s}
+@media(max-width:860px){.ff-grid{grid-template-columns:1fr}.ff{padding-block:90px}.ff-top{justify-items:start;text-align:left}}
+@media(max-width:600px){.ff-tabs{display:flex;width:100%}.ff-tabs button{flex:1;padding:11px 8px}}
+@media (prefers-reduced-motion:reduce){.ff-c.ff-in,.ff-grid.ff-out .ff-c{animation:none;transition:none;opacity:1;transform:none}.ff-pill{transition:none}}
 
 /* ===== Окно «Куда написать»: Telegram / WhatsApp / звонок (блок 6 из набора визуалов, как у Антисана).
    Любая ссылка с data-book открывает его. Телефон: выезжает снизу, ПК: по центру.
@@ -865,21 +897,30 @@ html.lock{overflow:hidden}
   </div>
 </section>
 
-<section class="inside" id="inside"><div class="wrap">
-  <div class="num">Что внутри</div>
-  <h2>Что получит ваша студия</h2>
-  <p class="lead">Не шаблон с картинками машин из интернета, а фишки под вашу нишу на фото вашего бокса. Каждую можно потрогать на живом сайте.</p>
-  <div class="fts">
-    <a class="ft" href="https://blackempire-cars-detailing.netlify.app/" target="_blank" rel="noopener"><img src="img/f8fcdbeada.webp" alt="Калькулятор цены" loading="lazy" decoding="async"><div><b>Калькулятор цены</b><span>Клиент выбирает кузов и услуги, видит цену и отправляет расчёт в мессенджер, который ему удобен.</span><em>Смотреть в BlackEmpire <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11L11 5M6 5h5v5"/></svg></em></div></a>
-    <a class="ft" href="https://garage-detailing.netlify.app/" target="_blank" rel="noopener"><img src="img/66695fca94.webp" alt="До/после пальцем" loading="lazy" decoding="async"><div><b>До/после пальцем</b><span>Ползунок на реальных машинах из вашего бокса: результат видно без слов.</span><em>Смотреть в Детейлинг Гараж <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11L11 5M6 5h5v5"/></svg></em></div></a>
-    <a class="ft" href="https://denis-sites.github.io/antisan/" target="_blank" rel="noopener"><img src="img/f24743b4d7.webp" alt="Примерка тонировки" loading="lazy" decoding="async"><div><b>Примерка тонировки</b><span>Стекло на фото студии темнеет под выбранный процент — клиент сразу понимает, что хочет.</span><em>Смотреть в Антисан <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11L11 5M6 5h5v5"/></svg></em></div></a>
-    <a class="ft" href="https://garage-detailing.netlify.app/" target="_blank" rel="noopener"><img src="img/97429a3174.webp" alt="Сезонная акция" loading="lazy" decoding="async"><div><b>Сезонная акция</b><span>Готовое предложение с ценой: «полировка и керамика к зиме под ключ». Клиент видит выгоду и записывается сразу.</span><em>Смотреть в Детейлинг Гараж <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11L11 5M6 5h5v5"/></svg></em></div></a>
+<!-- ===== Что получит студия: вкладки-категории и карточки (идея «Features 4» с 21st.dev).
+     Карточка: data-g = вкладка (use — польза, look — визуал, trust — доверие) ===== -->
+<section class="ff" id="inside"><div class="wrap">
+  <div class="ff-top">
+    <span class="ff-badge">Что внутри</span>
+    <h2>Что получит ваша студия</h2>
+    <p>Не шаблон, а фишки под детейлинг на фото вашего бокса. Всё это уже работает на живых сайтах.</p>
   </div>
-  <div class="ftx">
-    <div><b>Запись в 3 касания</b><span>Услуга → машина → когда → куда написать: WhatsApp, Telegram, VK или звонок. Сообщение приходит готовым: «Здравствуйте! Я с сайта…»</span></div>
-    <div><b>Отзывы и рейтинг с Карт</b><span>Ваши настоящие отзывы и имена мастеров — им верят больше, чем рекламе.</span></div>
-    <div><b>Видно, сколько заявок</b><span>Подключаю Яндекс Метрику: сколько людей зашли и сколько нажали «Записаться».</span></div>
-    <div><b>Быстро на телефоне</b><span>Большинство клиентов приходят с Яндекс Карт с телефона — сайт открывается за секунду.</span></div>
+  <div class="ff-tabs" role="tablist" aria-label="Что внутри">
+    <span class="ff-pill" aria-hidden="true"></span>
+    <button type="button" role="tab" aria-selected="true" data-g="use">Польза</button>
+    <button type="button" role="tab" aria-selected="false" data-g="look">Визуал</button>
+    <button type="button" role="tab" aria-selected="false" data-g="trust">Доверие</button>
+  </div>
+  <div class="ff-grid">
+      <article class="ff-c" data-g="use"><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M8 7h8M8 11h2M12 11h2M16 11h0M8 15h2M12 15h2M8 18h2M12 18h4"/></svg></i><b>Калькулятор цены</b><p>Клиент выбирает кузов и услуги, видит сумму и пишет вам уже с готовым расчётом.</p><a class="ff-foot" href="https://carpro-chekhov.github.io/" target="_blank" rel="noopener">Как в CarPro <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a></article>
+      <article class="ff-c" data-g="use"><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M9 12h.01M12 12h.01M15 12h.01"/></svg></i><b>Запись в 1 касание</b><p>WhatsApp, Telegram или звонок. Сообщение приходит готовым: «Здравствуйте! Я с сайта…»</p><a class="ff-foot" href="https://denis-sites.github.io/antisan/" target="_blank" rel="noopener">Как в Antisun <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a></article>
+      <article class="ff-c" data-g="use"><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></i><b>Видно, сколько заявок</b><p>Яндекс Метрика: сколько людей зашли на сайт и сколько нажали «Записаться».</p><span class="ff-foot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8.5l3 3 7-7"/></svg>В каждом сайте</span></article>
+      <article class="ff-c" data-g="look" hidden><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l3-9h12l3 9z"/><path d="M8 8l-1 9M16 8l1 9"/><path d="M3 17h18"/></svg></i><b>Примерка тонировки</b><p>Стекло на фото темнеет под выбранный процент — клиент сразу понимает, что хочет.</p><a class="ff-foot" href="https://denis-sites.github.io/antisan/" target="_blank" rel="noopener">Как в Antisun <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a></article>
+      <article class="ff-c" data-g="look" hidden><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M12 3v18"/><path d="M9 12l-2-2M9 12l-2 2M15 12l2-2M15 12l2 2"/></svg></i><b>До/после пальцем</b><p>Ползунок на реальных машинах из вашего бокса: результат видно без слов.</p><a class="ff-foot" href="https://garage-detailing.netlify.app/" target="_blank" rel="noopener">Как в Детейлинг Гараж <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a></article>
+      <article class="ff-c" data-g="look" hidden><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/></svg></i><b>Ваши фото, не сток</b><p>Собираю на фото вашего бокса и работ с Яндекс Карт. Никаких машин из интернета.</p><span class="ff-foot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8.5l3 3 7-7"/></svg>В каждом сайте</span></article>
+      <article class="ff-c" data-g="trust" hidden><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></i><b>Рейтинг и отзывы с Карт</b><p>Ваша звезда и настоящие отзывы клиентов — им верят больше, чем рекламе.</p><span class="ff-foot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8.5l3 3 7-7"/></svg>В каждом сайте</span></article>
+      <article class="ff-c" data-g="trust" hidden><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></i><b>Ответы на страхи</b><p>Остановит ли ДПС, будут ли пузыри, оригинальная ли плёнка — сайт отвечает заранее.</p><a class="ff-foot" href="https://denis-sites.github.io/antisan/" target="_blank" rel="noopener">Как в Antisun <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a></article>
+      <article class="ff-c" data-g="trust" hidden><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></i><b>Быстро на телефоне</b><p>Клиенты приходят с Карт с телефона — сайт открывается за секунду, без тормозов.</p><span class="ff-foot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8.5l3 3 7-7"/></svg>В каждом сайте</span></article>
   </div>
 </div></section>
 
@@ -1167,7 +1208,7 @@ tag('#cases .wk-top','up');tag('#cases .wk-view','zoom');
 tag('#approach h2','clip');tag('#approach .flow > *','up',.12);
 tag('#price .top','up');tag('#price .plan','right',.14);tag('#price .extra2 .ex','up',.05);
 tag('#faq h2','clip');tag('#faq details','up',.06);
-tag('#inside h2','clip');tag('#inside .ft','up',.1);tag('#inside .ftx > *','up',.08);
+tag('#inside .ff-top','up');tag('#inside .ff-tabs','up');
 tag('#contact .wrap > *','blur',.12);
 document.documentElement.classList.add('rv-on');
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target._rv||e.target;t.classList.add('in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -8% 0px'});
@@ -1234,6 +1275,22 @@ new IntersectionObserver(function(es){on=es[0].isIntersecting;if(on)req()},{root
 addEventListener('scroll',req,{passive:true});
 addEventListener('resize',function(){wide=innerWidth>860;req()});
 upd();
+})();
+</script>
+
+<script>
+/* ===== Что получит студия: переключение вкладок ===== */
+(function(){
+var sec=document.getElementById('inside');if(!sec||!sec.querySelector('.ff-tabs'))return;
+var tabs=[].slice.call(sec.querySelectorAll('.ff-tabs button')),pill=sec.querySelector('.ff-pill'),grid=sec.querySelector('.ff-grid'),
+    cards=[].slice.call(sec.querySelectorAll('.ff-c')),cur='use',busy=false;
+function place(b){pill.style.width=b.offsetWidth+'px';pill.style.transform='translateX('+(b.offsetLeft-4)+'px)'}
+function show(g){cards.forEach(function(c){var on=c.dataset.g===g;c.hidden=!on;c.classList.remove('ff-in');if(on){void c.offsetWidth;c.classList.add('ff-in')}})}
+tabs.forEach(function(b){b.addEventListener('click',function(){var g=b.dataset.g;if(g===cur||busy)return;cur=g;busy=true;
+  tabs.forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false')});place(b);
+  grid.classList.add('ff-out');setTimeout(function(){grid.classList.remove('ff-out');show(g);busy=false},170)})});
+function sync(){place(tabs.filter(function(x){return x.dataset.g===cur})[0])}
+sync();addEventListener('resize',sync);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(sync);
 })();
 </script>
 
