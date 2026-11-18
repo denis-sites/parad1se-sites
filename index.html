@@ -617,16 +617,16 @@ body{background:transparent!important}
 /* ===== Кнопки связи в контактах: «бегущий луч по рамке» (идея с 21st.dev) =====
    --c — цвет мессенджера. Квадрат с конусным градиентом крутится под кнопкой, сверху — тёмная заливка с отступом 1.5px */
 .cta2{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin-top:6px}
-.cbtn{--c:#2aabee;position:relative;display:inline-flex;align-items:center;gap:14px;min-width:280px;padding:14px 26px 14px 14px;border-radius:999px;color:#fff;text-decoration:none;overflow:hidden;isolation:isolate;
+.cbtn{--c:#f4f4f2;position:relative;display:inline-flex;align-items:center;gap:14px;min-width:280px;padding:14px 26px 14px 14px;border-radius:999px;color:#fff;text-decoration:none;overflow:hidden;isolation:isolate;
   clip-path:inset(0 round 999px);transition:transform .25s ease,filter .25s ease}
 .cbtn.wa{--c:#bdbdbd}
 .cbtn::before{content:"";position:absolute;left:50%;top:50%;width:150%;aspect-ratio:1;z-index:-2;transform:translate(-50%,-50%) rotate(0);
-  background:conic-gradient(from 0deg,transparent 0 62%,var(--c) 78%,#fff 84%,var(--c) 90%,transparent 100%);animation:beam 3.4s linear infinite}
+  background:conic-gradient(from 0deg,transparent 0 62%,var(--c) 78%,#fff 84%,var(--c) 90%,transparent 100%);animation:beam 6s linear infinite}
 .cbtn.wa::before{animation-delay:-1.7s}
 .cbtn::after{content:"";position:absolute;inset:1.5px;border-radius:inherit;z-index:-1;background:linear-gradient(180deg,color-mix(in srgb,var(--c) 16%,#0c0c0c),#0a0a0a 70%)}
 @keyframes beam{to{transform:translate(-50%,-50%) rotate(360deg)}}
 .cbtn .ci{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--c);color:#fff;flex-shrink:0;box-shadow:0 0 22px -4px var(--c)}
-.cbtn.wa .ci{color:#06200f}
+.cbtn .ci{color:#0a0a0a}
 .cbtn .ct{display:grid;text-align:left;line-height:1.25}
 .cbtn .ct b{font:700 16px var(--body)}
 .cbtn .ct small{font:500 12.5px var(--mono);color:rgba(255,255,255,.6);letter-spacing:.02em}
@@ -778,7 +778,7 @@ html.lock{overflow:hidden}
           <ul class="wk-chips"><li>Слайдеры до/после</li><li>Оценка по фото</li><li>Баннер акции</li></ul>
           <blockquote class="wk-q"><p>«Сайт просто супер, подход к каждой мелочи прям детальный… я в шоке 🤝»</p><small>Анатолий, владелец</small></blockquote>
           <a class="btn" href="https://garage-detailing.netlify.app/" target="_blank" rel="noopener">Открыть сайт <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
-          <a class="btn ghost want" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%BA%D0%B0%D0%BA%20%D1%83%20%C2%AB%D0%94%D0%B5%D1%82%D0%B5%D0%B9%D0%BB%D0%B8%D0%BD%D0%B3%20%D0%93%D0%B0%D1%80%D0%B0%D0%B6%C2%BB.%20%D0%9C%D0%BE%D0%B9%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%3A%20" target="_blank" rel="noopener">Хочу такой же</a>
+          <a class="btn ghost want" href="#write" data-book data-msg="Привет! Хочу сайт как у «Детейлинг Гараж». Мой бизнес: " data-k="Хочу такой же" data-sub="Напишите, какой у вас бизнес, — соберу похожий черновик на ваших фото за день.">Хочу такой же</a>
         </div>
       </article>
       <article class="wk-slide" aria-label="Кейс 02">
@@ -794,7 +794,7 @@ html.lock{overflow:hidden}
           <ul class="wk-chips"><li>Калькулятор цены</li><li>Галерея работ</li><li>Схема проезда</li></ul>
           <blockquote class="wk-q"><p>«Кстати, выглядит здорово»</p><small>Артём, владелец</small></blockquote>
           <a class="btn" href="https://blackempire-cars-detailing.netlify.app/" target="_blank" rel="noopener">Открыть сайт <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
-          <a class="btn ghost want" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%BA%D0%B0%D0%BA%20%D1%83%20%C2%ABBlackEmpire%C2%BB.%20%D0%9C%D0%BE%D0%B9%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%3A%20" target="_blank" rel="noopener">Хочу такой же</a>
+          <a class="btn ghost want" href="#write" data-book data-msg="Привет! Хочу сайт как у «BlackEmpire». Мой бизнес: " data-k="Хочу такой же" data-sub="Напишите, какой у вас бизнес, — соберу похожий черновик на ваших фото за день.">Хочу такой же</a>
         </div>
       </article>
       <article class="wk-slide" aria-label="Кейс 03">
@@ -809,7 +809,7 @@ html.lock{overflow:hidden}
           <p>Тонировка на Преображенке: на фото студии переднее стекло темнеет под выбранный процент.</p>
           <ul class="wk-chips"><li>Примерка тонировки на фото</li><li>Калькулятор плёнок</li><li>Реальные отзывы</li></ul>
           <a class="btn" href="https://denis-sites.github.io/antisan/" target="_blank" rel="noopener">Открыть сайт <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
-          <a class="btn ghost want" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%BA%D0%B0%D0%BA%20%D1%83%20%C2%AB%D0%90%D0%BD%D1%82%D0%B8%D1%81%D0%B0%D0%BD%C2%BB.%20%D0%9C%D0%BE%D0%B9%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%3A%20" target="_blank" rel="noopener">Хочу такой же</a>
+          <a class="btn ghost want" href="#write" data-book data-msg="Привет! Хочу сайт как у «Антисан». Мой бизнес: " data-k="Хочу такой же" data-sub="Напишите, какой у вас бизнес, — соберу похожий черновик на ваших фото за день.">Хочу такой же</a>
         </div>
       </article>
       <article class="wk-slide" aria-label="Кейс 04">
@@ -824,7 +824,7 @@ html.lock{overflow:hidden}
           <p>Тонировка в Щёлково: подбор процента на фото и калькулятор плёнок Solartek и LLumar.</p>
           <ul class="wk-chips"><li>Подбор % тонировки</li><li>Калькулятор плёнок</li><li>Видео с YouTube</li></ul>
           <a class="btn" href="https://denis-sites.github.io/tonirovka-n1/" target="_blank" rel="noopener">Открыть сайт <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
-          <a class="btn ghost want" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%BA%D0%B0%D0%BA%20%D1%83%20%C2%AB%D0%A2%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0%20N1%C2%BB.%20%D0%9C%D0%BE%D0%B9%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%3A%20" target="_blank" rel="noopener">Хочу такой же</a>
+          <a class="btn ghost want" href="#write" data-book data-msg="Привет! Хочу сайт как у «Тонировка N1». Мой бизнес: " data-k="Хочу такой же" data-sub="Напишите, какой у вас бизнес, — соберу похожий черновик на ваших фото за день.">Хочу такой же</a>
         </div>
       </article>
       <article class="wk-slide" aria-label="Кейс 05">
@@ -839,7 +839,7 @@ html.lock{overflow:hidden}
           <p>Студия оклейки в Жулебино: калькулятор по классу машины и услугам, расчёт сразу уходит мастеру.</p>
           <ul class="wk-chips"><li>Калькулятор по классу авто</li><li>Галерея работ</li><li>Отзывы с Яндекса</li></ul>
           <a class="btn" href="https://denis-sites.github.io/ger-car/" target="_blank" rel="noopener">Открыть сайт <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11L11 5M6 5h5v5"/></svg></a>
-          <a class="btn ghost want" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%BA%D0%B0%D0%BA%20%D1%83%20%C2%ABGER%20CAR%C2%BB.%20%D0%9C%D0%BE%D0%B9%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%3A%20" target="_blank" rel="noopener">Хочу такой же</a>
+          <a class="btn ghost want" href="#write" data-book data-msg="Привет! Хочу сайт как у «GER CAR». Мой бизнес: " data-k="Хочу такой же" data-sub="Напишите, какой у вас бизнес, — соберу похожий черновик на ваших фото за день.">Хочу такой же</a>
         </div>
       </article>
   </div></div>
@@ -886,17 +886,17 @@ html.lock{overflow:hidden}
       <div class="plan hot">
         <div><div class="idx">01</div><h3>Запуск</h3><p class="for">Сайт на ваших фото работает и приводит клиентов.</p><span class="tag">Старт</span></div>
         <ul><li>Черновик за день на фото и отзывах с Яндекс Карт</li><li>Цены, калькулятор по кузову, до/после</li><li>Кнопки WhatsApp, Telegram, VK и звонка с текстом «Я с сайта»</li><li>Яндекс Метрика: видно, сколько заявок</li><li>Правки, пока не понравится</li></ul>
-        <div class="pr"><span class="now">0 ₽</span><span class="term">бесплатно</span><a class="btn" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B9%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8.%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%D1%8B%3A%20" target="_blank" rel="noopener">Хочу черновик</a></div>
+        <div class="pr"><span class="now">0 ₽</span><span class="term">бесплатно</span><a class="btn" href="#write" data-book>Хочу черновик</a></div>
       </div>
       <div class="plan">
         <div><div class="idx">02</div><h3>Если пришли заявки</h3><p class="for">Платите один раз, когда видите результат.</p></div>
         <ul><li>Перенос на домен на ваше имя</li><li>Ссылка на сайт в карточке Яндекс Карт</li><li>Настройка, чтобы сайт находили в поиске Яндекса</li><li>Сайт и доступы ваши</li></ul>
-        <div class="pr"><span class="now">10 000 ₽</span><span class="term">через месяц</span><a class="btn ghost" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%95%D1%81%D1%82%D1%8C%20%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%20%D0%BF%D1%80%D0%BE%20%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%3A%20" target="_blank" rel="noopener">Спросить</a></div>
+        <div class="pr"><span class="now">10 000 ₽</span><span class="term">через месяц</span><a class="btn ghost" href="#write" data-book data-msg="Привет! Есть вопрос про условия: " data-k="Вопрос" data-sub="Спрашивайте что угодно про условия — отвечу сам в течение дня.">Спросить</a></div>
       </div>
       <div class="plan">
         <div><div class="idx">03</div><h3>Поддержка</h3><p class="for">Если не хотите думать о сайте сами.</p></div>
         <ul><li>Новые фото работ и цены</li><li>Правки текста и услуг</li><li>Помощь с карточкой на Картах</li></ul>
-        <div class="pr"><span class="now">от 2 000 ₽</span><span class="term">в месяц, по желанию</span><a class="btn ghost" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D0%B0%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%3A%20" target="_blank" rel="noopener">Спросить</a></div>
+        <div class="pr"><span class="now">от 2 000 ₽</span><span class="term">в месяц, по желанию</span><a class="btn ghost" href="#write" data-book data-msg="Привет! Интересует поддержка сайта: " data-k="Поддержка" data-sub="Расскажу, что входит, и подберём формат под вашу студию.">Спросить</a></div>
       </div>
     </div>
     <details class="more"><summary>Подробнее об условиях</summary><div class="extra2">
@@ -951,17 +951,16 @@ html.lock{overflow:hidden}
   <div class="num">Контакты</div>
   <h2>Покажу сайт вашей студии</h2>
   <p>Скиньте ссылку на вашу студию в Яндекс Картах — соберу черновик на ваших фото и пришлю ссылку. Бесплатно и ни к чему не обязывает, отвечаю в течение дня.</p>
-  <!-- Две кнопки связи: статичные, по рамке бегает луч в цвете мессенджера (эффект border beam) -->
+  <!-- Кнопка связи: открывает окно «Куда написать» (Telegram / WhatsApp / звонок), по рамке бегает белый луч -->
   <div class="cta2">
-    <a class="cbtn tg" id="end-btn" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B9%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8.%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%D1%8B%3A%20" target="_blank" rel="noopener"><span class="ci"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.8 19c-.2 1-.9 1.3-1.7.8l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.7-7.9c.4-.3-.1-.5-.6-.2L6.8 12.9 2.2 11.5c-1-.3-1-1 .2-1.5l18-6.9c.8-.3 1.6.2 1.5 1.2z"/></svg></span><span class="ct"><b>Написать в Telegram</b><small>@belivegodsplan</small></span></a>
-    <a class="cbtn wa" href="https://wa.me/79936957475?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B9%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8.%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%D1%8B%3A%20" target="_blank" rel="noopener"><span class="ci"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg></span><span class="ct"><b>Написать в WhatsApp</b><small>+7 993 695-74-75</small></span></a>
+    <a class="cbtn" id="end-btn" href="#write" data-book><span class="ci"><svg viewBox="0 0 16 16" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span><span class="ct"><b>Забрать черновик</b><small>Telegram · WhatsApp · звонок</small></span></a>
   </div>
   <footer class="foot"><span>zasornov studio · Денис</span><span>2026</span></footer>
 </div></section>
 
 
 <!-- липкая кнопка на телефоне: появляется после первого экрана, прячется у блока «Контакты» -->
-<div class="stick" id="stick"><a class="btn" href="https://t.me/belivegodsplan?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B9%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8.%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%D1%8B%3A%20" target="_blank" rel="noopener">Хочу сайт для студии</a><a class="btn wa" href="https://wa.me/79936957475?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B9%20%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%B8.%20%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B0%20%D0%BD%D0%B0%20%D0%AF%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%9A%D0%B0%D1%80%D1%82%D1%8B%3A%20" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg></a></div>
+<div class="stick" id="stick"><a class="btn" href="#write" data-book>Забрать черновик</a></div>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Скриншот"><button type="button" aria-label="Закрыть">×</button><img alt=""><p>Нажмите, чтобы закрыть</p></div>
 
 <script>
@@ -1258,14 +1257,19 @@ function q(ch){return bk.querySelector('[data-ch='+ch+']')}
 q('tg').href='https://t.me/'+CONTACT.tg+'?text='+encodeURIComponent(MSG);
 q('wa').href='https://wa.me/'+CONTACT.wa+'?text='+encodeURIComponent(MSG);
 q('call').href='tel:'+CONTACT.phone;document.getElementById('bkPh').textContent=CONTACT.phoneText;
-function open(a){from=a;bkN.textContent='';bk.setAttribute('aria-hidden','false');document.documentElement.classList.add('lock');
+var bkK=bk.querySelector('.bk-k'),bkS=bk.querySelector('.bk-sub'),K0=bkK.textContent,S0=bkS.textContent,msg=MSG;
+function open(a){from=a;bkN.textContent='';
+  /* у кнопки можно задать: data-msg — готовый текст, data-k — подпись сверху, data-sub — пояснение */
+  msg=a.dataset.msg||MSG;bkK.textContent=a.dataset.k||K0;bkS.textContent=a.dataset.sub||S0;
+  q('tg').href='https://t.me/'+CONTACT.tg+'?text='+encodeURIComponent(msg);
+  q('wa').href='https://wa.me/'+CONTACT.wa+'?text='+encodeURIComponent(msg);bk.setAttribute('aria-hidden','false');document.documentElement.classList.add('lock');
   setTimeout(function(){bk.classList.add('on')},20);setTimeout(function(){q('tg').focus({preventScroll:true})},350)}
 function close(){bk.classList.remove('on');bk.setAttribute('aria-hidden','true');document.documentElement.classList.remove('lock');if(from)from.focus({preventScroll:true})}
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-book]');if(!a)return;e.preventDefault();open(a)});
 [].forEach.call(bk.querySelectorAll('[data-close]'),function(x){x.onclick=close});
 addEventListener('keydown',function(e){if(e.key==='Escape'&&bk.classList.contains('on'))close()});
 /* в Telegram текст по ссылке иногда не подставляется: копируем его, клиент вставит */
-q('tg').addEventListener('click',function(){if(navigator.clipboard)navigator.clipboard.writeText(MSG).then(function(){bkN.textContent='Текст скопирован — вставьте его в чат'},function(){})});
+q('tg').addEventListener('click',function(){if(navigator.clipboard)navigator.clipboard.writeText(msg).then(function(){bkN.textContent='Текст скопирован — вставьте его в чат'},function(){})});
 /* звонок = цель call_click в Метрике */
 q('call').addEventListener('click',function(){if(window.ym&&window.YM_ID)ym(YM_ID,'reachGoal','call_click')});
 })();
