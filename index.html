@@ -1219,14 +1219,6 @@ html.lock{overflow:hidden}
   ];
   steps.forEach(function(s){setTimeout(s[1],s[0])});
 
-  // smooth in-page scrolling
-  function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
-  document.addEventListener('click',function(e){
-    var a=e.target.closest('a[href^="#"]');if(!a)return;var id=a.getAttribute('href');if(id.length<2)return;
-    var to=document.querySelector(id);if(!to)return;e.preventDefault();
-    var y0=scrollY,y1=to.getBoundingClientRect().top+scrollY,d=Math.min(1400,Math.max(600,Math.abs(y1-y0)*.6)),t0=performance.now();
-    (function st(n){var p=Math.min(1,(n-t0)/d);scrollTo(0,y0+(y1-y0)*ease(p));if(p<1)requestAnimationFrame(st)})(t0);
-  });
 })();
 </script>
 
@@ -1377,6 +1369,26 @@ sync();addEventListener('resize',sync);if(document.fonts&&document.fonts.ready)d
 /* ===== Вопросы: открыт только один ответ ===== */
 (function(){var ds=[].slice.call(document.querySelectorAll('.mq-qa details'));
  ds.forEach(function(d){d.addEventListener('toggle',function(){if(d.open)ds.forEach(function(x){if(x!==d)x.open=false})})})})();
+</script>
+
+<script>
+/* ===== Плавная прокрутка к якорям (плашка «Денис», меню, «работы»): ускоряется и мягко тормозит.
+   Длительность зависит от расстояния: от 0,7 до 1,6 с ===== */
+(function(){
+if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
+var run=0;
+document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a||a.hasAttribute('data-book'))return;
+  var id=a.getAttribute('href');if(id.length<2)return;var to=document.querySelector(id);if(!to)return;
+  e.preventDefault();var y0=scrollY,y1=to.getBoundingClientRect().top+scrollY,
+      d=Math.min(1600,Math.max(700,Math.abs(y1-y0)*.35)),t0=performance.now(),my=++run;
+  (function st(n){if(my!==run)return;var p=Math.min(1,(n-t0)/d);scrollTo(0,y0+(y1-y0)*ease(p));if(p<1)requestAnimationFrame(st)})(t0);
+  /* колесо или палец во время прокрутки — отдаём управление человеку */
+  function stop(){run++;removeEventListener('wheel',stop);removeEventListener('touchstart',stop)}
+  addEventListener('wheel',stop,{passive:true,once:true});addEventListener('touchstart',stop,{passive:true,once:true});
+});
+})();
 </script>
 
 <!-- ===== Окно «Куда написать». Контакты — в CONTACT в скрипте ниже ===== -->
