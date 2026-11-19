@@ -798,6 +798,50 @@ a.ff-foot:hover{color:#fff}
 .pz .more{max-width:1120px;margin:40px auto 0}
 @media(max-width:900px){.pz-grid{grid-template-columns:1fr;max-width:480px}.pz-c.hot{transform:none}.pz{padding-block:90px}.pz-top{justify-items:start;text-align:left}.pz-d{min-height:0}}
 
+
+/* ===== Кто делает + вопросы ===== */
+.mq{padding-block:110px}
+.mq-g{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:28px;align-items:start;max-width:1180px}
+.mq-me{position:sticky;top:24px;border-radius:26px;overflow:hidden;background:linear-gradient(180deg,rgba(26,26,26,.94),rgba(12,12,12,.94));border:1px solid rgba(255,255,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 50px 100px -50px #000}
+.mq-ph{position:relative;aspect-ratio:16/9;overflow:hidden}
+.mq-ph img{width:100%;height:100%;object-fit:cover;object-position:55% 32%;display:block;filter:grayscale(1) contrast(1.06)}
+.mq-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(10,10,10,.92))}
+.mq-cap{position:absolute;left:22px;bottom:16px;z-index:1;display:grid;gap:2px}
+.mq-cap b{font:900 30px/1 var(--display);letter-spacing:-.04em;text-transform:uppercase}
+.mq-cap span{font:500 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#a9a9a6}
+.mq-on{position:absolute;top:14px;right:14px;z-index:1;display:inline-flex;align-items:center;gap:7px;font:500 11px var(--mono);letter-spacing:.06em;color:#e6e6e3;padding:6px 11px;border-radius:999px;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(6px)}
+.mq-on i{width:7px;height:7px;border-radius:50%;background:#f4f4f2;box-shadow:0 0 0 0 rgba(255,255,255,.6);animation:mqp 2.4s ease-out infinite}
+@keyframes mqp{70%{box-shadow:0 0 0 7px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+.mq-in{display:grid;gap:14px;padding:20px 22px 22px;justify-items:start}
+.mq-in h2{margin:0;font:900 clamp(24px,2.4vw,32px)/1.02 var(--display);letter-spacing:-.04em;text-transform:uppercase}
+.mq-in p{margin:0;color:#b4b4b0;font-size:15px;line-height:1.5}
+.mq-f{list-style:none;margin:2px 0 4px;padding:0;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mq-f li{display:grid;gap:2px;padding:11px 13px;border-radius:14px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03)}
+.mq-f b{font:700 14px var(--body)}.mq-f span{font-size:13px;color:#9a9a97}
+.mq-in .pz-btn{margin-top:4px}
+/* вопросы */
+.mq-top{display:grid;justify-items:start;gap:14px;margin:4px 0 18px}
+.mq-top h3{margin:0;font:900 clamp(26px,3vw,40px)/1 var(--display);letter-spacing:-.04em;text-transform:uppercase}
+.mq-qa{border-top:1px solid rgba(255,255,255,.1)}
+.mq-qa details{border-bottom:1px solid rgba(255,255,255,.1)}
+.mq-qa summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:34px 1fr 20px;align-items:center;gap:8px;padding:17px 4px;font:600 17px/1.35 var(--body);color:#e8e8e5;transition:color .25s}
+.mq-qa summary::-webkit-details-marker{display:none}
+.mq-qa summary i{font:500 12px var(--mono);font-style:normal;letter-spacing:.08em;color:#6f6f6c}
+.mq-qa summary::after{content:"+";justify-self:end;font:400 22px/1 var(--body);color:#8c8c89;transition:transform .35s cubic-bezier(.16,1,.3,1),color .25s}
+.mq-qa summary:hover{color:#fff}
+.mq-qa details[open] summary{color:#fff}
+.mq-qa details[open] summary::after{transform:rotate(45deg);color:#fff}
+.mq-qa p{margin:0;padding:0 28px 20px 46px;color:#b4b4b0;font-size:15.5px;line-height:1.55;animation:mqa .45s cubic-bezier(.16,1,.3,1)}
+@keyframes mqa{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@media(max-width:900px){
+  .mq{padding-block:80px}
+  .mq-g{grid-template-columns:1fr;gap:44px}
+  .mq-me{position:relative;top:auto}
+  .mq-qa summary{font-size:16px;grid-template-columns:30px 1fr 18px;padding:16px 2px}
+  .mq-qa p{padding:0 8px 18px 40px}
+}
+@media (prefers-reduced-motion:reduce){.mq-on i,.mq-qa p{animation:none}}
+
 /* ===== Окно «Куда написать»: Telegram / WhatsApp / звонок (блок 6 из набора визуалов, как у Антисана).
    Любая ссылка с data-book открывает его. Телефон: выезжает снизу, ПК: по центру.
    Волна по краю: скорость в glowspin 11s, яркость в .32 (меньше = тусклее) ===== */
@@ -1014,34 +1058,30 @@ html.lock{overflow:hidden}
 </section>
 
 <!-- ===== Кто делает сайт: доверие ===== -->
-<section class="who" id="who"><div class="wrap">
-  <div class="who-g">
-    <div class="who-ph"><img src="img/f18ca2116a.webp" alt="Денис" loading="lazy" decoding="async"></div>
-    <div>
-      <div class="num">Кто делает</div>
-      <h2>Денис, один и без менеджеров</h2>
-      <p class="lead">Делаю сайты только для детейлинга и автостудий — поэтому знаю, что спрашивают ваши клиенты: сколько стоит для моей машины, как это будет выглядеть и когда можно приехать. Пишете напрямую мне и получаете ответ в течение дня.</p>
-      <ul class="who-f">
-        <li><b>Официально</b><span>Самозанятый, чек через «Мой налог»</span></li>
-        <li><b>Всё ваше</b><span>Домен на вас, код и доступы передаю</span></li>
-        <li><b>На связи</b><span>Ежедневно с 9 до 23, Telegram и WhatsApp</span></li>
-        <li><b>Только автостудии</b><span>Детейлинг, тонировка, оклейка, шумоизоляция</span></li>
-      </ul>
+<!-- ===== Кто делает + частые вопросы в одном блоке: слева карточка (на ПК закреплена), справа вопросы — открыт один ===== -->
+<section class="mq" id="who"><div class="wrap mq-g">
+  <aside class="mq-me">
+    <div class="mq-ph"><img src="img/f18ca2116a.webp" alt="Денис" width="640" height="640" loading="lazy" decoding="async">
+      <div class="mq-cap"><b>Денис</b><span>zasornov studio</span></div><span class="mq-on"><i></i>На связи 9–23</span></div>
+    <div class="mq-in">
+      <span class="ff-badge">Кто делает</span>
+      <h2>Один и без менеджеров</h2>
+      <p>Делаю сайты только для детейлинга и автостудий, поэтому знаю, что спрашивают ваши клиенты. Пишете напрямую мне — отвечаю в течение дня.</p>
+      <ul class="mq-f"><li><b>Официально</b><span>Самозанятый, чек</span></li><li><b>Всё ваше</b><span>Домен и доступы</span></li><li><b>Только авто</b><span>Детейлинг, тонировка</span></li><li><b>Без предоплаты</b><span>Платите за заявки</span></li></ul>
+      <a class="pz-btn on" href="#write" data-book data-k="Связь" data-msg="Привет! Есть вопрос: " data-sub="Спрашивайте что угодно — отвечу сам в течение дня.">Написать мне <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
     </div>
-  </div>
-</div></section>
-
-<section class="faq" id="faq"><div class="wrap">
-  <div class="num">Частые вопросы</div>
-  <h2>Что обычно спрашивают</h2>
-  <div class="qa">
-    <details><summary>А если заявок не будет?</summary><p>Тогда вы ничего не платите, а сайт остаётся у вас. Мне выгодно, чтобы он приводил клиентов, поэтому делаю его под вашу нишу, а не по шаблону.</p></details>
-    <details><summary>Как понять, что клиент пришёл с сайта?</summary><p>Все кнопки сайта отправляют готовое сообщение «Здравствуйте! Я с сайта…». Плюс подключаю Яндекс Метрику: видно, сколько людей зашли и сколько нажали «Записаться».</p></details>
-    <details><summary>Зачем сайт, если есть Яндекс Карты?</summary><p>Карточка показывает рейтинг, а сайт продаёт: цена для конкретной машины, до/после, примерка тонировки, ответы на вопросы. Ссылку на сайт ставим в карточку, и клиент с Карт приходит уже готовым записаться.</p></details>
-    <details><summary>Что нужно от меня?</summary><p>Почти ничего. Фото работ и отзывы беру с ваших Яндекс Карт. От вас — проверить цены и написать, куда принимать заявки: WhatsApp, Telegram, VK, звонок — можно все сразу, клиент выберет сам.</p></details>
-    <details><summary>Сколько ждать?</summary><p>Черновик пришлю за день. После ваших правок запускаю сайт, обычно за 2–3 дня.</p></details>
-    <details><summary>А если вы пропадёте?</summary><p>Сайт останется работать: он лежит на хостинге, домен оформлен на вас, код и доступы я передаю. Любой веб-разработчик сможет его продолжить. А пока я на связи — правлю сам.</p></details>
-    <details><summary>Кто будет править сайт потом?</summary><p>Я. Новые фото, цены, акции — по поддержке за 2–3 тыс. ₽ в месяц или разово. Сайт и доступы ваши.</p></details>
+  </aside>
+  <div class="mq-faq" id="faq">
+    <div class="mq-top"><span class="ff-badge">Частые вопросы</span><h3>Что обычно спрашивают</h3></div>
+    <div class="mq-qa">
+      <details name="faq" open><summary><i>01</i><span>А если заявок не будет?</span></summary><p>Тогда вы ничего не платите, а сайт остаётся у вас. Мне выгодно, чтобы он приводил клиентов, поэтому делаю его под вашу нишу, а не по шаблону.</p></details>
+      <details name="faq"><summary><i>02</i><span>Как понять, что клиент пришёл с сайта?</span></summary><p>Все кнопки сайта отправляют готовое сообщение «Здравствуйте! Я с сайта…». Плюс подключаю Яндекс Метрику: видно, сколько людей зашли и сколько нажали «Записаться».</p></details>
+      <details name="faq"><summary><i>03</i><span>Зачем сайт, если есть Яндекс Карты?</span></summary><p>Карточка показывает рейтинг, а сайт продаёт: цена для конкретной машины, до/после, примерка тонировки, ответы на вопросы. Ссылку на сайт ставим в карточку, и клиент с Карт приходит уже готовым записаться.</p></details>
+      <details name="faq"><summary><i>04</i><span>Что нужно от меня?</span></summary><p>Почти ничего. Фото работ и отзывы беру с ваших Яндекс Карт. От вас — проверить цены и написать, куда принимать заявки: WhatsApp, Telegram, VK, звонок — можно все сразу, клиент выберет сам.</p></details>
+      <details name="faq"><summary><i>05</i><span>Сколько ждать?</span></summary><p>Черновик пришлю за день. После ваших правок запускаю сайт, обычно за 2–3 дня.</p></details>
+      <details name="faq"><summary><i>06</i><span>А если вы пропадёте?</span></summary><p>Сайт останется работать: он лежит на хостинге, домен оформлен на вас, код и доступы я передаю. Любой веб-разработчик сможет его продолжить. А пока я на связи — правлю сам.</p></details>
+      <details name="faq"><summary><i>07</i><span>Кто будет править сайт потом?</span></summary><p>Я. Новые фото, цены, акции — по поддержке от 2 000 ₽ в месяц или разово. Сайт и доступы ваши.</p></details>
+    </div>
   </div>
 </div></section>
 
@@ -1246,7 +1286,7 @@ function tag(sel,type,step){[].forEach.call(document.querySelectorAll(sel),funct
 tag('#cases .wk-top','up');tag('#cases .wk-view','zoom');
 tag('#approach h2','clip');tag('#approach .flow > *','up',.12);
 tag('#price .pz-top','up');tag('#price .pz-c','up',.12);tag('#price .extra2 .ex','up',.05);
-tag('#faq h2','clip');tag('#faq details','up',.06);
+tag('#who .mq-me','up');tag('#faq .mq-top','up');tag('#faq details','up',.05);
 tag('#inside .ff-top','up');tag('#inside .ff-tabs','up');
 tag('#contact .wrap > *','blur',.12);
 document.documentElement.classList.add('rv-on');
@@ -1331,6 +1371,12 @@ tabs.forEach(function(b){b.addEventListener('click',function(){var g=b.dataset.g
 function sync(){place(tabs.filter(function(x){return x.dataset.g===cur})[0])}
 sync();addEventListener('resize',sync);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(sync);
 })();
+</script>
+
+<script>
+/* ===== Вопросы: открыт только один ответ ===== */
+(function(){var ds=[].slice.call(document.querySelectorAll('.mq-qa details'));
+ ds.forEach(function(d){d.addEventListener('toggle',function(){if(d.open)ds.forEach(function(x){if(x!==d)x.open=false})})})})();
 </script>
 
 <!-- ===== Окно «Куда написать». Контакты — в CONTACT в скрипте ниже ===== -->
