@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-display="unbounded">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -23,14 +23,15 @@ var YM_ID=114284932;
  (window,document,'script','https://mc.yandex.ru/metrika/tag.js?id='+YM_ID,'ym');
 ym(YM_ID,'init',{webvisor:true,clickmap:true,trackLinks:true,accurateTrackBounce:true});
 </script><meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap&subset=cyrillic" rel="stylesheet">
 <style>
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/inter-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Inter Tight';font-style:normal;font-weight:700 900;font-display:swap;src:url(fonts/inter-tight-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:'Inter Tight';font-style:normal;font-weight:700 900;font-display:swap;src:url(fonts/inter-tight-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 /* Layout: full-bleed black hero; portrait bleeds from the right, text column left; lightning intro on canvas */
 :root{
   --black:#070707; --ink:#f4f4f2; --dim:#9b9b98; --line:rgba(255,255,255,.14); --flash:#ffffff;
-  --display:"Unbounded","Arial Black",sans-serif; --body:"Manrope",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+  --display:"Inter Tight",sans-serif; --body:"Inter",sans-serif; --mono:ui-monospace,monospace;
   color-scheme:dark;
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -887,6 +888,82 @@ html.lock{overflow:hidden}
 }
 @media (prefers-reduced-motion:reduce){.bk-card:before{animation:none}.bk *,.bk{transition:none!important}.js .bk .bk-o{opacity:1;transform:none}}
 </style>
+
+<style>
+/* Первый экран и папка. Базовые блоки сайта и их навигация остаются на месте. */
+:root{--studio-accent:#bfd5ff;--studio-ease:cubic-bezier(.2,.72,.2,1)}
+.hx{background:radial-gradient(ellipse at 52% 45%,#18213199,transparent 58%)}
+.hx h1.hx-title{max-width:none;font-size:clamp(55px,11.2vw,164px);line-height:.87;letter-spacing:-.025em;word-spacing:.055em;overflow:visible}
+.hx-mask{display:block;overflow:hidden;padding:.08em .14em .14em .07em}
+.hx-mask>span{display:block}
+.hx-mask:last-child>span{color:var(--studio-accent)}
+.hx-dash{font-size:.52em;letter-spacing:0}
+.hx-sub b{white-space:nowrap}
+.hx-row .btn{position:relative;overflow:hidden}
+.hx-row .btn::after{content:"";position:absolute;width:35%;inset:0 auto 0 0;background:linear-gradient(100deg,transparent,#acc8ffb0,transparent);transform:translateX(-120%) skewX(-18deg);pointer-events:none}
+.hx-row .btn:is(:hover,:focus-visible)::after{transform:translateX(400%) skewX(-18deg);transition:transform .65s var(--studio-ease)}
+@media(prefers-reduced-motion:no-preference){
+  .hx.on .hx-mask>span{animation:title-in .9s var(--studio-ease) both}
+  .hx.on .hx-mask+span>span{animation-delay:.13s}
+  @keyframes title-in{from{transform:translateY(108%) rotate(2deg)}to{transform:none}}
+}
+.fc-v2{padding-top:clamp(48px,7vw,104px)}
+.fc-intro{max-width:1280px;margin:auto;padding:0 24px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.fc-intro h2{margin:10px 0 4px;font:900 clamp(60px,10vw,146px)/.92 var(--display);letter-spacing:-.03em}
+.fc-intro p{margin:10px 0 0;color:#b8bac0;max-width:30rem}
+.fc-intro .folder{flex:none;width:clamp(110px,22vw,320px);aspect-ratio:1.65;isolation:isolate;transform:rotate(-5deg)}
+.fc-intro .f-front{height:65%;padding:10% 12%;border-radius:12px}
+.fc-intro .f-front::before{border-radius:10px 12px 0 0}
+.fc-intro .f-t{font-size:clamp(15px,3vw,38px);margin:auto 0 0}
+.fc-intro .f-sheet{border-radius:7px;transition:transform 1s var(--studio-ease)}
+.fc-intro .f-sheet img{filter:none}
+.fc-intro .f-sheet.s1{transform:translate(-9%,-8%) rotate(-13deg)}
+.fc-intro .f-sheet.s2{transform:translate(3%,-20%) rotate(1deg)}
+.fc-intro .f-sheet.s3{transform:translate(13%,-8%) rotate(14deg)}
+.fc-intro .folder:not(.ready) .f-sheet{transform:none}
+.fc-v2 .fc-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.8vw,25px);margin:0 auto;padding:0 24px clamp(40px,7vw,88px)}
+.fc-v2 .cs{--project-light:#eec867;min-width:0;border-radius:18px;will-change:auto}
+.fc-v2 .cs-svet{--project-light:#a4caff}
+.fc-v2 .cs-brutusi{--project-light:#ffde58}
+.fc-v2 .cs-shot{display:block;flex:none;isolation:isolate;margin:9px 9px 0;border-radius:10px;aspect-ratio:8/5}
+.fc-v2 .cs-shot img{height:100%;object-fit:cover;transition:transform .7s var(--studio-ease)}
+.fc-v2 .cs-shot:is(:hover,:focus-visible) img{transform:scale(1.055)}
+.fc-v2 .cs-shot::after{content:"";position:absolute;inset:0;background:#191b20;transform:translateY(-102%);pointer-events:none}
+.fc-v2 .cs-b{flex:1;padding:clamp(16px,2vw,25px);grid-template-rows:auto auto 1fr auto auto;align-content:start}
+.fc-v2 .cs-k{font:600 .83rem/1.35 var(--body);letter-spacing:0;text-transform:none;color:var(--project-light)}
+.fc-v2 .cs h3{font-size:clamp(25px,3.2vw,46px);text-transform:none;line-height:1;letter-spacing:-.025em;word-spacing:.06em}
+.fc-v2 .cs-row .btn{flex:1;justify-content:center}
+@media(prefers-reduced-motion:no-preference){
+  .fc-v2 .cs.ready .cs-shot::after{animation:case-curtain .85s var(--studio-ease) backwards}
+  .fc-v2 .cs.ready .cs-b{animation:case-caption .75s var(--studio-ease) backwards}
+  @keyframes case-curtain{from{transform:translateY(-6%)}to{transform:translateY(-102%)}}
+  @keyframes case-caption{from{transform:translateY(16px);opacity:.45}to{transform:none;opacity:1}}
+}
+@media(max-width:860px){.fc-v2 .fc-list{grid-template-columns:1fr;max-width:660px}.fc-intro{max-width:660px}}
+@media(max-width:480px){
+  .hx h1.hx-title{font-size:clamp(38px,12vw,60px)}
+  .hx-c{gap:18px}
+  .fc-intro,.fc-v2 .fc-list{padding-inline:16px}
+  .fc-intro{gap:13px}
+  .fc-intro h2{font-size:clamp(44px,12vw,61px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .fc-intro .f-sheet,.fc-v2 .cs-shot img,.hx-row .btn::after{transition:none}
+}
+</style>
+
+<style>
+
+/* Шрифты первого экрана: переключатель используется в локальном превью. */
+@font-face{font-family:Unbounded;src:url("fonts/unbounded-800.ttf") format("truetype");font-weight:800;font-display:swap}
+html[data-display="unbounded"]{--headline:Unbounded;--headline-weight:800;--headline-size:clamp(36px,8.5vw,121px);--headline-spacing:-.05em}
+html[data-display] .hx h1.hx-title{font-family:var(--headline),var(--display);font-weight:var(--headline-weight);font-size:var(--headline-size);letter-spacing:var(--headline-spacing)}
+html[data-display] .fc-intro h2{font-family:var(--headline),var(--display);font-weight:var(--headline-weight);letter-spacing:var(--headline-spacing);font-size:clamp(41px,9vw,129px)}
+@media(max-width:540px){
+  html[data-display="unbounded"]{--headline-size:clamp(27px,8.55vw,46px)}
+}
+
+</style>
 </head>
 <body>
 
@@ -906,68 +983,67 @@ html.lock{overflow:hidden}
   <div class="hx-c">
     <!-- плашка с фото: кто делает. Фото и подпись меняются тут -->
     <a class="hx-me" href="#who"><img src="img/f18ca2116a.webp" alt="Денис" width="64" height="64" fetchpriority="high"><span>Денис · сайты для детейлинга</span></a>
-    <h1>Нет заявок — нет оплаты</h1>
+    <h1 class="hx-title"><span class="hx-mask"><span>Нет заявок<span class="hx-dash">,</span></span></span><span class="hx-mask"><span>нет оплаты</span></span></h1>
     <p class="hx-sub">Запускаю сайт для вашей студии бесплатно. Пошли заявки за месяц — <b>10&nbsp;000&nbsp;₽ один раз</b>. Не пошли — 0&nbsp;₽, сайт остаётся вам.</p>
     <div class="hx-row">
       <a class="btn" href="#write" data-book>Забрать черновик <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
     </div>
-    <ul class="hx-proof"><li>Черновик за день</li><li>Самозанятый, чек</li><li>Домен и доступы ваши</li></ul>
+    <ul class="hx-proof"><li>Черновик за день</li><li>Первый месяц на моём хостинге</li><li>Самозанятый, чек</li></ul>
   </div>
-  <a class="hx-down" href="#cases" aria-label="Смотреть работы">работы<i></i></a>
+  <a class="hx-down" href="#cases" aria-label="Смотреть работы">Смотреть работы<i></i></a>
 </header>
 
-<!-- ===== Кейсы: папка выезжает и выпрямляется (идея «Container Scroll» с 21st.dev), потом уходит вверх,
-     снизу поднимаются два кейса. Всё на transform/opacity, считается только пока блок на экране ===== -->
-<section class="fc" id="cases" aria-label="Кейсы">
-  <div class="fc-pin">
-    <div class="fc-stage">
-      <div class="folder" aria-hidden="true">
-        <div class="f-back"></div>
-        <div class="f-sheet s1"><img src="img/case-antisun-d.jpg" alt="" width="1200" height="750" decoding="async"></div>
-        <div class="f-sheet s2"><img src="img/case-carpro-d.jpg" alt="" width="1200" height="750" decoding="async"></div>
-        <div class="f-front">
-          <div class="f-top"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4l8 8M12 6v6H6"/></svg><span>02</span></div>
-          <small class="f-sub">Тонировка&nbsp;·&nbsp;детейлинг <i>|</i> Москва&nbsp;·&nbsp;Чехов</small>
-          <b class="f-t">Кейсы</b>
-          <div class="f-bot"><span>Antisun · CarPro</span><span>2026</span></div>
-        </div>
-      </div>
-      <div class="fc-hint">листайте</div>
+<!-- Портфолио: фирменная папка и шторки из detailing-visual-kit -->
+<section class="fc fc-v2" id="cases" aria-labelledby="cases-title">
+  <div class="fc-intro">
+    <div>
+      <span class="ff-badge">Портфолио</span>
+      <h2 id="cases-title">Работы</h2>
+      <p>Откройте сайт и попробуйте то, чем будет пользоваться ваш клиент.</p>
+    </div>
+    <div class="folder" aria-hidden="true">
+      <div class="f-back"></div>
+      <div class="f-sheet s1"><img src="img/portfolio/pro.jpg" alt="" width="1440" height="900" loading="lazy" decoding="async"></div>
+      <div class="f-sheet s2"><img src="img/portfolio/svet.jpg" alt="" width="1440" height="900" loading="lazy" decoding="async"></div>
+      <div class="f-sheet s3"><img src="img/portfolio/brutusi.jpg" alt="" width="1440" height="900" loading="lazy" decoding="async"></div>
+      <div class="f-front"><b class="f-t">Кейсы</b></div>
     </div>
   </div>
   <div class="fc-list">
-    <article class="cs">
-      <div class="cs-shot"><div class="cs-bar"><i></i><i></i><i></i><span>denis-sites.github.io/antisan</span></div>
-        <img class="cs-d" src="img/case-antisun-d.jpg" alt="Сайт Antisun на компьютере" width="1200" height="750" loading="lazy" decoding="async">
-        <div class="cs-ph"><img src="img/case-antisun-m.jpg" alt="Сайт Antisun на телефоне" width="390" height="844" loading="lazy" decoding="async"></div>
-      </div>
+    <article class="cs lit cs-pro">
+      <a class="cs-shot" href="https://denis-sites.github.io/pro-detailing-vereya/" target="_blank" rel="noopener" aria-label="Открыть сайт Про Детейлинг">
+        <img class="cs-d" src="img/portfolio/pro.jpg" alt="Первый экран сайта Про Детейлинг" width="1440" height="900" loading="lazy" decoding="async">
+      </a>
       <div class="cs-b">
-        <div class="cs-k">Кейс 01 · Тонировка · Москва</div>
-        <h3>Antisun</h3>
-        <div class="cs-rt">★ 5.0 · 147 оценок на Яндекс Картах</div>
-        <p>Тонировка без очереди на Преображенке. Клиент сам выбирает кузов и плёнку, видит цену и пишет уже с готовым расчётом.</p>
-        <ul class="cs-ch"><li>Примерка тонировки на фото</li><li>Калькулятор плёнок</li><li>Окно записи в 1 касание</li></ul>
-        <div class="cs-row">
-          <a class="btn" href="https://denis-sites.github.io/antisan/" target="_blank" rel="noopener">Открыть сайт <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
-          <a class="btn ghost" href="#write" data-book data-k="Хочу такой же" data-sub="Напишите, какой у вас бизнес, — соберу похожий черновик на ваших фото за день." data-msg="Привет! Хочу сайт как у «Antisun». Мой бизнес: ">Хочу такой же</a>
-        </div>
+        <div class="cs-k">Детейлинг и мойка · Верея</div>
+        <h3>Про Детейлинг</h3>
+        <p>Два отдельных раздела для мойки и детейлинга. Клиент выбирает кузов и услуги и видит ориентир по цене.</p>
+        <ul class="cs-ch"><li>Калькулятор по кузову</li></ul>
+        <div class="cs-row"><a class="btn ghost" href="https://denis-sites.github.io/pro-detailing-vereya/" target="_blank" rel="noopener">Открыть сайт</a></div>
       </div>
     </article>
-    <article class="cs">
-      <div class="cs-shot"><div class="cs-bar"><i></i><i></i><i></i><span>carpro-chekhov.github.io</span></div>
-        <img class="cs-d" src="img/case-carpro-d.jpg" alt="Сайт CarPro на компьютере" width="1200" height="750" loading="lazy" decoding="async">
-        <div class="cs-ph"><img src="img/case-carpro-m.jpg" alt="Сайт CarPro на телефоне" width="390" height="844" loading="lazy" decoding="async"></div>
-      </div>
+    <article class="cs lit cs-svet">
+      <a class="cs-shot" href="https://denis-sites.github.io/svetnauka/" target="_blank" rel="noopener" aria-label="Открыть сайт Свет Наука">
+        <img class="cs-d" src="img/portfolio/svet.jpg" alt="Первый экран сайта Свет Наука" width="1440" height="900" loading="lazy" decoding="async">
+      </a>
       <div class="cs-b">
-        <div class="cs-k">Кейс 02 · Детейлинг · Чехов</div>
-        <h3>CarPro</h3>
-        <div class="cs-rt">★ 5,0 · 39 оценок на Яндекс Картах</div>
-        <p>У студии не было ни сайта, ни мессенджеров — только телефон. Теперь клиент считает цену за 30 секунд и записывается с готовой суммой.</p>
-        <ul class="cs-ch"><li>Расчёт цены за 30 секунд</li><li>Примерка тонировки на их Kia</li><li>Отзывы с Яндекс Карт</li></ul>
-        <div class="cs-row">
-          <a class="btn" href="https://carpro-chekhov.github.io/" target="_blank" rel="noopener">Открыть сайт <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
-          <a class="btn ghost" href="#write" data-book data-k="Хочу такой же" data-sub="Напишите, какой у вас бизнес, — соберу похожий черновик на ваших фото за день." data-msg="Привет! Хочу сайт как у «CarPro». Мой бизнес: ">Хочу такой же</a>
-        </div>
+        <div class="cs-k">Автосвет · Щёлково</div>
+        <h3>Свет Наука</h3>
+        <p>До и после ремонта фар, примеры света ночью и расчёт под конкретную задачу.</p>
+        <ul class="cs-ch"><li>Фары до и после</li></ul>
+        <div class="cs-row"><a class="btn ghost" href="https://denis-sites.github.io/svetnauka/" target="_blank" rel="noopener">Открыть сайт</a></div>
+      </div>
+    </article>
+    <article class="cs lit cs-brutusi">
+      <a class="cs-shot" href="https://denis-sites.github.io/brutusi/" target="_blank" rel="noopener" aria-label="Открыть сайт Brutusi Detailing">
+        <img class="cs-d" src="img/portfolio/brutusi.jpg" alt="Первый экран сайта Brutusi Detailing" width="1440" height="900" loading="lazy" decoding="async">
+      </a>
+      <div class="cs-b">
+        <div class="cs-k">Тонировка и бронеплёнка · Нахабино</div>
+        <h3>Brutusi Detailing</h3>
+        <p>Можно подобрать затемнение на фотографии и перейти от примерки тонировки к записи.</p>
+        <ul class="cs-ch"><li>Примерка тонировки</li></ul>
+        <div class="cs-row"><a class="btn ghost" href="https://denis-sites.github.io/brutusi/" target="_blank" rel="noopener">Открыть сайт</a></div>
       </div>
     </article>
   </div>
@@ -988,15 +1064,15 @@ html.lock{overflow:hidden}
     <button type="button" role="tab" aria-selected="false" data-g="trust">Доверие</button>
   </div>
   <div class="ff-grid">
-      <article class="ff-c" data-g="use"><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M8 7h8M8 11h2M12 11h2M16 11h0M8 15h2M12 15h2M8 18h2M12 18h4"/></svg></i><b>Калькулятор цены</b><p>Клиент выбирает кузов и услуги, видит сумму и пишет вам уже с готовым расчётом.</p><a class="ff-foot" href="https://carpro-chekhov.github.io/" target="_blank" rel="noopener">Как в CarPro <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a></article>
-      <article class="ff-c" data-g="use"><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M9 12h.01M12 12h.01M15 12h.01"/></svg></i><b>Запись в 1 касание</b><p>WhatsApp, Telegram или звонок. Сообщение приходит готовым: «Здравствуйте! Я с сайта…»</p><a class="ff-foot" href="https://denis-sites.github.io/antisan/" target="_blank" rel="noopener">Как в Antisun <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a></article>
-      <article class="ff-c" data-g="use"><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></i><b>Видно, сколько заявок</b><p>Яндекс Метрика: сколько людей зашли на сайт и сколько нажали «Записаться».</p><span class="ff-foot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8.5l3 3 7-7"/></svg>В каждом сайте</span></article>
-      <article class="ff-c" data-g="look" hidden><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l3-9h12l3 9z"/><path d="M8 8l-1 9M16 8l1 9"/><path d="M3 17h18"/></svg></i><b>Примерка тонировки</b><p>Стекло на фото темнеет под выбранный процент — клиент сразу понимает, что хочет.</p><a class="ff-foot" href="https://denis-sites.github.io/antisan/" target="_blank" rel="noopener">Как в Antisun <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a></article>
-      <article class="ff-c" data-g="look" hidden><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M12 3v18"/><path d="M9 12l-2-2M9 12l-2 2M15 12l2-2M15 12l2 2"/></svg></i><b>До/после пальцем</b><p>Ползунок на реальных машинах из вашего бокса: результат видно без слов.</p><a class="ff-foot" href="https://garage-detailing.netlify.app/" target="_blank" rel="noopener">Как в Детейлинг Гараж <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a></article>
+      <article class="ff-c" data-g="use"><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M8 7h8M8 11h2M12 11h2M16 11h0M8 15h2M12 15h2M8 18h2M12 18h4"/></svg></i><b>Калькулятор цены</b><p>Клиент выбирает кузов и услуги, видит сумму и пишет вам уже с готовым расчётом.</p><a class="ff-foot" href="https://denis-sites.github.io/pro-detailing-vereya/#calc" target="_blank" rel="noopener">Как в Про Детейлинг <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a></article>
+      <article class="ff-c" data-g="use"><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M9 12h.01M12 12h.01M15 12h.01"/></svg></i><b>Запись в 1 касание</b><p>WhatsApp, Telegram или звонок. Сообщение приходит готовым: «Здравствуйте! Я с сайта…»</p><a class="ff-foot" href="https://denis-sites.github.io/brutusi/" target="_blank" rel="noopener">Как в Brutusi <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a></article>
+      <article class="ff-c" data-g="use"><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></i><b>Видно, сколько заявок</b><p>Метрика показывает визиты и клики, а реальные заявки сверяем по сообщениям и звонкам.</p><span class="ff-foot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8.5l3 3 7-7"/></svg>В каждом сайте</span></article>
+      <article class="ff-c" data-g="look" hidden><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l3-9h12l3 9z"/><path d="M8 8l-1 9M16 8l1 9"/><path d="M3 17h18"/></svg></i><b>Примерка тонировки</b><p>Стекло на фото темнеет под выбранный процент — клиент сразу понимает, что хочет.</p><a class="ff-foot" href="https://denis-sites.github.io/brutusi/" target="_blank" rel="noopener">Как в Brutusi <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a></article>
+      <article class="ff-c" data-g="look" hidden><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M12 3v18"/><path d="M9 12l-2-2M9 12l-2 2M15 12l2-2M15 12l2 2"/></svg></i><b>До/после пальцем</b><p>Ползунок на реальных машинах из вашего бокса: результат видно без слов.</p><a class="ff-foot" href="https://denis-sites.github.io/svetnauka/#ba" target="_blank" rel="noopener">Как в Свет Наука <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a></article>
       <article class="ff-c" data-g="look" hidden><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/></svg></i><b>Ваши фото, не сток</b><p>Собираю на фото вашего бокса и работ с Яндекс Карт. Никаких машин из интернета.</p><span class="ff-foot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8.5l3 3 7-7"/></svg>В каждом сайте</span></article>
       <article class="ff-c" data-g="trust" hidden><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></i><b>Рейтинг и отзывы с Карт</b><p>Ваша звезда и настоящие отзывы клиентов — им верят больше, чем рекламе.</p><span class="ff-foot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8.5l3 3 7-7"/></svg>В каждом сайте</span></article>
-      <article class="ff-c" data-g="trust" hidden><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></i><b>Ответы на страхи</b><p>Остановит ли ДПС, будут ли пузыри, оригинальная ли плёнка — сайт отвечает заранее.</p><a class="ff-foot" href="https://denis-sites.github.io/antisan/" target="_blank" rel="noopener">Как в Antisun <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a></article>
-      <article class="ff-c" data-g="trust" hidden><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></i><b>Быстро на телефоне</b><p>Клиенты приходят с Карт с телефона — сайт открывается за секунду, без тормозов.</p><span class="ff-foot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8.5l3 3 7-7"/></svg>В каждом сайте</span></article>
+      <article class="ff-c" data-g="trust" hidden><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></i><b>Ответы на страхи</b><p>Остановит ли ДПС, будут ли пузыри, оригинальная ли плёнка — сайт отвечает заранее.</p><a class="ff-foot" href="https://denis-sites.github.io/brutusi/" target="_blank" rel="noopener">Как в Brutusi <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a></article>
+      <article class="ff-c" data-g="trust" hidden><i class="ff-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></i><b>Быстро на телефоне</b><p>Цены, работы и запись удобно смотреть с телефона, с которого клиент открыл Карты.</p><span class="ff-foot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8.5l3 3 7-7"/></svg>В каждом сайте</span></article>
   </div>
 </div></section>
 
@@ -1005,7 +1081,7 @@ html.lock{overflow:hidden}
   <h2>Платите за заявки, а не за сайт</h2>
   <div class="flow">
     <div><i>01</i><b>Черновик за день</b><span>на ваших фото, ценах и отзывах с Яндекс Карт</span></div>
-    <div><i>02</i><b>Запуск бесплатно</b><span>сайт работает, клиенты пишут в WhatsApp, Telegram, VK или звонят</span></div>
+    <div><i>02</i><b>Запуск бесплатно</b><span>первый месяц сайт на моём хостинге, а ссылка на него в вашей карточке на Картах</span></div>
     <div><i>03</i><b>Месяц смотрим заявки</b><span>пришли — 10 000 ₽, нет — 0 ₽, сайт остаётся вам</span></div>
   </div>
 </div></section>
@@ -1031,7 +1107,7 @@ html.lock{overflow:hidden}
         <div class="pz-b"><span class="pz-pill on">Пришли заявки</span><span class="pz-pill">Главное условие</span></div>
         <div class="pz-p">10&nbsp;000&nbsp;₽</div><div class="pz-t">один раз, через месяц</div>
         <p class="pz-d">Платите, только когда видите заявки с сайта. Нет заявок — 0&nbsp;₽, сайт остаётся вам.</p>
-        <ul><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M5.3 8.2l1.8 1.8 3.6-3.7"/></svg>Перенос на домен на ваше имя</li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M5.3 8.2l1.8 1.8 3.6-3.7"/></svg>Ссылка на сайт в карточке Яндекс Карт</li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M5.3 8.2l1.8 1.8 3.6-3.7"/></svg>Настройка, чтобы сайт находили в поиске Яндекса</li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M5.3 8.2l1.8 1.8 3.6-3.7"/></svg>Сайт и доступы ваши</li></ul>
+        <ul><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M5.3 8.2l1.8 1.8 3.6-3.7"/></svg>Перенос на домен на ваше имя</li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M5.3 8.2l1.8 1.8 3.6-3.7"/></svg>Ссылка на сайт в карточке Яндекс Карт</li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M5.3 8.2l1.8 1.8 3.6-3.7"/></svg>Базовая настройка сайта для поиска Яндекса</li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M5.3 8.2l1.8 1.8 3.6-3.7"/></svg>Сайт и доступы ваши</li></ul>
         <a class="pz-btn on" href="#write" data-book>Начать с черновика <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </article>
       <article class="pz-c">
@@ -1051,7 +1127,7 @@ html.lock{overflow:hidden}
       <div><h3>Официально</h3>
         <div class="ex"><span>Работаю как самозанятый, даю чек через «Мой налог»</span><b>✓</b></div>
         <div class="ex"><span>Цены и условия фиксируем в переписке до старта</span><b>✓</b></div>
-        <div class="ex"><span>Домен оплачивается отдельно и оформляется на вас</span><b>1,5–3 тыс/год</b></div>
+        <div class="ex"><span>Домен оплачивается отдельно и оформляется на вас</span><b>После теста</b></div>
       </div>
     </div></details>
   </div>
@@ -1075,7 +1151,7 @@ html.lock{overflow:hidden}
     <div class="mq-top"><span class="ff-badge">Частые вопросы</span><h3>Что обычно спрашивают</h3></div>
     <div class="mq-qa">
       <details name="faq" open><summary><i>01</i><span>А если заявок не будет?</span></summary><p>Тогда вы ничего не платите, а сайт остаётся у вас. Мне выгодно, чтобы он приводил клиентов, поэтому делаю его под вашу нишу, а не по шаблону.</p></details>
-      <details name="faq"><summary><i>02</i><span>Как понять, что клиент пришёл с сайта?</span></summary><p>Все кнопки сайта отправляют готовое сообщение «Здравствуйте! Я с сайта…». Плюс подключаю Яндекс Метрику: видно, сколько людей зашли и сколько нажали «Записаться».</p></details>
+      <details name="faq"><summary><i>02</i><span>Как понять, что клиент пришёл с сайта?</span></summary><p>В мессенджере можно передать текст «Здравствуйте! Я с сайта…». Метрика показывает переходы к связи, а заявки сверяем по сообщениям и звонкам.</p></details>
       <details name="faq"><summary><i>03</i><span>Зачем сайт, если есть Яндекс Карты?</span></summary><p>Карточка показывает рейтинг, а сайт продаёт: цена для конкретной машины, до/после, примерка тонировки, ответы на вопросы. Ссылку на сайт ставим в карточку, и клиент с Карт приходит уже готовым записаться.</p></details>
       <details name="faq"><summary><i>04</i><span>Что нужно от меня?</span></summary><p>Почти ничего. Фото работ и отзывы беру с ваших Яндекс Карт. От вас — проверить цены и написать, куда принимать заявки: WhatsApp, Telegram, VK, звонок — можно все сразу, клиент выберет сам.</p></details>
       <details name="faq"><summary><i>05</i><span>Сколько ждать?</span></summary><p>Черновик пришлю за день. После ваших правок запускаю сайт, обычно за 2–3 дня.</p></details>
@@ -1311,41 +1387,21 @@ document.addEventListener('click',function(e){var a=e.target.closest&&e.target.c
 
 
 <script>
-/* ===== Кейсы: папка при прокрутке.
-   вход: папка лежит наклонённой и выпрямляется; потом листы выглядывают, папка уходит вверх и гаснет;
-   карточки поднимаются снизу с лёгким 3D-наклоном и на месте становятся цветными ===== */
+/* Запускаем шторку один раз, когда работа появляется в окне. */
 (function(){
-var sec=document.getElementById('cases');if(!sec||!sec.querySelector('.folder'))return;
-var pin=sec.querySelector('.fc-pin'),fold=sec.querySelector('.folder'),sh=sec.querySelectorAll('.f-sheet'),hint=sec.querySelector('.fc-hint'),
-    list=sec.querySelector('.fc-list'),cards=[].slice.call(sec.querySelectorAll('.cs'));
-if(matchMedia('(prefers-reduced-motion:reduce)').matches){sec.classList.add('still');cards.forEach(function(c){c.classList.add('lit')});return}
-function cl(x){return x<0?0:x>1?1:x}
-function ease(x){return 1-Math.pow(1-x,3)}
-var on=true,tick=false,wide=innerWidth>860;
-function upd(){tick=false;var vh=innerHeight,r=pin.getBoundingClientRect();
-  var e=ease(cl(1-r.top/vh));                         // папка въезжает: 0 → 1
-  var p=cl(-r.top/(pin.offsetHeight-vh));             // прокрутка внутри закреплённого блока
-  var up=ease(cl((p-.25)/.75));                         // папка уходит вверх
-  var peek=ease(cl(p/.45));                           // листы выглядывают из папки
-  fold.style.transform='translate3d(0,'+((1-e)*140-up*vh*.6).toFixed(1)+'px,0) rotateX('+((1-e)*34).toFixed(2)+'deg) scale('+(.8+.2*e-up*.1).toFixed(3)+')';
-  fold.style.opacity=(cl(e*1.5)*(1-up)).toFixed(3);
-  sh[0].style.transform='translate3d(0,'+(-peek*16).toFixed(2)+'%,0) rotate('+(-2-peek*4).toFixed(2)+'deg)';
-  sh[1].style.transform='translate3d(0,'+(-peek*24).toFixed(2)+'%,0) rotate('+(3+peek*5).toFixed(2)+'deg)';
-  hint.style.opacity=(e*(1-cl(p*5))).toFixed(3);
-  var lt=list.getBoundingClientRect().top;
-  cards.forEach(function(c,i){
-    var top=lt+c.offsetTop;                           // место карточки без учёта её сдвига
-    var q=ease(cl((vh-top)/(vh*.7)-(wide?i*.14:0)));  // на ПК вторая чуть позже
-    c.style.transform='translate3d(0,'+((1-q)*160).toFixed(1)+'px,0) rotateX('+((1-q)*24).toFixed(2)+'deg) scale('+(.9+.1*q).toFixed(3)+')';
-    c.style.opacity=cl(q*1.5).toFixed(3);
-    if(q>.97)c.classList.add('lit')});
-}
-function req(){if(on&&!tick){tick=true;requestAnimationFrame(upd)}}
-/* считаем только пока блок рядом с экраном */
-new IntersectionObserver(function(es){on=es[0].isIntersecting;if(on)req()},{rootMargin:'300px 0px'}).observe(sec);
-addEventListener('scroll',req,{passive:true});
-addEventListener('resize',function(){wide=innerWidth>860;req()});
-upd();
+  const items = document.querySelectorAll('.fc-v2 .folder, .fc-v2 .cs');
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    items.forEach(item => item.classList.add('ready'));
+    return;
+  }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('ready');
+      observer.unobserve(entry.target);
+    });
+  }, {threshold:.27});
+  items.forEach(item => observer.observe(item));
 })();
 </script>
 
@@ -1500,5 +1556,6 @@ addEventListener('resize',function(){if(reduce)start()});
 start();
 })();
 </script>
+
 </body>
 </html>
