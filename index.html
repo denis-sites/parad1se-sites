@@ -977,7 +977,7 @@ html[data-display] .fc-intro h2{font-family:var(--headline),var(--display);font-
 <header class="hx" id="top">
   <nav class="hx-nav">
     <a class="hx-logo" href="#top" aria-label="zasornov studio">zasornov<span>studio</span></a>
-    <ul><li><a href="#cases">Работы</a></li><li><a href="#inside">Что внутри</a></li><li><a href="#price">Условия</a></li><li><a href="#faq">Вопросы</a></li></ul>
+    <ul><li><a href="#cases">Работы</a></li><li><a href="#calc">Расчёт</a></li><li><a href="#inside">Что внутри</a></li><li><a href="#price">Условия</a></li><li><a href="#faq">Вопросы</a></li></ul>
     <a class="hx-navbtn" href="#write" data-book>Написать</a>
   </nav>
   <div class="hx-c">
@@ -987,6 +987,20 @@ html[data-display] .fc-intro h2{font-family:var(--headline),var(--display);font-
     <p class="hx-sub">Запускаю сайт для вашей студии бесплатно. Пошли заявки за месяц — <b>10&nbsp;000&nbsp;₽ один раз</b>. Не пошли — 0&nbsp;₽, сайт остаётся вам.</p>
     <div class="hx-row">
       <a class="btn" href="#write" data-book>Забрать черновик <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
+    <!-- ДЕМО ЦЕННОСТИ: владелец выбирает за клиента услуги и машину, справа собирается сообщение, которое придёт ему в Telegram.
+         Цены — пример, на сайте студии будут её. Скрипт: блок «ДЕМО» в конце страницы -->
+    <div class="dm" id="dm" aria-label="Пример заявки с сайта">
+      <div class="dm-l">
+        <small class="dm-k">Что выберет ваш клиент</small>
+        <div class="dm-ch" id="dmCh" role="group" aria-label="Услуги"></div>
+        <div class="dm-car" id="dmCar" role="group" aria-label="Машина"></div>
+      </div>
+      <div class="dm-r">
+        <small class="dm-k">Так заявка придёт вам</small>
+        <div class="dm-chat"><div class="dm-who"><i>К</i><span><b>Клиент с сайта</b><small id="dmSt">в сети</small></span></div><div class="dm-msg" id="dmMsg" aria-live="polite"></div></div>
+        <p class="dm-note">Он уже выбрал услугу и знает цену. Цены тут для примера, на вашем сайте будут ваши.</p>
+      </div>
     </div>
     <ul class="hx-proof"><li>Черновик за день</li><li>Первый месяц на моём хостинге</li><li>Самозанятый, чек</li></ul>
   </div>
@@ -1003,13 +1017,56 @@ html[data-display] .fc-intro h2{font-family:var(--headline),var(--display);font-
     </div>
     <div class="folder" aria-hidden="true">
       <div class="f-back"></div>
-      <div class="f-sheet s1"><img src="img/portfolio/pro.jpg" alt="" width="1440" height="900" loading="lazy" decoding="async"></div>
-      <div class="f-sheet s2"><img src="img/portfolio/svet.jpg" alt="" width="1440" height="900" loading="lazy" decoding="async"></div>
-      <div class="f-sheet s3"><img src="img/portfolio/brutusi.jpg" alt="" width="1440" height="900" loading="lazy" decoding="async"></div>
+      <div class="f-sheet s1"><img src="img/portfolio/avtotoner.jpg" alt="" width="1440" height="900" loading="lazy" decoding="async"></div>
+      <div class="f-sheet s2"><img src="img/portfolio/truedetail.jpg" alt="" width="1440" height="900" loading="lazy" decoding="async"></div>
+      <div class="f-sheet s3"><img src="img/portfolio/blkv.jpg" alt="" width="1440" height="900" loading="lazy" decoding="async"></div>
       <div class="f-front"><b class="f-t">Кейсы</b></div>
     </div>
   </div>
+  <!-- цифры без прикрас: собранные сайты, студии на тесте, срок черновика. Обновлять тут -->
+  <ul class="pf" aria-label="Цифры">
+    <li><b>16</b><span>сайтов для автостудий<br>собрано и открыто по ссылке</span></li>
+    <li><b>4</b><span>студии запустили сайт<br>на тестовый месяц</span></li>
+    <li><b>1 день</b><span>от ссылки на Карты<br>до черновика</span></li>
+  </ul>
   <div class="fc-list">
+    <!-- свежие кейсы 23–24.11. Показ на портфолио согласовать со студиями -->
+    <article class="cs lit cs-blkv">
+      <a class="cs-shot" href="https://blkv-light.github.io/" target="_blank" rel="noopener" aria-label="Открыть сайт BLKV">
+        <img class="cs-d" src="img/portfolio/blkv.jpg" alt="Первый экран сайта BLKV" width="1440" height="900" loading="lazy" decoding="async">
+      </a>
+      <div class="cs-b">
+        <div class="cs-k">Автосвет · Звенигородское шоссе</div>
+        <h3>BLKV</h3>
+        <p>Фара на первом экране зажигается. Клиент выбирает, что не так с фарами, видит фото «сейчас и после», цену и пишет мастеру с готовым текстом.</p>
+        <ul class="cs-ch"><li>Подбор по проблеме</li></ul>
+        <div class="cs-row"><a class="btn ghost" href="https://blkv-light.github.io/" target="_blank" rel="noopener">Открыть сайт</a></div>
+      </div>
+    </article>
+    <article class="cs lit cs-avto">
+      <a class="cs-shot" href="https://denis-sites.github.io/avtotoner/" target="_blank" rel="noopener" aria-label="Открыть сайт АвтоТонер">
+        <img class="cs-d" src="img/portfolio/avtotoner.jpg" alt="Первый экран сайта АвтоТонер" width="1440" height="900" loading="lazy" decoding="async">
+      </a>
+      <div class="cs-b">
+        <div class="cs-k">Тонировка · Луцино</div>
+        <h3>АвтоТонер</h3>
+        <p>Примерка тонировки на настоящих машинах клиентов: тянете ползунок и видите стекло до и после. Цены и калькулятор рядом.</p>
+        <ul class="cs-ch"><li>Примерка тонировки</li></ul>
+        <div class="cs-row"><a class="btn ghost" href="https://denis-sites.github.io/avtotoner/" target="_blank" rel="noopener">Открыть сайт</a></div>
+      </div>
+    </article>
+    <article class="cs lit cs-td">
+      <a class="cs-shot" href="https://true-detail.github.io/" target="_blank" rel="noopener" aria-label="Открыть сайт True Detail">
+        <img class="cs-d" src="img/portfolio/truedetail.jpg" alt="Первый экран сайта True Detail" width="1440" height="900" loading="lazy" decoding="async">
+      </a>
+      <div class="cs-b">
+        <div class="cs-k">Детейлинг · Сергиев Посад</div>
+        <h3>True Detail</h3>
+        <p>До и после на трёх реальных работах: дверь, зеркало, фара. Клиент считает цену своей машины и отправляет фото на оценку.</p>
+        <ul class="cs-ch"><li>Оценка по фото</li></ul>
+        <div class="cs-row"><a class="btn ghost" href="https://true-detail.github.io/" target="_blank" rel="noopener">Открыть сайт</a></div>
+      </div>
+    </article>
     <article class="cs lit cs-pro">
       <a class="cs-shot" href="https://denis-sites.github.io/pro-detailing-vereya/" target="_blank" rel="noopener" aria-label="Открыть сайт Про Детейлинг">
         <img class="cs-d" src="img/portfolio/pro.jpg" alt="Первый экран сайта Про Детейлинг" width="1440" height="900" loading="lazy" decoding="async">
@@ -1049,6 +1106,30 @@ html[data-display] .fc-intro h2{font-family:var(--headline),var(--display);font-
   </div>
 </section>
 
+<!-- ===== КАЛЬКУЛЯТОР ЦЕННОСТИ: сколько принесёт сайт при честном допущении «1 из 100 напишет».
+     Это расчёт, а не обещание; настоящие цифры даёт Метрика. Скрипт: блок «КАЛЬКУЛЯТОР» в конце страницы ===== -->
+<section class="lc" id="calc"><div class="wrap">
+  <div class="ff-top">
+    <span class="ff-badge">Посчитайте</span>
+    <h2>Сколько вам принесёт сайт</h2>
+    <p>Подвиньте ползунки под вашу студию. Это расчёт, а не обещание: настоящие цифры покажет Метрика через месяц.</p>
+  </div>
+  <div class="lc-g">
+    <div class="lc-in">
+      <label class="lc-r"><span>Средний чек<output id="lcChO"></output></span><input type="range" id="lcCh" min="3000" max="80000" step="1000" value="15000"></label>
+      <label class="lc-r"><span>Сколько людей в месяц открывают вашу карточку на Картах<output id="lcVwO"></output></span><input type="range" id="lcVw" min="100" max="5000" step="100" value="800"></label>
+      <label class="lc-r"><span>Сколько из 100 напишут вам с сайта<output id="lcCvO"></output></span><input type="range" id="lcCv" min="1" max="5" step="1" value="1"></label>
+      <p class="lc-hint">Посмотреть просмотры карточки можно в Яндекс Бизнесе, раздел «Статистика».</p>
+    </div>
+    <div class="lc-out">
+      <div><small>Заявок в месяц</small><b id="lcLd">8</b></div>
+      <div><small>Выручка с них</small><b id="lcMn">120 000 ₽</b></div>
+      <div class="hot"><small>Сайт за 10 000 ₽ окупается</small><b id="lcPb">первым клиентом</b></div>
+      <a class="pz-btn on" id="lcBtn" href="#write" data-book data-k="Расчёт" data-sub="Пришлите ссылку на студию в Яндекс Картах, соберу черновик за день.">Хочу такой сайт <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
+  </div>
+</div></section>
+
 <!-- ===== Что получит студия: вкладки-категории и карточки (идея «Features 4» с 21st.dev).
      Карточка: data-g = вкладка (use — польза, look — визуал, trust — доверие) ===== -->
 <section class="ff" id="inside"><div class="wrap">
@@ -1056,6 +1137,24 @@ html[data-display] .fc-intro h2{font-family:var(--headline),var(--display);font-
     <span class="ff-badge">Что внутри</span>
     <h2>Что получит ваша студия</h2>
     <p>Не шаблон, а фишки под детейлинг на фото вашего бокса. Всё это уже работает на живых сайтах.</p>
+  </div>
+  <!-- ЖИВЫЕ ФИШКИ: три настоящих механики с сайтов клиентов, можно потрогать. Скрипт: блок «ФИШКИ» в конце -->
+  <div class="lv">
+    <article class="lv-c">
+      <div class="lv-m lv-fix" id="lvFix"><img src="img/live/fix-after.jpg" alt="Фара после ремонта" loading="lazy"><img class="lv-now" id="lvFixNow" src="img/live/fix-fog.jpg" alt="Фара с проблемой" loading="lazy"><span class="lv-tag" id="lvFixTag">Сейчас</span></div>
+      <div class="lv-b"><b>Подбор по проблеме</b><div class="lv-ch" id="lvFixCh"><button type="button" class="on" data-s="fog">Запотевают</button><button type="button" data-s="matte">Помутнели</button><button type="button" data-s="drl">Разный цвет</button></div>
+        <a class="ff-foot" href="https://blkv-light.github.io/#fix" target="_blank" rel="noopener">Как у BLKV <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a></div>
+    </article>
+    <article class="lv-c">
+      <div class="lv-m lv-tint"><img src="img/live/tint-before.jpg" alt="Машина без тонировки" loading="lazy"><img class="lv-dark" id="lvTintImg" src="img/live/tint-after.jpg" alt="Та же машина с тонировкой" loading="lazy"><span class="lv-tag" id="lvTintTag">Затемнение 50%</span></div>
+      <div class="lv-b"><b>Примерка тонировки</b><input class="lv-rg" type="range" id="lvTint" min="0" max="100" value="50" aria-label="Затемнение стёкол">
+        <a class="ff-foot" href="https://denis-sites.github.io/avtotoner/#diff" target="_blank" rel="noopener">Как у АвтоТонера <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a></div>
+    </article>
+    <article class="lv-c">
+      <div class="lv-m lv-pair" id="lvPair"><img src="img/live/kia-before.jpg" alt="Kia с галогеном" loading="lazy"><img class="lv-aft" src="img/live/kia-after.jpg" alt="Та же Kia с Bi-LED" loading="lazy"><span class="lv-tag" id="lvPairTag">Bi-LED</span></div>
+      <div class="lv-b"><b>Было и стало</b><div class="lv-ch" id="lvPairCh"><button type="button" data-v="0">Галоген</button><button type="button" class="on" data-v="1">Bi-LED</button></div>
+        <a class="ff-foot" href="https://blkv-light.github.io/" target="_blank" rel="noopener">Как у BLKV <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11 11 5M6 5h5v5"/></svg></a></div>
+    </article>
   </div>
   <div class="ff-tabs" role="tablist" aria-label="Что внутри">
     <span class="ff-pill" aria-hidden="true"></span>
@@ -1554,6 +1653,149 @@ function start(){if(!run){run=true;requestAnimationFrame(draw)}}
 document.addEventListener('visibilitychange',function(){vis=!document.hidden;if(vis)start()});
 addEventListener('resize',function(){if(reduce)start()});
 start();
+})();
+</script>
+
+<!-- ===== 24.11: демо заявки, калькулятор, цифры, живые фишки, новые кейсы. Стили и скрипты этих блоков ===== -->
+<style>
+/* ДЕМО на первом экране: слева выбор, справа сообщение как в мессенджере.
+   Заголовок чуть меньше и без стрелки «Смотреть работы», чтобы демо помещалось в первый экран ПК */
+.hx-c{gap:22px;padding-top:28px;padding-bottom:36px}
+@media(min-width:861px){html .hx h1.hx-title{font-size:clamp(56px,7.4vw,112px)!important}}
+.hx-down{display:none}
+.dm{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;width:min(760px,100%);text-align:left;padding:14px;border-radius:22px;border:1px solid rgba(255,255,255,.13);background:rgba(14,14,14,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 30px 80px -30px #000}
+.dm-k{display:block;font:500 10.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#8c8c89;margin:4px 4px 10px}
+.dm-ch,.dm-car{display:flex;flex-wrap:wrap;gap:6px}
+.dm-car{margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.08)}
+.dm button{font:600 13px/1.2 var(--body);color:#cfcfcc;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:9px 12px;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.dm button small{font-weight:500;color:#7e7e7b;margin-left:4px}
+.dm button.on{background:#f4f4f2;color:#0a0a0a;border-color:#f4f4f2}.dm button.on small{color:#555}
+.dm-r{display:flex;flex-direction:column}
+.dm-chat{flex:1;border-radius:16px;background:#0f1216;border:1px solid rgba(255,255,255,.08);padding:12px}
+.dm-who{display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.06)}
+.dm-who i{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font:700 13px var(--body);font-style:normal;background:#2a3340;color:#cfe0ff}
+.dm-who b{display:block;font:600 13.5px var(--body)}.dm-who small{display:block;font-size:12px;color:#7fa6d8}
+.dm-msg{margin-top:12px;max-width:94%;padding:10px 12px;border-radius:14px 14px 14px 4px;background:#1f2a36;color:#e9eef5;font-size:14px;line-height:1.45;min-height:64px;animation:dmin .45s var(--studio-ease) both}
+.dm-msg em{font-style:normal;color:#9fc3ff}
+@keyframes dmin{from{opacity:0;transform:translateY(8px)}}
+.dm-dots{display:inline-flex;gap:4px;padding:6px 0}.dm-dots i{width:6px;height:6px;border-radius:50%;background:#7f8a97;animation:dmd 1s infinite}.dm-dots i:nth-child(2){animation-delay:.15s}.dm-dots i:nth-child(3){animation-delay:.3s}
+@keyframes dmd{50%{opacity:.25}}
+.dm-note{margin:10px 4px 0;font-size:12.5px;line-height:1.45;color:#8c8c89}
+@media(max-width:700px){.dm{grid-template-columns:minmax(0,1fr);padding:12px}.dm button{padding:8px 10px;font-size:12.5px}}
+
+/* ЦИФРЫ под кейсами */
+.pf{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:1280px;margin:0 auto clamp(28px,4vw,48px);padding:0 24px;gap:12px}
+.pf li{display:flex;align-items:center;gap:16px;padding:18px 20px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(255,255,255,.03)}
+.pf b{font:900 clamp(30px,3.4vw,48px)/1 var(--display);letter-spacing:-.04em;white-space:nowrap}
+.pf span{font-size:13.5px;line-height:1.4;color:#a9a9a5}
+@media(max-width:860px){.pf{grid-template-columns:minmax(0,1fr);max-width:660px;padding-inline:16px}}
+.fc-v2 .cs-blkv{--project-light:#d9b071}.fc-v2 .cs-avto{--project-light:#f3a15a}.fc-v2 .cs-td{--project-light:#c8f26d}
+
+/* КАЛЬКУЛЯТОР */
+.lc{padding-block:clamp(70px,9vw,120px);border-top:1px solid var(--line)}
+.lc-g{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:16px;max-width:1080px;margin:0 auto}
+.lc-in,.lc-out{border-radius:22px;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(28,28,28,.9),rgba(14,14,14,.9));padding:clamp(20px,2.4vw,30px)}
+.lc-r{display:block;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.lc-r:first-child{padding-top:0}
+.lc-r span{display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-size:15px;color:#c9c9c5}
+.lc-r output{font:800 20px var(--display);color:#fff;white-space:nowrap;font-variant-numeric:tabular-nums}
+.lc input[type=range],.lv-rg{-webkit-appearance:none;appearance:none;width:100%;height:28px;margin-top:10px;background:none;cursor:pointer;--v:50%}
+.lc input[type=range]::-webkit-slider-runnable-track,.lv-rg::-webkit-slider-runnable-track{height:4px;border-radius:4px;background:linear-gradient(90deg,#f4f4f2 var(--v),rgba(255,255,255,.14) var(--v))}
+.lc input[type=range]::-moz-range-track,.lv-rg::-moz-range-track{height:4px;border-radius:4px;background:linear-gradient(90deg,#f4f4f2 var(--v),rgba(255,255,255,.14) var(--v))}
+.lc input[type=range]::-webkit-slider-thumb,.lv-rg::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-9px;border-radius:50%;background:#f4f4f2;box-shadow:0 0 0 6px rgba(255,255,255,.08)}
+.lc input[type=range]::-moz-range-thumb,.lv-rg::-moz-range-thumb{width:22px;height:22px;border:0;border-radius:50%;background:#f4f4f2}
+.lc-hint{margin:14px 0 0;font-size:13px;color:#8c8c89}
+.lc-out{display:flex;flex-direction:column;gap:12px}
+.lc-out>div{padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}
+.lc-out small{display:block;font:500 10.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#8c8c89}
+.lc-out b{display:block;margin-top:6px;font:900 clamp(28px,3vw,40px)/1.05 var(--display);letter-spacing:-.035em;font-variant-numeric:tabular-nums}
+.lc-out .hot{background:#f4f4f2;color:#0a0a0a;border-color:#f4f4f2}.lc-out .hot small{color:#555}
+.lc-out .hot b{font-size:clamp(22px,2.2vw,30px)}
+.lc-out .pz-btn{margin-top:auto}
+@media(max-width:860px){.lc-g{grid-template-columns:minmax(0,1fr)}}
+
+/* ЖИВЫЕ ФИШКИ */
+.lv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 0 34px}
+.lv-c{border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.11);background:linear-gradient(180deg,rgba(28,28,28,.92),rgba(14,14,14,.92))}
+.lv-m{position:relative;aspect-ratio:3/2;background:#000;overflow:hidden}
+.lv-m img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lv-now,.lv-aft{transition:opacity .7s ease}
+.lv-fix.after .lv-now{opacity:0}
+.lv-pair .lv-aft{opacity:0}.lv-pair.after .lv-aft{opacity:1}
+.lv-dark{opacity:.5}
+.lv-tag{position:absolute;left:10px;top:10px;font:600 10.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:7px 9px;border-radius:7px;background:rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.15);color:#fff}
+.lv-b{display:grid;gap:12px;padding:18px 18px 20px}
+.lv-b>b{font:700 18px var(--display);letter-spacing:-.02em}
+.lv-ch{display:flex;flex-wrap:wrap;gap:6px}
+.lv-ch button{font:600 13px var(--body);color:#cfcfcc;background:none;border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:8px 12px;cursor:pointer;transition:background .25s,color .25s}
+.lv-ch button.on{background:#f4f4f2;color:#0a0a0a;border-color:#f4f4f2}
+.lv-rg{margin-top:0}
+@media(max-width:900px){.lv{grid-template-columns:minmax(0,1fr);max-width:560px;margin-inline:auto}}
+@media (prefers-reduced-motion:reduce){.dm-msg,.dm-dots i{animation:none}.lv-now,.lv-aft{transition:none}}
+</style>
+<script>
+(function(){
+var fmt=function(n){return Math.round(n).toLocaleString('ru-RU').replace(/\s/g,' ')};
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ДЕМО: [услуга, цена «от» для примера]. Машина умножает цену как ориентир */
+var SV=[['Полировка',15000],['Керамика',20000],['Тонировка',7000],['Химчистка',10000],['Бронь фар',5000]];
+var CAR=[['Седан',1],['Кроссовер',1.2],['Внедорожник',1.4]];
+var ch=document.getElementById('dmCh'),car=document.getElementById('dmCar'),msg=document.getElementById('dmMsg'),st=document.getElementById('dmSt');
+if(ch){
+ ch.innerHTML=SV.map(function(s,i){return '<button type="button" aria-pressed="'+(i<2)+'"'+(i<2?' class="on"':'')+' data-i="'+i+'">'+s[0]+'<small>от '+fmt(s[1])+'</small></button>'}).join('');
+ car.innerHTML=CAR.map(function(c,i){return '<button type="button" aria-pressed="'+(i==1)+'"'+(i==1?' class="on"':'')+' data-i="'+i+'">'+c[0]+'</button>'}).join('');
+ var t;
+ function draw(anim){
+  var on=[].slice.call(ch.querySelectorAll('.on')).map(function(b){return SV[+b.dataset.i]});
+  var c=CAR[+car.querySelector('.on').dataset.i];
+  var sum=on.reduce(function(a,s){return a+s[1]},0)*c[1];sum=Math.round(sum/500)*500;
+  var text=on.length?'Здравствуйте! Я с сайта.<br>Хочу: <em>'+on.map(function(s){return s[0].toLowerCase()}).join(' + ')+'</em><br>Машина: <em>'+c[0].toLowerCase()+'</em><br>По прайсу от <em>'+fmt(sum)+' ₽</em>. Когда можно приехать?':'Здравствуйте! Я с сайта. Подскажите, что можно сделать с машиной?';
+  clearTimeout(t);
+  if(!anim||RM){msg.innerHTML=text;return}
+  st.textContent='печатает…';msg.innerHTML='<span class="dm-dots"><i></i><i></i><i></i></span>';msg.style.animation='none';void msg.offsetWidth;msg.style.animation='';
+  t=setTimeout(function(){st.textContent='в сети';msg.innerHTML=text;msg.style.animation='none';void msg.offsetWidth;msg.style.animation=''},700);
+ }
+ ch.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;b.classList.toggle('on');b.setAttribute('aria-pressed',b.classList.contains('on'));draw(true)});
+ car.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(car.children,function(x){x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});draw(true)});
+ draw(false);
+}
+
+/* КАЛЬКУЛЯТОР: заявки = просмотры × доля/100; выручка = заявки × чек; окупаемость = 10 000 / чек */
+var ich=document.getElementById('lcCh'),ivw=document.getElementById('lcVw'),icv=document.getElementById('lcCv');
+if(ich){
+ var word=function(n){var a=n%10,b=n%100;return (a==1&&b!=11)?'клиентом':'клиентами'};
+ var calc=function(){
+  [ich,ivw,icv].forEach(function(r){r.style.setProperty('--v',((r.value-r.min)/(r.max-r.min)*100)+'%')});
+  var chk=+ich.value,vw=+ivw.value,cv=+icv.value,ld=Math.max(1,Math.round(vw*cv/100)),mn=ld*chk,pb=Math.ceil(10000/chk);
+  document.getElementById('lcChO').textContent=fmt(chk)+' ₽';
+  document.getElementById('lcVwO').textContent=fmt(vw);
+  document.getElementById('lcCvO').textContent=cv;
+  document.getElementById('lcLd').textContent='≈ '+ld;
+  document.getElementById('lcMn').textContent='≈ '+fmt(mn)+' ₽';
+  document.getElementById('lcPb').textContent=pb<=1?'первым клиентом':pb+' '+word(pb);
+  document.getElementById('lcBtn').dataset.msg='Привет! Посчитал на сайте: средний чек '+fmt(chk)+' ₽, около '+ld+' заявок в месяц. Хочу черновик для студии: ';
+ };
+ [ich,ivw,icv].forEach(function(r){r.addEventListener('input',calc)});calc();
+}
+
+/* ФИШКИ: подбор по проблеме (сначала «сейчас», через 1,6 с «после»), примерка тонировки, галоген/Bi-LED */
+var fx=document.getElementById('lvFix');
+if(fx){
+ var now=document.getElementById('lvFixNow'),tag=document.getElementById('lvFixTag'),ft;
+ ['fog','matte','drl'].forEach(function(s){var i=new Image();i.src='img/live/fix-'+s+'.jpg'});
+ var showFix=function(s){clearTimeout(ft);fx.classList.remove('after');tag.textContent='Сейчас';now.src='img/live/fix-'+s+'.jpg';
+  if(!RM)ft=setTimeout(function(){fx.classList.add('after');tag.textContent='После'},1600)};
+ document.getElementById('lvFixCh').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(b.parentNode.children,function(x){x.classList.toggle('on',x===b)});showFix(b.dataset.s)});
+ new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){o.disconnect();showFix('fog')}})},{threshold:.5}).observe(fx);
+}
+var tr=document.getElementById('lvTint');
+if(tr){var ti=document.getElementById('lvTintImg'),tt=document.getElementById('lvTintTag');
+ var tint=function(){ti.style.opacity=tr.value/100;tt.textContent='Затемнение '+tr.value+'%';tr.style.setProperty('--v',tr.value+'%')};tr.addEventListener('input',tint);tint()}
+var pr=document.getElementById('lvPair');
+if(pr){var pt=document.getElementById('lvPairTag');
+ document.getElementById('lvPairCh').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(b.parentNode.children,function(x){x.classList.toggle('on',x===b)});var v=b.dataset.v==='1';pr.classList.toggle('after',v);pt.textContent=v?'Bi-LED':'Галоген'});
+ pr.classList.add('after')}
 })();
 </script>
 
