@@ -1106,6 +1106,19 @@ html[data-display] .fc-intro h2{font-family:var(--headline),var(--display);font-
   </div>
 </section>
 
+<!-- ===== ОТЗЫВ ВЛАДЕЛЬЦА: живой скрин переписки. Johnny сам разрешил показать (25.11). Новые отзывы добавлять сюда ===== -->
+<section class="tm" id="reviews"><div class="wrap">
+  <div class="tm-g">
+    <figure class="tm-shot"><img src="img/review-johnny.jpg" alt="Скрин сообщения владельца Johnny Studio о втором сайте" width="966" height="420" loading="lazy" decoding="async"></figure>
+    <div class="tm-t">
+      <span class="ff-badge">Что говорят владельцы</span>
+      <blockquote>«Как можно сделать так а*уенно… я прям листаю и сам к себе хочу записаться»</blockquote>
+      <p class="tm-by"><b>Johnny Studio</b><span>детейлинг Range Rover и Land Rover, про второй вариант сайта</span></p>
+      <a class="btn ghost" href="https://johnny-studio.github.io/" target="_blank" rel="noopener">Открыть его сайт</a>
+    </div>
+  </div>
+</div></section>
+
 <!-- ===== КАЛЬКУЛЯТОР ЦЕННОСТИ: сколько принесёт сайт при честном допущении «1 из 100 напишет».
      Это расчёт, а не обещание; настоящие цифры даёт Метрика. Скрипт: блок «КАЛЬКУЛЯТОР» в конце страницы ===== -->
 <section class="lc" id="calc"><div class="wrap">
@@ -1711,6 +1724,16 @@ start();
 @keyframes dmd{50%{opacity:.25}}
 .dm-note{margin:10px 4px 0;font-size:12.5px;line-height:1.45;color:#8c8c89}
 @media(max-width:700px){.dm{grid-template-columns:minmax(0,1fr);padding:12px}.dm button{padding:8px 10px;font-size:12.5px}}
+
+/* ОТЗЫВ ВЛАДЕЛЬЦА: скрин переписки + крупная цитата */
+.tm{padding-block:clamp(40px,6vw,80px)}
+.tm-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;max-width:1080px;margin:0 auto}
+.tm-shot{margin:0;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.14);box-shadow:0 40px 90px -30px #000;transform:rotate(-1.5deg)}
+.tm-shot img{display:block;width:100%;height:auto}
+.tm-t{display:grid;gap:18px;justify-items:start}
+.tm-t blockquote{margin:0;font:800 clamp(24px,2.8vw,38px)/1.15 var(--display);letter-spacing:-.03em;text-wrap:balance}
+.tm-by{margin:0;display:grid;gap:4px}.tm-by b{font:700 16px var(--body)}.tm-by span{color:#9a9a97;font-size:14.5px}
+@media(max-width:860px){.tm-g{grid-template-columns:minmax(0,1fr);max-width:560px}.tm-shot{transform:none}}
 
 /* ЦИФРЫ под кейсами */
 .pf{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:1280px;margin:0 auto clamp(28px,4vw,48px);padding:0 24px;gap:12px}
